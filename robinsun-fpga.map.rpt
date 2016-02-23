@@ -1,0 +1,610 @@
+Analysis & Synthesis report for robinsun-fpga
+Wed Feb 24 00:29:00 2016
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |robinsun_fpga|MySPI:MySPI_instance|SPI_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: MySPI:MySPI_instance
+ 14. Port Connectivity Checks: "MySPI:MySPI_instance"
+ 15. Port Connectivity Checks: "encoder:MotFV"
+ 16. Port Connectivity Checks: "encoder:MotFH"
+ 17. Port Connectivity Checks: "encoder:MotB"
+ 18. Port Connectivity Checks: "encoder:OdoL"
+ 19. Port Connectivity Checks: "encoder:OdoR"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Feb 24 00:29:00 2016      ;
+; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name                      ; robinsun-fpga                              ;
+; Top-level Entity Name              ; robinsun_fpga                              ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 348                                        ;
+;     Total combinational functions  ; 334                                        ;
+;     Dedicated logic registers      ; 220                                        ;
+; Total registers                    ; 220                                        ;
+; Total pins                         ; 103                                        ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                                      ; robinsun_fpga      ; robinsun-fpga      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                       ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; robinsun_fpga.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/Documents/Github/robinsun-fpga/robinsun_fpga.sv ;         ;
+; MySPI.sv                         ; yes             ; User SystemVerilog HDL File  ; D:/Documents/Github/robinsun-fpga/MySPI.sv         ;         ;
+; encoder.sv                       ; yes             ; User SystemVerilog HDL File  ; D:/Documents/Github/robinsun-fpga/encoder.sv       ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                              ;
++---------------------------------------------+----------------------------+
+; Resource                                    ; Usage                      ;
++---------------------------------------------+----------------------------+
+; Estimated Total logic elements              ; 348                        ;
+;                                             ;                            ;
+; Total combinational functions               ; 334                        ;
+; Logic element usage by number of LUT inputs ;                            ;
+;     -- 4 input functions                    ; 54                         ;
+;     -- 3 input functions                    ; 119                        ;
+;     -- <=2 input functions                  ; 161                        ;
+;                                             ;                            ;
+; Logic elements by mode                      ;                            ;
+;     -- normal mode                          ; 117                        ;
+;     -- arithmetic mode                      ; 217                        ;
+;                                             ;                            ;
+; Total registers                             ; 220                        ;
+;     -- Dedicated logic registers            ; 220                        ;
+;     -- I/O registers                        ; 0                          ;
+;                                             ;                            ;
+; I/O pins                                    ; 103                        ;
+;                                             ;                            ;
+; Embedded Multiplier 9-bit elements          ; 0                          ;
+;                                             ;                            ;
+; Maximum fan-out node                        ; encoder:MotL|resetCounters ;
+; Maximum fan-out                             ; 130                        ;
+; Total fan-out                               ; 1680                       ;
+; Average fan-out                             ; 2.08                       ;
++---------------------------------------------+----------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
+; |robinsun_fpga             ; 334 (0)           ; 220 (0)      ; 0           ; 0            ; 0       ; 0         ; 103  ; 0            ; |robinsun_fpga                      ; work         ;
+;    |MySPI:MySPI_instance|  ; 80 (80)           ; 41 (41)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|MySPI:MySPI_instance ; work         ;
+;    |encoder:MotL|          ; 135 (135)         ; 98 (98)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotL         ; work         ;
+;    |encoder:MotR|          ; 119 (119)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotR         ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |robinsun_fpga|MySPI:MySPI_instance|SPI_state                                                                                                                                                                      ;
++---------------------+-----------------+---------------------+---------------------+---------------------+------------------+---------------------+---------------------+---------------------+------------------+------------------+
+; Name                ; SPI_state.S_End ; SPI_state.S_Data_11 ; SPI_state.S_Data_01 ; SPI_state.S_Data_00 ; SPI_state.S_Data ; SPI_state.S_Addr_11 ; SPI_state.S_Addr_01 ; SPI_state.S_Addr_00 ; SPI_state.S_Addr ; SPI_state.S_Wait ;
++---------------------+-----------------+---------------------+---------------------+---------------------+------------------+---------------------+---------------------+---------------------+------------------+------------------+
+; SPI_state.S_Wait    ; 0               ; 0                   ; 0                   ; 0                   ; 0                ; 0                   ; 0                   ; 0                   ; 0                ; 0                ;
+; SPI_state.S_Addr    ; 0               ; 0                   ; 0                   ; 0                   ; 0                ; 0                   ; 0                   ; 0                   ; 1                ; 1                ;
+; SPI_state.S_Addr_00 ; 0               ; 0                   ; 0                   ; 0                   ; 0                ; 0                   ; 0                   ; 1                   ; 0                ; 1                ;
+; SPI_state.S_Addr_01 ; 0               ; 0                   ; 0                   ; 0                   ; 0                ; 0                   ; 1                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_Addr_11 ; 0               ; 0                   ; 0                   ; 0                   ; 0                ; 1                   ; 0                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_Data    ; 0               ; 0                   ; 0                   ; 0                   ; 1                ; 0                   ; 0                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_Data_00 ; 0               ; 0                   ; 0                   ; 1                   ; 0                ; 0                   ; 0                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_Data_01 ; 0               ; 0                   ; 1                   ; 0                   ; 0                ; 0                   ; 0                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_Data_11 ; 0               ; 1                   ; 0                   ; 0                   ; 0                ; 0                   ; 0                   ; 0                   ; 0                ; 1                ;
+; SPI_state.S_End     ; 1               ; 0                   ; 0                   ; 0                   ; 0                ; 0                   ; 0                   ; 0                   ; 0                ; 1                ;
++---------------------+-----------------+---------------------+---------------------+---------------------+------------------+---------------------+---------------------+---------------------+------------------+------------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; encoder:MotR|clkcount[15]              ; Merged with encoder:MotL|clkcount[15]  ;
+; encoder:MotR|clkcount[14]              ; Merged with encoder:MotL|clkcount[14]  ;
+; encoder:MotR|clkcount[9]               ; Merged with encoder:MotL|clkcount[9]   ;
+; encoder:MotR|clkcount[8]               ; Merged with encoder:MotL|clkcount[8]   ;
+; encoder:MotR|clkcount[6]               ; Merged with encoder:MotL|clkcount[6]   ;
+; encoder:MotR|clkcount[4]               ; Merged with encoder:MotL|clkcount[4]   ;
+; encoder:MotR|clkcount[13]              ; Merged with encoder:MotL|clkcount[13]  ;
+; encoder:MotR|clkcount[12]              ; Merged with encoder:MotL|clkcount[12]  ;
+; encoder:MotR|clkcount[11]              ; Merged with encoder:MotL|clkcount[11]  ;
+; encoder:MotR|clkcount[10]              ; Merged with encoder:MotL|clkcount[10]  ;
+; encoder:MotR|clkcount[7]               ; Merged with encoder:MotL|clkcount[7]   ;
+; encoder:MotR|clkcount[5]               ; Merged with encoder:MotL|clkcount[5]   ;
+; encoder:MotR|clkcount[3]               ; Merged with encoder:MotL|clkcount[3]   ;
+; encoder:MotR|clkcount[2]               ; Merged with encoder:MotL|clkcount[2]   ;
+; encoder:MotR|clkcount[1]               ; Merged with encoder:MotL|clkcount[1]   ;
+; encoder:MotR|clkcount[0]               ; Merged with encoder:MotL|clkcount[0]   ;
+; encoder:MotR|resetCounters             ; Merged with encoder:MotL|resetCounters ;
+; MySPI:MySPI_instance|SPI_state~2       ; Lost fanout                            ;
+; MySPI:MySPI_instance|SPI_state~3       ; Lost fanout                            ;
+; MySPI:MySPI_instance|SPI_state~4       ; Lost fanout                            ;
+; MySPI:MySPI_instance|SPI_state~5       ; Lost fanout                            ;
+; Total Number of Removed Registers = 21 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 220   ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 147   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 56    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; encoder:MotL|resetCounters             ; 130     ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_counter[0] ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|Config[7]      ;
+; 130:1              ; 6 bits    ; 516 LEs       ; 24 LEs               ; 492 LEs                ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[5]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MySPI:MySPI_instance ;
++----------------+---------+----------------------------------------+
+; Parameter Name ; Value   ; Type                                   ;
++----------------+---------+----------------------------------------+
+; A_Config       ; 0000000 ; Unsigned Binary                        ;
+; A_Status       ; 0000001 ; Unsigned Binary                        ;
+; A_dirR         ; 0010000 ; Unsigned Binary                        ;
+; A_speedR1      ; 0010001 ; Unsigned Binary                        ;
+; A_speedR2      ; 0010010 ; Unsigned Binary                        ;
+; A_dirL         ; 0100000 ; Unsigned Binary                        ;
+; A_speedL1      ; 0100001 ; Unsigned Binary                        ;
+; A_speedL2      ; 0100010 ; Unsigned Binary                        ;
++----------------+---------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MySPI:MySPI_instance"                                                                                                                                  ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                        ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+; Config       ; Output ; Warning  ; Output or bidir port (9 bits) is wider than the port expression (8 bits) it drives; bit(s) "Config[8..8]" have no fanouts                      ;
+; Config[5..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                            ;
+; Config[8]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                            ;
+; Status       ; Input  ; Warning  ; Input port expression (8 bits) is smaller than the input port (9 bits) it drives.  Extra input bit(s) "Status[8..8]" will be connected to GND. ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "encoder:MotFV"                                                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; speed     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "encoder:MotFH"                                                                           ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; speed     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "encoder:MotB"                                                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; speed     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "encoder:OdoL"                                                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; speed     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "encoder:OdoR"                                                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; direction ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; speed     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 103                         ;
+; cycloneiii_ff         ; 220                         ;
+;     CLR               ; 147                         ;
+;     ENA               ; 56                          ;
+;     SCLR              ; 1                           ;
+;     plain             ; 16                          ;
+; cycloneiii_io_obuf    ; 48                          ;
+; cycloneiii_lcell_comb ; 335                         ;
+;     arith             ; 217                         ;
+;         2 data inputs ; 119                         ;
+;         3 data inputs ; 98                          ;
+;     normal            ; 118                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 54                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.61                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Wed Feb 24 00:28:49 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robinsun-fpga -c robinsun-fpga
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file robinsun_fpga.sv
+    Info (12023): Found entity 1: robinsun_fpga
+Info (12021): Found 1 design units, including 1 entities, in source file myspi.sv
+    Info (12023): Found entity 1: MySPI
+Info (12021): Found 1 design units, including 1 entities, in source file encoder.sv
+    Info (12023): Found entity 1: encoder
+Info (12127): Elaborating entity "robinsun_fpga" for the top level hierarchy
+Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT1 used but never assigned
+Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT2 used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S1T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S1S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S2T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S2S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S3T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S3S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S4T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S4S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S5T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S5S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S6T" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(121): object "S6S" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(122): object "START" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(122): object "PARASOL" assigned a value but never read
+Warning (10030): Net "PIC32_INT1" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "PIC32_INT2" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
+Warning (10034): Output port "LED" at robinsun_fpga.sv(49) has no driver
+Warning (10034): Output port "LCDLTM_B" at robinsun_fpga.sv(67) has no driver
+Warning (10034): Output port "LCDLTM_G" at robinsun_fpga.sv(69) has no driver
+Warning (10034): Output port "LCDLTM_R" at robinsun_fpga.sv(73) has no driver
+Warning (10034): Output port "LCDLTM_ADC_DCLK" at robinsun_fpga.sv(63) has no driver
+Warning (10034): Output port "LCDLTM_ADC_DIN" at robinsun_fpga.sv(64) has no driver
+Warning (10034): Output port "LCDLTM_DEN" at robinsun_fpga.sv(68) has no driver
+Warning (10034): Output port "LCDLTM_GREST" at robinsun_fpga.sv(70) has no driver
+Warning (10034): Output port "LCDLTM_HD" at robinsun_fpga.sv(71) has no driver
+Warning (10034): Output port "LCDLTM_NCLK" at robinsun_fpga.sv(72) has no driver
+Warning (10034): Output port "LCDLTM_SCEN" at robinsun_fpga.sv(74) has no driver
+Warning (10034): Output port "LCDLTM_VD" at robinsun_fpga.sv(76) has no driver
+Warning (10665): Bidirectional port "GPIO_2[9]" at robinsun_fpga.sv(58) has a one-way connection to bidirectional port "GPIO1[32]"
+Warning (10665): Bidirectional port "GPIO_2[8]" at robinsun_fpga.sv(58) has a one-way connection to bidirectional port "GPIO1[31]"
+Warning (10665): Bidirectional port "GPIO_2[6]" at robinsun_fpga.sv(58) has a one-way connection to bidirectional port "GPIO1[30]"
+Info (12128): Elaborating entity "encoder" for hierarchy "encoder:MotR"
+Info (12128): Elaborating entity "MySPI" for hierarchy "MySPI:MySPI_instance"
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(105): truncated value with size 32 to match size of target (3)
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(112): truncated value with size 9 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(113): truncated value with size 9 to match size of target (8)
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "GPIO_2[0]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[2]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[3]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[6]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[8]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[9]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[10]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[0]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[1]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[2]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[3]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[4]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[5]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[6]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[7]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[8]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[9]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[10]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[11]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[29]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[11]" has no driver
+    Warning (13040): bidirectional pin "GPIO_2[12]" has no driver
+    Warning (13040): bidirectional pin "LCDLTM_SDA" has no driver
+    Warning (13040): bidirectional pin "GPIO1[12]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[13]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[14]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[15]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[16]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[17]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[18]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[19]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[20]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[21]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[22]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[23]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[24]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[25]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[26]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[27]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[28]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[33]" has no driver
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "GPIO_2[4]" is fed by GND
+    Warning (13033): The pin "GPIO_2[5]" is fed by GND
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "PIC32_C1TX~synth"
+    Warning (13010): Node "PIC32_SCL3A~synth"
+    Warning (13010): Node "PIC32_SDA3A~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED[0]" is stuck at GND
+    Warning (13410): Pin "LED[1]" is stuck at GND
+    Warning (13410): Pin "LED[2]" is stuck at GND
+    Warning (13410): Pin "LED[3]" is stuck at GND
+    Warning (13410): Pin "LED[4]" is stuck at GND
+    Warning (13410): Pin "LED[5]" is stuck at GND
+    Warning (13410): Pin "LED[6]" is stuck at GND
+    Warning (13410): Pin "LED[7]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_ADC_DCLK" is stuck at GND
+    Warning (13410): Pin "LCDLTM_ADC_DIN" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[0]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[1]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[2]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[3]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[4]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[5]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[6]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_B[7]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_DEN" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[0]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[1]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[2]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[3]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[4]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[5]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[6]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_G[7]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_GREST" is stuck at GND
+    Warning (13410): Pin "LCDLTM_HD" is stuck at GND
+    Warning (13410): Pin "LCDLTM_NCLK" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[0]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[1]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[2]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[3]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[4]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[5]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[6]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_R[7]" is stuck at GND
+    Warning (13410): Pin "LCDLTM_SCEN" is stuck at GND
+    Warning (13410): Pin "LCDLTM_VD" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "GPIO_2_IN[0]"
+    Warning (15610): No output dependent on input pin "GPIO_2_IN[1]"
+    Warning (15610): No output dependent on input pin "GPIO_2_IN[2]"
+    Warning (15610): No output dependent on input pin "LCDLTM_ADC_BUSY"
+    Warning (15610): No output dependent on input pin "LCDLTM_ADC_DOUT"
+    Warning (15610): No output dependent on input pin "LCDLTM_ADC_PENIRQ_n"
+Info (21057): Implemented 452 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21060): Implemented 48 bidirectional pins
+    Info (21061): Implemented 349 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 140 warnings
+    Info: Peak virtual memory: 725 megabytes
+    Info: Processing ended: Wed Feb 24 00:29:00 2016
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:24
+
+

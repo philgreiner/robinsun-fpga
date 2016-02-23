@@ -1,4 +1,4 @@
-module robinsun-fpga(
+module robinsun_fpga(
 
 	//////////// CLOCK //////////
 	CLOCK_50,
