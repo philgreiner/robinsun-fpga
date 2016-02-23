@@ -259,6 +259,7 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1[30]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1[31]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1[32]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO1[33]
+set_global_assignment -name SDC_FILE robinsun_fpga.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE robinsun_fpga.sv
 set_global_assignment -name SYSTEMVERILOG_FILE MySPI.sv
 set_global_assignment -name SYSTEMVERILOG_FILE encoder.sv
