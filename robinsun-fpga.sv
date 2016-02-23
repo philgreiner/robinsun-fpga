@@ -163,16 +163,28 @@ assign GPIO1[32]    = PIC32_SDA3A;
 
 
 //=======================================================
-//  REG/WIRE declarations
+//  Instantiate encoder modules
+//=======================================================
+logic dirR, dirL, dirOdoR, dirOdoL, dirB, dirFH, dirFV;
+logic [15:0] speedR, speedL, speedOdoR, speedOdoL, speedB, speedFH, speedFV;
+
+encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB),  .direction(dirR), 	 .speed(speedR));
+encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB),  .direction(dirL), 	 .speed(speedL));
+encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
+encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
+encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
+encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
+encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
+
+//=======================================================
+//  Instantiate SPI Interface
 //=======================================================
 
-
-
-
-//=======================================================
-//  Structural coding
-//=======================================================
-
-
+MySPI MySPI_instance(
+	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
+	.MySPI_clk(PIC32_SCK1A),  .MySPI_cs(PIC32_CS_FPGA), .MySPI_sdi(PIC32_SDO1A), .MySPI_sdo(PIC32_SDI1A),
+	.Config(Config),			  .Status(Status),
+	.speedR(speedR), 			  .speedL(speedL),
+	.dirR(dirR), 				  .dirL(dirL));
 
 endmodule
