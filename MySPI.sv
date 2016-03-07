@@ -7,7 +7,7 @@ module MySPI (
 	output logic [8:0]  Config,
 	input  logic [8:0]  Status,
 	input  logic [15:0] speedR, speedL,
-	input  logic 		  dirR, dirL);
+	input  logic [7:0]  dirR, dirL);
 
 //--- Registers Address ---------------------------------
 parameter A_Config     			= 7'h00;
@@ -100,7 +100,6 @@ assign SPI_data_update   = ((SPI_state == S_End) & SPI_address[7]);
 
 always_ff @ (posedge theClock)
 begin
-	
 	if (SPI_counter_reset) SPI_counter <= 3'b000;
 		else if (SPI_counter_inc) SPI_counter <= SPI_counter + 1;
 		
@@ -111,10 +110,10 @@ begin
 			case (SPI_address[6:0])
 				A_Config    		: SPI_data <= Config;
 				A_Status    		: SPI_data <= Status;
-				A_dirR				: SPI_data <= {7'b0, dirR};
+				A_dirR				: SPI_data <= dirR;
 				A_speedR1			: SPI_data <= speedR1;
 				A_speedR2			: SPI_data <= speedR2;
-				A_dirL				: SPI_data <= {7'b0, dirL};
+				A_dirL				: SPI_data <= dirL;
 				A_speedL1			: SPI_data <= speedL1;
 				A_speedL2			: SPI_data <= speedL2;
 			endcase

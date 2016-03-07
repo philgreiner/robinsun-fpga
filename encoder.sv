@@ -1,14 +1,15 @@
 /* 
 * Uses the entries (A and B) from a motor encoder compute:
 *		speed [15:0] --> Rotation speed (ticks per 1 ms)
-*		direction    --> Direction of rotation (1 = forward; 0 = reverse)
+*		direction [7:0]   --> Direction of rotation (1 = forward; 0 = reverse)
 */
 module encoder(
 input  logic clk, reset, inA, inB,
-output logic direction,
+output logic [7:0] direction,
 output logic [15:0] speed);
 
-logic [15:0] tickcount1, tickcount2, tickcount3, tickcount4, clkcount;
+logic [15:0] tickcount1, tickcount2, tickcount3, tickcount4;
+logic [31:0] clkcount;
 logic resetCounters;
 
 // Count all ticks (4 ticks per turn). 
@@ -43,27 +44,28 @@ end
 *
 */
 always_ff @(posedge inA, posedge resetCounters)
-	if(resetCounters) direction <= 1'b0;
-	else	if(inB)  direction <= 1'b1;
-			else 		direction <= 1'b0;
+	if(resetCounters) direction <= 8'd127;
+	else	if(inB)  direction <= {7'b0, 1'b1};
+			else 		direction <= 8'b0;
 
 // Reset, count clock cycles and transmit tickcount every 50 000 cycles (= 1 ms)
 always_ff @(posedge clk, posedge reset)
 	if(reset)
 	begin
-		clkcount <= 16'b0;
+		clkcount <= 32'b0;
 		resetCounters <= 1;
+		speed <= 16'b0;
 	end
 	else 
-		if(clkcount == 16'd50000)
+		if(clkcount == 32'd500000)
 		begin
 			speed 	<= tickcount1 + tickcount2 + tickcount3 + tickcount4;
 			resetCounters <= 1;
-			clkcount <= 16'b0;
+			clkcount <= 32'b0;
 		end
 		else
 		begin
-			clkcount <= clkcount + 16'b1;
+			clkcount <= clkcount + 32'b1;
 			resetCounters <= 0;
 		end
 

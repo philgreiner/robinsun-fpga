@@ -113,6 +113,9 @@ assign PIC32_SDA3A	= GPIO_2[9];
 
 assign PIC32_RESET	= GPIO_2[10];
 
+always @ (posedge CLOCK_50)
+	Status = {SW, 2'b00, KEY};
+
 //=======================================================
 //   GPIO1 Interface
 //=======================================================
@@ -165,16 +168,16 @@ assign GPIO1[32]    = PIC32_SDA3A;
 //=======================================================
 //  Instantiate encoder modules
 //=======================================================
-logic dirR, dirL, dirOdoR, dirOdoL, dirB, dirFH, dirFV;
+logic [7:0] dirR, dirL, dirOdoR, dirOdoL, dirB, dirFH, dirFV;
 logic [15:0] speedR, speedL, speedOdoR, speedOdoL, speedB, speedFH, speedFV;
 
-encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB),  .direction(dirR), 	 .speed(speedR));
-encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB),  .direction(dirL), 	 .speed(speedL));
-encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
-encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
-encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
-encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
-encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
+encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB), .direction(dirR),  .speed(speedR));
+encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB), .direction(dirL),  .speed(speedL));
+//encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
+//encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
+//encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
+//encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
+//encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
 
 //=======================================================
 //  Instantiate SPI Interface
