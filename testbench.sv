@@ -24,9 +24,31 @@ module testbench();
 		reset	= 1'b0;
 	end
 
-	always begin
+	always
+	begin
 		clk = ~clk;
 		#5;
+	end
+	
+	always @(posedge S1T)
+	begin
+		S1S		= 1'b1; 
+		#2500000;
+		S1S		= 1'b0;
+	end
+	
+	always @(posedge S2T)
+	begin
+		S2S		= 1'b1; 
+		#4500000;
+		S2S		= 1'b0;
+	end
+	
+	always @(posedge S3T)
+	begin
+		S3S		= 1'b1; 
+		#6500000;
+		S3S		= 1'b0;
 	end
 	
 endmodule
