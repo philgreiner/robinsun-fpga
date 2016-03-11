@@ -1,0 +1,13 @@
+
+State Machine - |robinsun_fpga|MySPI:MySPI_instance|SPI_state
+Name SPI_state.S_End SPI_state.S_Data_11 SPI_state.S_Data_01 SPI_state.S_Data_00 SPI_state.S_Data SPI_state.S_Addr_11 SPI_state.S_Addr_01 SPI_state.S_Addr_00 SPI_state.S_Addr SPI_state.S_Wait 
+SPI_state.S_Wait 0 0 0 0 0 0 0 0 0 0 
+SPI_state.S_Addr 0 0 0 0 0 0 0 0 1 1 
+SPI_state.S_Addr_00 0 0 0 0 0 0 0 1 0 1 
+SPI_state.S_Addr_01 0 0 0 0 0 0 1 0 0 1 
+SPI_state.S_Addr_11 0 0 0 0 0 1 0 0 0 1 
+SPI_state.S_Data 0 0 0 0 1 0 0 0 0 1 
+SPI_state.S_Data_00 0 0 0 1 0 0 0 0 0 1 
+SPI_state.S_Data_01 0 0 1 0 0 0 0 0 0 1 
+SPI_state.S_Data_11 0 1 0 0 0 0 0 0 0 1 
+SPI_state.S_End 1 0 0 0 0 0 0 0 0 1 
