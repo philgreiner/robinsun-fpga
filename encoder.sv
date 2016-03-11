@@ -57,7 +57,7 @@ always_ff @(posedge clk, posedge reset)
 		speed <= 16'b0;
 	end
 	else 
-		if(clkcount == 32'd500000)
+		if(clkcount == 32'd750000)
 		begin
 			speed 	<= tickcount1 + tickcount2 + tickcount3 + tickcount4;
 			resetCounters <= 1;

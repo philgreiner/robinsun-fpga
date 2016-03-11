@@ -141,7 +141,7 @@ assign MotFVA	= GPIO1[10];
 assign MotFVB	= GPIO1[11];
 
 // Assign sonar signals
-assign S1T		= GPIO1[12];
+assign GPIO1[12]= S1T;
 assign S1S		= GPIO1[13];
 assign S2T		= GPIO1[14];
 assign S2S		= GPIO1[15];

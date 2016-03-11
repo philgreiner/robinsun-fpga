@@ -69,6 +69,7 @@ GPIO1[8] <> <UNC>
 GPIO1[9] <> <UNC>
 GPIO1[10] <> <UNC>
 GPIO1[11] <> <UNC>
+GPIO1[12] <> GPIO1[12]
 GPIO1[24] <> <UNC>
 GPIO1[25] <> <UNC>
 GPIO1[26] <> <UNC>
