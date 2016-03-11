@@ -11,3 +11,15 @@ SPI_state.S_Data_00 0 0 0 1 0 0 0 0 0 1
 SPI_state.S_Data_01 0 0 1 0 0 0 0 0 0 1 
 SPI_state.S_Data_11 0 1 0 0 0 0 0 0 0 1 
 SPI_state.S_End 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |robinsun_fpga|sonars:back|active
+Name active.00 active.10 active.01 
+active.00 0 0 0 
+active.01 1 0 1 
+active.10 1 1 0 
+
+State Machine - |robinsun_fpga|sonars:front|active
+Name active.00 active.10 active.01 
+active.00 0 0 0 
+active.01 1 0 1 
+active.10 1 1 0 

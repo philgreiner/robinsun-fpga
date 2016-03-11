@@ -179,6 +179,16 @@ encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB), .d
 //encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
 //encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
 
+
+//=======================================================
+//  Instantiate sonars modules
+//=======================================================
+logic [19:0] R1, R2, R3, R4, R5, R6;
+
+sonars front( .clk(CLOCK_50), .reset(PIC32_RESET), .S1(S1S), .S2(S2S), .S3(S3S), .T1(S1T), .T2(S2T), .T3(S3T), .R1(R1), .R2(R2), .R3(R3));
+sonars back ( .clk(CLOCK_50),	.reset(PIC32_RESET), .S1(S4S), .S2(S5S), .S3(S6S), .T1(S4T), .T2(S5T), .T3(S6T), .R1(R4), .R2(R5), .R3(R6));
+
+
 //=======================================================
 //  Instantiate SPI Interface
 //=======================================================

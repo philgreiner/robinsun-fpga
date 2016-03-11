@@ -3,24 +3,27 @@
 */
 module sonars(
 input  logic clk, reset, S1, S2, S3, // Three signals coming from sonars
-output logic T1, T2, T3,	
-output logic [19:0] R1, R2, R3);
+output logic T1, T2, T3,				 // Trigger signals
+output logic [19:0] R1, R2, R3); 	 // output signals (in number of clock ticks)
 
 logic [19:0] triggerDelay, count1, count2, count3;
-logic [4:0]  triggerCount;
+logic [8:0]  triggerCount;
 logic [2:0]  triggers;
 logic [1:0]  active;
 
-assign {T1, T2, T3} = triggers;
+assign {T3, T2, T1} = triggers;
 
 always_ff @(posedge clk, posedge reset)
 begin
 	if(reset)
 	begin
 		triggerDelay <= 20'b0;
-		triggerCount <= 5'b0;
+		triggerCount <= 9'b0;
 		triggers	    <= 3'b0;
 		active		 <= 2'b0;
+		R1				 <= 20'b0;
+		R2				 <= 20'b0;
+		R3				 <= 20'b0;
 	end
 	else
 	begin
@@ -44,13 +47,13 @@ begin
 						 end
 			endcase
 			triggerDelay <= 20'b0;
-			triggerCount <= 5'b0;
+			triggerCount <= 9'b0;
 		end
 		else
 		begin
-			triggerCount <= triggerCount + 5'b1;
+			triggerCount <= triggerCount + 9'b1;
 			triggerDelay <= triggerDelay + 20'b1;
-			if(triggerCount == 5'd25)
+			if(triggerCount == 9'd500)
 				triggers <= 3'b0;
 		end
 	end
@@ -68,11 +71,14 @@ begin
 	begin
 		case(active)
 			2'b00: if(T1) 		count1 <= 20'b0;
-						else count1 <= count1 + 20'b1;
+						else if(S1) count1 <= count1 + 20'b1;
+								else count1 <= count1;
 			2'b01: if(T2) 		count2 <= 20'b0;
-						else count2 <= count2 + 20'b1;
+						else if(S2) count2 <= count2 + 20'b1;
+								else count2 <= count2;
 			2'b10: if(T3) 		count3 <= 20'b0;
-						else count3 <= count3 + 20'b1;
+						else if(S3) count3 <= count3 + 20'b1;
+								else count3 <= count3; 
 		endcase
 	end
 end
