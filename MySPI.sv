@@ -6,28 +6,45 @@ module MySPI (
 	output logic  		  MySPI_sdo,
 	output logic [8:0]  Config,
 	input  logic [8:0]  Status,
-	input  logic [15:0] speedR, speedL,
-	input  logic [7:0]  dirR, dirL);
+	input  logic [15:0] speedR,
+	input  logic [7:0]  dirR,
+	input  logic [15:0] speedL, 
+	input  logic [7:0]  dirL,
+	input  logic [15:0] speedOdoR, 
+	input  logic [7:0]  dirOdoR,
+	input  logic [15:0] speedOdoL, 
+	input  logic [7:0]  dirOdoL,
+	input  logic [15:0] speedB,
+	input	 logic [7:0]  dirB,
+	input  logic [15:0] speedFH,
+	input  logic [7:0]  dirFH,
+	input  logic [15:0] speedFV,
+	input  logic [7:0]  dirFV,
+	input  logic [15:0] sonar12, sonar34, sonar56);
 
 //--- Registers Address ---------------------------------
-parameter A_Config     			= 7'h00;
-parameter A_Status     			= 7'h01;
+parameter A_Config     			= 15'h00;
+parameter A_Status     			= 15'h01;
 
-parameter A_dirR					= 7'h10;
-parameter A_speedR1				= 7'h11;
-parameter A_speedR2				= 7'h12;
-parameter A_dirL					= 7'h20;
-parameter A_speedL1				= 7'h21;
-parameter A_speedL2				= 7'h22;
+parameter A_dirR					= 15'h21;
+parameter A_speedR				= 15'h22;
+parameter A_dirL					= 15'h31;
+parameter A_speedL				= 15'h32;
+parameter A_dirOdoR				= 15'h25;
+parameter A_speedOdoR			= 15'h26;
+parameter A_dirOdoL				= 15'h35;
+parameter A_speedOdoL			= 15'h36;
 
-//--- Separation of too long inputs ---------------------
+parameter A_speedB				= 15'h50;
+parameter A_dirB					= 15'h51;
+parameter A_speedFH				= 15'h52;
+parameter A_dirFH					= 15'h53;
+parameter A_speedFV				= 15'h54;
+parameter A_dirFV					= 15'h55;
 
-logic [7:0] speedR1, speedR2, speedL1, speedL2;
-
-assign speedR1 	    = speedR[15:8];
-assign speedR2 		 = speedR[7:0];
-assign speedL1 		 = speedL[15:8];
-assign speedL2 		 = speedL[7:0];
+parameter A_sonar12				= 15'h41;
+parameter A_sonar34				= 15'h42;
+parameter A_sonar56				= 15'h43;
 
 //--- FSM States ----------------------------------------
 
@@ -42,15 +59,15 @@ typedef enum logic [3:0] {
 statetype	SPI_state, SPI_nextstate;
 logic			SPI_CLK0, SPI_CLK;
 logic			SPI_CS0, SPI_CS;
-logic [2:0] SPI_counter;
+logic [3:0] SPI_counter;
 logic			SPI_counter_reset, SPI_counter_inc;	 
-logic [7:0] SPI_address, SPI_data;
+logic [15:0] SPI_address, SPI_data;
 logic			SPI_address_shift;
 logic			SPI_data_shift, SPI_data_load, SPI_data_update;
 
 //--- SPI Output ----------------------------------------
 
-assign MySPI_sdo = SPI_data[7];
+assign MySPI_sdo = SPI_data[15];
 
 //--- SPI Double Synchronization ------------------------
 
@@ -76,13 +93,13 @@ begin
 		S_Addr_00 : if (SPI_CLK) SPI_nextstate = S_Addr_01;
 		S_Addr_01 : SPI_nextstate = S_Addr_11;
 		S_Addr_11 : if (SPI_CLK) SPI_nextstate = S_Addr_11;
-							else if (SPI_counter == 3'b000) SPI_nextstate = S_Data;
+							else if (SPI_counter == 4'b0000) SPI_nextstate = S_Data;
 								else SPI_nextstate = S_Addr_00;
 		S_Data	 : SPI_nextstate = S_Data_00;
 		S_Data_00 : if (SPI_CLK) SPI_nextstate = S_Data_01;
 		S_Data_01 : SPI_nextstate = S_Data_11;
 		S_Data_11 : if (SPI_CLK) SPI_nextstate = S_Data_11;
-							else if (SPI_counter == 3'b000) SPI_nextstate = S_End;
+							else if (SPI_counter == 4'b0000) SPI_nextstate = S_End;
 								else SPI_nextstate = S_Data_00;
 		S_End     : SPI_nextstate = S_Wait;
 	endcase
@@ -94,32 +111,43 @@ assign SPI_counter_inc   = ((SPI_state == S_Addr_01) | (SPI_state == S_Data_01))
 assign SPI_address_shift = (SPI_state == S_Addr_01);
 assign SPI_data_shift	 = (SPI_state == S_Data_01);
 assign SPI_data_load		 = (SPI_state == S_Data);
-assign SPI_data_update   = ((SPI_state == S_End) & SPI_address[7]);
+assign SPI_data_update   = ((SPI_state == S_End) & SPI_address[15]);
 
 //--- On the positive edge of the clock -----------------
 
 always_ff @ (posedge theClock)
 begin
-	if (SPI_counter_reset) SPI_counter <= 3'b000;
+	if (SPI_counter_reset) SPI_counter <= 4'b0000;
 		else if (SPI_counter_inc) SPI_counter <= SPI_counter + 1;
 		
-	if (SPI_address_shift) SPI_address <= { SPI_address[6:0], MySPI_sdi };
+	if (SPI_address_shift) SPI_address <= { SPI_address[14:0], MySPI_sdi };
 	
-	if (SPI_data_shift) SPI_data <= { SPI_data[6:0], MySPI_sdi };
+	if (SPI_data_shift) SPI_data <= { SPI_data[14:0], MySPI_sdi };
 		else if (SPI_data_load)
-			case (SPI_address[6:0])
-				A_Config    		: SPI_data <= Config;
-				A_Status    		: SPI_data <= Status;
-				A_dirR				: SPI_data <= dirR;
-				A_speedR1			: SPI_data <= speedR1;
-				A_speedR2			: SPI_data <= speedR2;
-				A_dirL				: SPI_data <= dirL;
-				A_speedL1			: SPI_data <= speedL1;
-				A_speedL2			: SPI_data <= speedL2;
+			case (SPI_address[14:0])
+				A_Config    		: SPI_data <= {8'b0, Config};
+				A_Status    		: SPI_data <= {8'b0, Status};
+				A_dirR				: SPI_data <= {8'b0, dirR};
+				A_speedR				: SPI_data <= speedR;
+				A_dirL				: SPI_data <= {8'b0, dirL};
+				A_speedL				: SPI_data <= speedL;
+				A_speedOdoR			: SPI_data <= speedOdoR;
+				A_dirOdoR			: SPI_data <= dirOdoR;
+				A_speedOdoL			: SPI_data <= speedOdoL;
+				A_dirOdoL			: SPI_data <= dirOdoL;
+				A_sonar12			: SPI_data <= sonar12;
+				A_sonar34			: SPI_data <= sonar34;
+				A_sonar56			: SPI_data <= sonar56;
+				A_speedB				: SPI_data <= speedB;
+				A_dirB				: SPI_data <= dirB;
+				A_speedFH			: SPI_data <= speedFH;
+				A_dirFH				: SPI_data <= dirFH;
+				A_speedFV			: SPI_data <= speedFV;
+				A_dirFV				: SPI_data <= dirFV;
 			endcase
 		
 	if (theReset) Config <= 8'h00;
-		else if ((SPI_data_update) & (SPI_address[6:0] == A_Config)) Config <= SPI_data;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_Config)) Config <= SPI_data[7:0];
 end
 
 endmodule

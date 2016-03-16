@@ -1,5 +1,5 @@
 Analysis & Synthesis report for robinsun-fpga
-Fri Mar 11 17:04:19 2016
+Wed Mar 16 01:34:05 2016
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -25,14 +25,20 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
  17. Source assignments for sld_signaltap:auto_signaltap_0
  18. Parameter Settings for User Entity Instance: MySPI:MySPI_instance
  19. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 20. Port Connectivity Checks: "MySPI:MySPI_instance"
- 21. Port Connectivity Checks: "sonars:back"
- 22. Port Connectivity Checks: "sonars:front"
- 23. SignalTap II Logic Analyzer Settings
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Connections to In-System Debugging Instance "auto_signaltap_0"
- 27. Analysis & Synthesis Messages
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Div4
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Div5
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 25. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 26. Port Connectivity Checks: "MySPI:MySPI_instance"
+ 27. Port Connectivity Checks: "sonars:back"
+ 28. Port Connectivity Checks: "sonars:front"
+ 29. SignalTap II Logic Analyzer Settings
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 33. Analysis & Synthesis Messages
 
 
 
@@ -59,15 +65,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Mar 11 17:04:19 2016      ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 16 01:34:05 2016      ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                      ; robinsun-fpga                              ;
 ; Top-level Entity Name              ; robinsun_fpga                              ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 1,515                                      ;
-;     Total combinational functions  ; 1,058                                      ;
-;     Dedicated logic registers      ; 1,071                                      ;
-; Total registers                    ; 1071                                       ;
+; Total logic elements               ; 4,316                                      ;
+;     Total combinational functions  ; 3,746                                      ;
+;     Dedicated logic registers      ; 1,700                                      ;
+; Total registers                    ; 1700                                       ;
 ; Total pins                         ; 103                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 344,064                                    ;
@@ -172,11 +178,12 @@ agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processors 2-4         ; < 0.1%      ;
+;     Processors 5-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -250,6 +257,14 @@ agreement for further details.
 ; db/ip/slde840da38/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; D:/Documents/Github/robinsun-fpga/db/ip/slde840da38/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
 ; db/ip/slde840da38/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; D:/Documents/Github/robinsun-fpga/db/ip/slde840da38/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
 ; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/altera/15.0/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                      ;             ;
+; lpm_divide.tdf                                                     ; yes             ; Megafunction                                 ; c:/altera/15.0/quartus/libraries/megafunctions/lpm_divide.tdf                                        ;             ;
+; abs_divider.inc                                                    ; yes             ; Megafunction                                 ; c:/altera/15.0/quartus/libraries/megafunctions/abs_divider.inc                                       ;             ;
+; sign_div_unsign.inc                                                ; yes             ; Megafunction                                 ; c:/altera/15.0/quartus/libraries/megafunctions/sign_div_unsign.inc                                   ;             ;
+; db/lpm_divide_ckm.tdf                                              ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/Github/robinsun-fpga/db/lpm_divide_ckm.tdf                                              ;             ;
+; db/sign_div_unsign_4nh.tdf                                         ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/Github/robinsun-fpga/db/sign_div_unsign_4nh.tdf                                         ;             ;
+; db/alt_u_div_s9f.tdf                                               ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/Github/robinsun-fpga/db/alt_u_div_s9f.tdf                                               ;             ;
+; db/add_sub_7pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/Github/robinsun-fpga/db/add_sub_7pc.tdf                                                 ;             ;
+; db/add_sub_8pc.tdf                                                 ; yes             ; Auto-Generated Megafunction                  ; D:/Documents/Github/robinsun-fpga/db/add_sub_8pc.tdf                                                 ;             ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------+-------------+
 
 
@@ -258,20 +273,20 @@ agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 1,515                    ;
+; Estimated Total logic elements              ; 4,316                    ;
 ;                                             ;                          ;
-; Total combinational functions               ; 1058                     ;
+; Total combinational functions               ; 3746                     ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 323                      ;
-;     -- 3 input functions                    ; 306                      ;
-;     -- <=2 input functions                  ; 429                      ;
+;     -- 4 input functions                    ; 878                      ;
+;     -- 3 input functions                    ; 1151                     ;
+;     -- <=2 input functions                  ; 1717                     ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 677                      ;
-;     -- arithmetic mode                      ; 381                      ;
+;     -- normal mode                          ; 2069                     ;
+;     -- arithmetic mode                      ; 1677                     ;
 ;                                             ;                          ;
-; Total registers                             ; 1071                     ;
-;     -- Dedicated logic registers            ; 1071                     ;
+; Total registers                             ; 1700                     ;
+;     -- Dedicated logic registers            ; 1700                     ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 103                      ;
@@ -281,8 +296,8 @@ agreement for further details.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 497                      ;
-; Total fan-out                               ; 7997                     ;
-; Average fan-out                             ; 3.29                     ;
+; Total fan-out                               ; 17454                    ;
+; Average fan-out                             ; 3.03                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -291,10 +306,39 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                                                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |robinsun_fpga                                                                                      ; 1058 (0)          ; 1071 (6)     ; 344064      ; 0            ; 0       ; 0         ; 103  ; 0            ; |robinsun_fpga                                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
-;    |MySPI:MySPI_instance|                                                                           ; 86 (86)           ; 41 (41)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|MySPI:MySPI_instance                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
-;    |encoder:MotL|                                                                                   ; 157 (157)         ; 115 (115)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotL                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+; |robinsun_fpga                                                                                      ; 3746 (0)          ; 1700 (6)     ; 344064      ; 0            ; 0       ; 0         ; 103  ; 0            ; |robinsun_fpga                                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;    |MySPI:MySPI_instance|                                                                           ; 201 (201)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|MySPI:MySPI_instance                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
+;    |encoder:MotB|                                                                                   ; 157 (157)         ; 115 (115)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotB                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |encoder:MotFH|                                                                                  ; 113 (113)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotFH                                                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;    |encoder:MotFV|                                                                                  ; 113 (113)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotFV                                                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;    |encoder:MotL|                                                                                   ; 113 (113)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotL                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 ;    |encoder:MotR|                                                                                   ; 124 (124)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotR                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |encoder:OdoL|                                                                                   ; 113 (113)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:OdoL                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |encoder:OdoR|                                                                                   ; 113 (113)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:OdoR                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |lpm_divide:Div0|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
+;    |lpm_divide:Div1|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div1                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div1|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div1|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div1|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
+;    |lpm_divide:Div2|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div2                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div2|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div2|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div2|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
+;    |lpm_divide:Div3|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div3                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div3|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div3|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div3|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
+;    |lpm_divide:Div4|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div4                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div4|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div4|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div4|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
+;    |lpm_divide:Div5|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div5                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div5|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
+;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div5|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
+;             |alt_u_div_s9f:divider|                                                                 ; 317 (317)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div5|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider|alt_u_div_s9f:divider                                                                                                                                                                                                                                                                                            ; work         ;
 ;    |sld_hub:auto_hub|                                                                               ; 121 (1)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                                                                           ; altera_sld   ;
 ;       |alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric| ; 120 (0)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric                                                                                                                                                                                                                                                                               ; alt_sld_fab  ;
 ;          |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                      ; 120 (1)           ; 90 (5)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                                                                                                                                           ; alt_sld_fab  ;
@@ -425,8 +469,8 @@ agreement for further details.
 ;                |lpm_shiftreg:ram_data_shift_out|                                                    ; 21 (21)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                                                                               ; work         ;
 ;                |lpm_shiftreg:status_data_shift_out|                                                 ; 29 (29)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                                                                            ; work         ;
 ;             |sld_rom_sr:crc_rom_sr|                                                                 ; 30 (30)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                                                                          ; work         ;
-;    |sonars:back|                                                                                    ; 39 (39)           ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sonars:back                                                                                                                                                                                                                                                                                                                                                                                ; work         ;
-;    |sonars:front|                                                                                   ; 36 (36)           ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sonars:front                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |sonars:back|                                                                                    ; 115 (115)         ; 153 (153)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sonars:back                                                                                                                                                                                                                                                                                                                                                                                ; work         ;
+;    |sonars:front|                                                                                   ; 66 (66)           ; 120 (120)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|sonars:front                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -497,88 +541,296 @@ Encoding Type:  One-Hot
 +-----------+-----------+-----------+----------------+
 
 
-+-----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                ;
-+----------------------------------------+------------------------------------------+
-; Register name                          ; Reason for Removal                       ;
-+----------------------------------------+------------------------------------------+
-; Status[2,3]                            ; Stuck at GND due to stuck port data_in   ;
-; encoder:MotL|direction[7]              ; Stuck at GND due to stuck port data_in   ;
-; encoder:MotR|direction[7]              ; Stuck at GND due to stuck port data_in   ;
-; encoder:MotR|direction[1]              ; Merged with encoder:MotR|direction[2]    ;
-; encoder:MotR|direction[2]              ; Merged with encoder:MotR|direction[3]    ;
-; encoder:MotR|direction[3]              ; Merged with encoder:MotR|direction[4]    ;
-; encoder:MotR|direction[4]              ; Merged with encoder:MotR|direction[5]    ;
-; encoder:MotR|direction[5]              ; Merged with encoder:MotR|direction[6]    ;
-; encoder:MotL|direction[1]              ; Merged with encoder:MotL|direction[2]    ;
-; encoder:MotL|direction[2]              ; Merged with encoder:MotL|direction[3]    ;
-; encoder:MotL|direction[3]              ; Merged with encoder:MotL|direction[4]    ;
-; encoder:MotL|direction[4]              ; Merged with encoder:MotL|direction[5]    ;
-; encoder:MotL|direction[5]              ; Merged with encoder:MotL|direction[6]    ;
-; sonars:front|triggerDelay[19]          ; Merged with sonars:back|triggerDelay[19] ;
-; sonars:front|triggerDelay[18]          ; Merged with sonars:back|triggerDelay[18] ;
-; sonars:front|triggerDelay[16]          ; Merged with sonars:back|triggerDelay[16] ;
-; sonars:front|triggerDelay[14]          ; Merged with sonars:back|triggerDelay[14] ;
-; sonars:front|triggerDelay[13]          ; Merged with sonars:back|triggerDelay[13] ;
-; sonars:front|triggerDelay[12]          ; Merged with sonars:back|triggerDelay[12] ;
-; sonars:front|triggerDelay[10]          ; Merged with sonars:back|triggerDelay[10] ;
-; sonars:front|triggerDelay[9]           ; Merged with sonars:back|triggerDelay[9]  ;
-; sonars:front|triggerDelay[7]           ; Merged with sonars:back|triggerDelay[7]  ;
-; sonars:front|triggerDelay[6]           ; Merged with sonars:back|triggerDelay[6]  ;
-; sonars:front|triggerDelay[5]           ; Merged with sonars:back|triggerDelay[5]  ;
-; sonars:front|triggerDelay[17]          ; Merged with sonars:back|triggerDelay[17] ;
-; sonars:front|triggerDelay[15]          ; Merged with sonars:back|triggerDelay[15] ;
-; sonars:front|triggerDelay[11]          ; Merged with sonars:back|triggerDelay[11] ;
-; sonars:front|triggerDelay[8]           ; Merged with sonars:back|triggerDelay[8]  ;
-; sonars:front|triggerDelay[4]           ; Merged with sonars:back|triggerDelay[4]  ;
-; sonars:front|triggerDelay[3]           ; Merged with sonars:back|triggerDelay[3]  ;
-; sonars:front|triggerDelay[2]           ; Merged with sonars:back|triggerDelay[2]  ;
-; sonars:front|triggerDelay[1]           ; Merged with sonars:back|triggerDelay[1]  ;
-; sonars:front|triggerDelay[0]           ; Merged with sonars:back|triggerDelay[0]  ;
-; encoder:MotR|clkcount[19]              ; Merged with encoder:MotL|clkcount[19]    ;
-; encoder:MotR|clkcount[17]              ; Merged with encoder:MotL|clkcount[17]    ;
-; encoder:MotR|clkcount[16]              ; Merged with encoder:MotL|clkcount[16]    ;
-; encoder:MotR|clkcount[14]              ; Merged with encoder:MotL|clkcount[14]    ;
-; encoder:MotR|clkcount[13]              ; Merged with encoder:MotL|clkcount[13]    ;
-; encoder:MotR|clkcount[12]              ; Merged with encoder:MotL|clkcount[12]    ;
-; encoder:MotR|clkcount[8]               ; Merged with encoder:MotL|clkcount[8]     ;
-; encoder:MotR|clkcount[7]               ; Merged with encoder:MotL|clkcount[7]     ;
-; encoder:MotR|clkcount[5]               ; Merged with encoder:MotL|clkcount[5]     ;
-; encoder:MotR|clkcount[4]               ; Merged with encoder:MotL|clkcount[4]     ;
-; encoder:MotR|clkcount[31]              ; Merged with encoder:MotL|clkcount[31]    ;
-; encoder:MotR|clkcount[30]              ; Merged with encoder:MotL|clkcount[30]    ;
-; encoder:MotR|clkcount[29]              ; Merged with encoder:MotL|clkcount[29]    ;
-; encoder:MotR|clkcount[28]              ; Merged with encoder:MotL|clkcount[28]    ;
-; encoder:MotR|clkcount[27]              ; Merged with encoder:MotL|clkcount[27]    ;
-; encoder:MotR|clkcount[26]              ; Merged with encoder:MotL|clkcount[26]    ;
-; encoder:MotR|clkcount[25]              ; Merged with encoder:MotL|clkcount[25]    ;
-; encoder:MotR|clkcount[24]              ; Merged with encoder:MotL|clkcount[24]    ;
-; encoder:MotR|clkcount[23]              ; Merged with encoder:MotL|clkcount[23]    ;
-; encoder:MotR|clkcount[22]              ; Merged with encoder:MotL|clkcount[22]    ;
-; encoder:MotR|clkcount[21]              ; Merged with encoder:MotL|clkcount[21]    ;
-; encoder:MotR|clkcount[20]              ; Merged with encoder:MotL|clkcount[20]    ;
-; encoder:MotR|clkcount[18]              ; Merged with encoder:MotL|clkcount[18]    ;
-; encoder:MotR|clkcount[15]              ; Merged with encoder:MotL|clkcount[15]    ;
-; encoder:MotR|clkcount[11]              ; Merged with encoder:MotL|clkcount[11]    ;
-; encoder:MotR|clkcount[10]              ; Merged with encoder:MotL|clkcount[10]    ;
-; encoder:MotR|clkcount[9]               ; Merged with encoder:MotL|clkcount[9]     ;
-; encoder:MotR|clkcount[6]               ; Merged with encoder:MotL|clkcount[6]     ;
-; encoder:MotR|clkcount[3]               ; Merged with encoder:MotL|clkcount[3]     ;
-; encoder:MotR|clkcount[2]               ; Merged with encoder:MotL|clkcount[2]     ;
-; encoder:MotR|clkcount[1]               ; Merged with encoder:MotL|clkcount[1]     ;
-; encoder:MotR|clkcount[0]               ; Merged with encoder:MotL|clkcount[0]     ;
-; encoder:MotR|resetCounters             ; Merged with encoder:MotL|resetCounters   ;
-; sonars:front|triggerCount[0]           ; Merged with sonars:back|triggerDelay[0]  ;
-; sonars:front|triggerCount[1]           ; Merged with sonars:back|triggerDelay[1]  ;
-; MySPI:MySPI_instance|SPI_state~2       ; Lost fanout                              ;
-; MySPI:MySPI_instance|SPI_state~3       ; Lost fanout                              ;
-; MySPI:MySPI_instance|SPI_state~4       ; Lost fanout                              ;
-; MySPI:MySPI_instance|SPI_state~5       ; Lost fanout                              ;
-; sonars:back|active.01                  ; Lost fanout                              ;
-; sonars:back|active.10                  ; Lost fanout                              ;
-; sonars:back|active.00                  ; Lost fanout                              ;
-; Total Number of Removed Registers = 76 ;                                          ;
-+----------------------------------------+------------------------------------------+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-----------------------------------------+------------------------------------------+
+; Register name                           ; Reason for Removal                       ;
++-----------------------------------------+------------------------------------------+
+; Status[2,3]                             ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotFV|direction[7]              ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotFH|direction[7]              ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotB|direction[7]               ; Stuck at GND due to stuck port data_in   ;
+; encoder:OdoL|direction[7]               ; Stuck at GND due to stuck port data_in   ;
+; encoder:OdoR|direction[7]               ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotL|direction[7]               ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotR|direction[7]               ; Stuck at GND due to stuck port data_in   ;
+; encoder:MotR|direction[1]               ; Merged with encoder:MotR|direction[2]    ;
+; encoder:MotR|direction[2]               ; Merged with encoder:MotR|direction[3]    ;
+; encoder:MotR|direction[3]               ; Merged with encoder:MotR|direction[4]    ;
+; encoder:MotR|direction[4]               ; Merged with encoder:MotR|direction[5]    ;
+; encoder:MotR|direction[5]               ; Merged with encoder:MotR|direction[6]    ;
+; encoder:MotL|direction[1]               ; Merged with encoder:MotL|direction[2]    ;
+; encoder:MotL|direction[2]               ; Merged with encoder:MotL|direction[3]    ;
+; encoder:MotL|direction[3]               ; Merged with encoder:MotL|direction[4]    ;
+; encoder:MotL|direction[4]               ; Merged with encoder:MotL|direction[5]    ;
+; encoder:MotL|direction[5]               ; Merged with encoder:MotL|direction[6]    ;
+; encoder:OdoR|direction[1]               ; Merged with encoder:OdoR|direction[2]    ;
+; encoder:OdoR|direction[2]               ; Merged with encoder:OdoR|direction[3]    ;
+; encoder:OdoR|direction[3]               ; Merged with encoder:OdoR|direction[4]    ;
+; encoder:OdoR|direction[4]               ; Merged with encoder:OdoR|direction[5]    ;
+; encoder:OdoR|direction[5]               ; Merged with encoder:OdoR|direction[6]    ;
+; encoder:OdoL|direction[1]               ; Merged with encoder:OdoL|direction[2]    ;
+; encoder:OdoL|direction[2]               ; Merged with encoder:OdoL|direction[3]    ;
+; encoder:OdoL|direction[3]               ; Merged with encoder:OdoL|direction[4]    ;
+; encoder:OdoL|direction[4]               ; Merged with encoder:OdoL|direction[5]    ;
+; encoder:OdoL|direction[5]               ; Merged with encoder:OdoL|direction[6]    ;
+; encoder:MotB|direction[1]               ; Merged with encoder:MotB|direction[2]    ;
+; encoder:MotB|direction[2]               ; Merged with encoder:MotB|direction[3]    ;
+; encoder:MotB|direction[3]               ; Merged with encoder:MotB|direction[4]    ;
+; encoder:MotB|direction[4]               ; Merged with encoder:MotB|direction[5]    ;
+; encoder:MotB|direction[5]               ; Merged with encoder:MotB|direction[6]    ;
+; encoder:MotFH|direction[1]              ; Merged with encoder:MotFH|direction[2]   ;
+; encoder:MotFH|direction[2]              ; Merged with encoder:MotFH|direction[3]   ;
+; encoder:MotFH|direction[3]              ; Merged with encoder:MotFH|direction[4]   ;
+; encoder:MotFH|direction[4]              ; Merged with encoder:MotFH|direction[5]   ;
+; encoder:MotFH|direction[5]              ; Merged with encoder:MotFH|direction[6]   ;
+; encoder:MotFV|direction[1]              ; Merged with encoder:MotFV|direction[2]   ;
+; encoder:MotFV|direction[2]              ; Merged with encoder:MotFV|direction[3]   ;
+; encoder:MotFV|direction[3]              ; Merged with encoder:MotFV|direction[4]   ;
+; encoder:MotFV|direction[4]              ; Merged with encoder:MotFV|direction[5]   ;
+; encoder:MotFV|direction[5]              ; Merged with encoder:MotFV|direction[6]   ;
+; sonars:front|triggerDelay[19]           ; Merged with sonars:back|triggerDelay[19] ;
+; sonars:front|triggerDelay[18]           ; Merged with sonars:back|triggerDelay[18] ;
+; sonars:front|triggerDelay[16]           ; Merged with sonars:back|triggerDelay[16] ;
+; sonars:front|triggerDelay[14]           ; Merged with sonars:back|triggerDelay[14] ;
+; sonars:front|triggerDelay[13]           ; Merged with sonars:back|triggerDelay[13] ;
+; sonars:front|triggerDelay[12]           ; Merged with sonars:back|triggerDelay[12] ;
+; sonars:front|triggerDelay[10]           ; Merged with sonars:back|triggerDelay[10] ;
+; sonars:front|triggerDelay[9]            ; Merged with sonars:back|triggerDelay[9]  ;
+; sonars:front|triggerDelay[7]            ; Merged with sonars:back|triggerDelay[7]  ;
+; sonars:front|triggerDelay[6]            ; Merged with sonars:back|triggerDelay[6]  ;
+; sonars:front|triggerDelay[5]            ; Merged with sonars:back|triggerDelay[5]  ;
+; sonars:front|triggerDelay[17]           ; Merged with sonars:back|triggerDelay[17] ;
+; sonars:front|triggerDelay[15]           ; Merged with sonars:back|triggerDelay[15] ;
+; sonars:front|triggerDelay[11]           ; Merged with sonars:back|triggerDelay[11] ;
+; sonars:front|triggerDelay[8]            ; Merged with sonars:back|triggerDelay[8]  ;
+; sonars:front|triggerDelay[4]            ; Merged with sonars:back|triggerDelay[4]  ;
+; sonars:front|triggerDelay[3]            ; Merged with sonars:back|triggerDelay[3]  ;
+; sonars:front|triggerDelay[2]            ; Merged with sonars:back|triggerDelay[2]  ;
+; sonars:front|triggerDelay[1]            ; Merged with sonars:back|triggerDelay[1]  ;
+; sonars:front|triggerDelay[0]            ; Merged with sonars:back|triggerDelay[0]  ;
+; sonars:front|triggerCount[8]            ; Merged with sonars:back|triggerCount[8]  ;
+; sonars:front|triggerCount[7]            ; Merged with sonars:back|triggerCount[7]  ;
+; sonars:front|triggerCount[6]            ; Merged with sonars:back|triggerCount[6]  ;
+; sonars:front|triggerCount[5]            ; Merged with sonars:back|triggerCount[5]  ;
+; sonars:front|triggerCount[4]            ; Merged with sonars:back|triggerCount[4]  ;
+; sonars:front|triggerCount[2]            ; Merged with sonars:back|triggerCount[2]  ;
+; sonars:front|triggerCount[3]            ; Merged with sonars:back|triggerCount[3]  ;
+; sonars:front|triggerCount[1]            ; Merged with sonars:back|triggerCount[1]  ;
+; sonars:front|triggerCount[0]            ; Merged with sonars:back|triggerCount[0]  ;
+; encoder:MotFH|clkcount[19]              ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:MotFV|clkcount[19]              ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:MotL|clkcount[19]               ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:MotR|clkcount[19]               ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:OdoL|clkcount[19]               ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:OdoR|clkcount[19]               ; Merged with encoder:MotB|clkcount[19]    ;
+; encoder:MotFH|clkcount[17]              ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:MotFV|clkcount[17]              ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:MotL|clkcount[17]               ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:MotR|clkcount[17]               ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:OdoL|clkcount[17]               ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:OdoR|clkcount[17]               ; Merged with encoder:MotB|clkcount[17]    ;
+; encoder:MotFH|clkcount[16]              ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:MotFV|clkcount[16]              ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:MotL|clkcount[16]               ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:MotR|clkcount[16]               ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:OdoL|clkcount[16]               ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:OdoR|clkcount[16]               ; Merged with encoder:MotB|clkcount[16]    ;
+; encoder:MotFH|clkcount[14]              ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:MotFV|clkcount[14]              ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:MotL|clkcount[14]               ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:MotR|clkcount[14]               ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:OdoL|clkcount[14]               ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:OdoR|clkcount[14]               ; Merged with encoder:MotB|clkcount[14]    ;
+; encoder:MotFH|clkcount[13]              ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:MotFV|clkcount[13]              ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:MotL|clkcount[13]               ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:MotR|clkcount[13]               ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:OdoL|clkcount[13]               ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:OdoR|clkcount[13]               ; Merged with encoder:MotB|clkcount[13]    ;
+; encoder:MotFH|clkcount[12]              ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:MotFV|clkcount[12]              ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:MotL|clkcount[12]               ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:MotR|clkcount[12]               ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:OdoL|clkcount[12]               ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:OdoR|clkcount[12]               ; Merged with encoder:MotB|clkcount[12]    ;
+; encoder:MotFH|clkcount[8]               ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:MotFV|clkcount[8]               ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:MotL|clkcount[8]                ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:MotR|clkcount[8]                ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:OdoL|clkcount[8]                ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:OdoR|clkcount[8]                ; Merged with encoder:MotB|clkcount[8]     ;
+; encoder:MotFH|clkcount[7]               ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:MotFV|clkcount[7]               ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:MotL|clkcount[7]                ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:MotR|clkcount[7]                ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:OdoL|clkcount[7]                ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:OdoR|clkcount[7]                ; Merged with encoder:MotB|clkcount[7]     ;
+; encoder:MotFH|clkcount[5]               ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:MotFV|clkcount[5]               ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:MotL|clkcount[5]                ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:MotR|clkcount[5]                ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:OdoL|clkcount[5]                ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:OdoR|clkcount[5]                ; Merged with encoder:MotB|clkcount[5]     ;
+; encoder:MotFH|clkcount[4]               ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:MotFV|clkcount[4]               ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:MotL|clkcount[4]                ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:MotR|clkcount[4]                ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:OdoL|clkcount[4]                ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:OdoR|clkcount[4]                ; Merged with encoder:MotB|clkcount[4]     ;
+; encoder:MotFH|clkcount[31]              ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:MotFV|clkcount[31]              ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:MotL|clkcount[31]               ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:MotR|clkcount[31]               ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:OdoL|clkcount[31]               ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:OdoR|clkcount[31]               ; Merged with encoder:MotB|clkcount[31]    ;
+; encoder:MotFH|clkcount[30]              ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:MotFV|clkcount[30]              ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:MotL|clkcount[30]               ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:MotR|clkcount[30]               ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:OdoL|clkcount[30]               ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:OdoR|clkcount[30]               ; Merged with encoder:MotB|clkcount[30]    ;
+; encoder:MotFH|clkcount[29]              ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:MotFV|clkcount[29]              ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:MotL|clkcount[29]               ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:MotR|clkcount[29]               ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:OdoL|clkcount[29]               ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:OdoR|clkcount[29]               ; Merged with encoder:MotB|clkcount[29]    ;
+; encoder:MotFH|clkcount[28]              ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:MotFV|clkcount[28]              ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:MotL|clkcount[28]               ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:MotR|clkcount[28]               ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:OdoL|clkcount[28]               ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:OdoR|clkcount[28]               ; Merged with encoder:MotB|clkcount[28]    ;
+; encoder:MotFH|clkcount[27]              ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:MotFV|clkcount[27]              ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:MotL|clkcount[27]               ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:MotR|clkcount[27]               ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:OdoL|clkcount[27]               ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:OdoR|clkcount[27]               ; Merged with encoder:MotB|clkcount[27]    ;
+; encoder:MotFH|clkcount[26]              ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:MotFV|clkcount[26]              ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:MotL|clkcount[26]               ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:MotR|clkcount[26]               ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:OdoL|clkcount[26]               ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:OdoR|clkcount[26]               ; Merged with encoder:MotB|clkcount[26]    ;
+; encoder:MotFH|clkcount[25]              ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:MotFV|clkcount[25]              ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:MotL|clkcount[25]               ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:MotR|clkcount[25]               ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:OdoL|clkcount[25]               ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:OdoR|clkcount[25]               ; Merged with encoder:MotB|clkcount[25]    ;
+; encoder:MotFH|clkcount[24]              ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:MotFV|clkcount[24]              ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:MotL|clkcount[24]               ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:MotR|clkcount[24]               ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:OdoL|clkcount[24]               ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:OdoR|clkcount[24]               ; Merged with encoder:MotB|clkcount[24]    ;
+; encoder:MotFH|clkcount[23]              ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:MotFV|clkcount[23]              ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:MotL|clkcount[23]               ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:MotR|clkcount[23]               ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:OdoL|clkcount[23]               ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:OdoR|clkcount[23]               ; Merged with encoder:MotB|clkcount[23]    ;
+; encoder:MotFH|clkcount[22]              ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:MotFV|clkcount[22]              ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:MotL|clkcount[22]               ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:MotR|clkcount[22]               ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:OdoL|clkcount[22]               ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:OdoR|clkcount[22]               ; Merged with encoder:MotB|clkcount[22]    ;
+; encoder:MotFH|clkcount[21]              ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:MotFV|clkcount[21]              ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:MotL|clkcount[21]               ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:MotR|clkcount[21]               ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:OdoL|clkcount[21]               ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:OdoR|clkcount[21]               ; Merged with encoder:MotB|clkcount[21]    ;
+; encoder:MotFH|clkcount[20]              ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:MotFV|clkcount[20]              ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:MotL|clkcount[20]               ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:MotR|clkcount[20]               ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:OdoL|clkcount[20]               ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:OdoR|clkcount[20]               ; Merged with encoder:MotB|clkcount[20]    ;
+; encoder:MotFH|clkcount[18]              ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:MotFV|clkcount[18]              ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:MotL|clkcount[18]               ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:MotR|clkcount[18]               ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:OdoL|clkcount[18]               ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:OdoR|clkcount[18]               ; Merged with encoder:MotB|clkcount[18]    ;
+; encoder:MotFH|clkcount[15]              ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:MotFV|clkcount[15]              ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:MotL|clkcount[15]               ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:MotR|clkcount[15]               ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:OdoL|clkcount[15]               ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:OdoR|clkcount[15]               ; Merged with encoder:MotB|clkcount[15]    ;
+; encoder:MotFH|clkcount[11]              ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:MotFV|clkcount[11]              ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:MotL|clkcount[11]               ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:MotR|clkcount[11]               ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:OdoL|clkcount[11]               ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:OdoR|clkcount[11]               ; Merged with encoder:MotB|clkcount[11]    ;
+; encoder:MotFH|clkcount[10]              ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:MotFV|clkcount[10]              ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:MotL|clkcount[10]               ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:MotR|clkcount[10]               ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:OdoL|clkcount[10]               ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:OdoR|clkcount[10]               ; Merged with encoder:MotB|clkcount[10]    ;
+; encoder:MotFH|clkcount[9]               ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:MotFV|clkcount[9]               ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:MotL|clkcount[9]                ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:MotR|clkcount[9]                ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:OdoL|clkcount[9]                ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:OdoR|clkcount[9]                ; Merged with encoder:MotB|clkcount[9]     ;
+; encoder:MotFH|clkcount[6]               ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:MotFV|clkcount[6]               ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:MotL|clkcount[6]                ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:MotR|clkcount[6]                ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:OdoL|clkcount[6]                ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:OdoR|clkcount[6]                ; Merged with encoder:MotB|clkcount[6]     ;
+; encoder:MotFH|clkcount[3]               ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:MotFV|clkcount[3]               ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:MotL|clkcount[3]                ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:MotR|clkcount[3]                ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:OdoL|clkcount[3]                ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:OdoR|clkcount[3]                ; Merged with encoder:MotB|clkcount[3]     ;
+; encoder:MotFH|clkcount[2]               ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:MotFV|clkcount[2]               ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:MotL|clkcount[2]                ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:MotR|clkcount[2]                ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:OdoL|clkcount[2]                ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:OdoR|clkcount[2]                ; Merged with encoder:MotB|clkcount[2]     ;
+; encoder:MotFH|clkcount[1]               ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:MotFV|clkcount[1]               ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:MotL|clkcount[1]                ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:MotR|clkcount[1]                ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:OdoL|clkcount[1]                ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:OdoR|clkcount[1]                ; Merged with encoder:MotB|clkcount[1]     ;
+; encoder:MotFH|clkcount[0]               ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:MotFV|clkcount[0]               ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:MotL|clkcount[0]                ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:MotR|clkcount[0]                ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:OdoL|clkcount[0]                ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:OdoR|clkcount[0]                ; Merged with encoder:MotB|clkcount[0]     ;
+; encoder:MotFH|resetCounters             ; Merged with encoder:MotB|resetCounters   ;
+; encoder:MotFV|resetCounters             ; Merged with encoder:MotB|resetCounters   ;
+; encoder:MotL|resetCounters              ; Merged with encoder:MotB|resetCounters   ;
+; encoder:MotR|resetCounters              ; Merged with encoder:MotB|resetCounters   ;
+; encoder:OdoL|resetCounters              ; Merged with encoder:MotB|resetCounters   ;
+; encoder:OdoR|resetCounters              ; Merged with encoder:MotB|resetCounters   ;
+; MySPI:MySPI_instance|Config[8]          ; Stuck at GND due to stuck port data_in   ;
+; sonars:back|triggerCount[0]             ; Merged with sonars:back|triggerDelay[0]  ;
+; sonars:back|triggerCount[1]             ; Merged with sonars:back|triggerDelay[1]  ;
+; MySPI:MySPI_instance|SPI_state~2        ; Lost fanout                              ;
+; MySPI:MySPI_instance|SPI_state~3        ; Lost fanout                              ;
+; MySPI:MySPI_instance|SPI_state~4        ; Lost fanout                              ;
+; MySPI:MySPI_instance|SPI_state~5        ; Lost fanout                              ;
+; sonars:front|active.00                  ; Merged with sonars:back|active.00        ;
+; sonars:front|triggers[0]                ; Merged with sonars:back|triggers[0]      ;
+; sonars:front|active.10                  ; Merged with sonars:back|active.10        ;
+; sonars:front|active.01                  ; Merged with sonars:back|active.01        ;
+; sonars:front|triggers[2]                ; Merged with sonars:back|triggers[2]      ;
+; sonars:front|triggers[1]                ; Merged with sonars:back|triggers[1]      ;
+; Total Number of Removed Registers = 284 ;                                          ;
++-----------------------------------------+------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -586,12 +838,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1071  ;
-; Number of registers using Synchronous Clear  ; 76    ;
-; Number of registers using Synchronous Load   ; 97    ;
-; Number of registers using Asynchronous Clear ; 585   ;
+; Total registers                              ; 1700  ;
+; Number of registers using Synchronous Clear  ; 176   ;
+; Number of registers using Synchronous Load   ; 107   ;
+; Number of registers using Asynchronous Clear ; 1197  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 548   ;
+; Number of registers using Clock Enable       ; 847   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -601,11 +853,21 @@ Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                                                                                                        ; Fan out ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; encoder:MotR|direction[6]                                                                                                                                                                                                                                ; 6       ;
-; encoder:MotL|direction[6]                                                                                                                                                                                                                                ; 6       ;
-; encoder:MotL|resetCounters                                                                                                                                                                                                                               ; 132     ;
+; encoder:MotL|direction[6]                                                                                                                                                                                                                                ; 1       ;
+; encoder:OdoL|direction[6]                                                                                                                                                                                                                                ; 1       ;
+; encoder:OdoR|direction[6]                                                                                                                                                                                                                                ; 1       ;
+; encoder:MotR|direction[6]                                                                                                                                                                                                                                ; 1       ;
+; encoder:MotFV|direction[6]                                                                                                                                                                                                                               ; 1       ;
+; encoder:MotB|direction[6]                                                                                                                                                                                                                                ; 1       ;
+; encoder:MotFH|direction[6]                                                                                                                                                                                                                               ; 1       ;
+; encoder:MotB|resetCounters                                                                                                                                                                                                                               ; 462     ;
+; encoder:MotB|direction[0]                                                                                                                                                                                                                                ; 1       ;
+; encoder:MotFV|direction[0]                                                                                                                                                                                                                               ; 1       ;
+; encoder:OdoR|direction[0]                                                                                                                                                                                                                                ; 1       ;
 ; encoder:MotR|direction[0]                                                                                                                                                                                                                                ; 1       ;
+; encoder:MotFH|direction[0]                                                                                                                                                                                                                               ; 1       ;
 ; encoder:MotL|direction[0]                                                                                                                                                                                                                                ; 1       ;
+; encoder:OdoL|direction[0]                                                                                                                                                                                                                                ; 1       ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|tdo            ; 1       ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
@@ -624,7 +886,7 @@ Encoding Type:  One-Hot
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[13]                                                                           ; 1       ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[14]                                                                           ; 1       ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[0]                                                                            ; 1       ;
-; Total number of inverted registers = 23                                                                                                                                                                                                                  ;         ;
+; Total number of inverted registers = 33                                                                                                                                                                                                                  ;         ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -633,11 +895,18 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_counter[0] ;
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:front|count1[9]              ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|Config[2]      ;
-; 71:1               ; 2 bits    ; 94 LEs        ; 10 LEs               ; 84 LEs                 ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[2]    ;
-; 71:1               ; 4 bits    ; 188 LEs       ; 24 LEs               ; 164 LEs                ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[4]    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_counter[1] ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:front|count1[15]             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |robinsun_fpga|sonars:back|triggers[2]             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|Config[0]      ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:front|count3[11]             ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:back|count2[17]              ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:front|count2[16]             ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:back|count1[16]              ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |robinsun_fpga|sonars:back|count3[8]               ;
+; 14:1               ; 6 bits    ; 54 LEs        ; 48 LEs               ; 6 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[9]    ;
+; 22:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[2]    ;
+; 22:1               ; 5 bits    ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; Yes        ; |robinsun_fpga|MySPI:MySPI_instance|SPI_data[6]    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
@@ -652,18 +921,29 @@ Encoding Type:  One-Hot
 
 +-------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: MySPI:MySPI_instance ;
-+----------------+---------+----------------------------------------+
-; Parameter Name ; Value   ; Type                                   ;
-+----------------+---------+----------------------------------------+
-; A_Config       ; 0000000 ; Unsigned Binary                        ;
-; A_Status       ; 0000001 ; Unsigned Binary                        ;
-; A_dirR         ; 0010000 ; Unsigned Binary                        ;
-; A_speedR1      ; 0010001 ; Unsigned Binary                        ;
-; A_speedR2      ; 0010010 ; Unsigned Binary                        ;
-; A_dirL         ; 0100000 ; Unsigned Binary                        ;
-; A_speedL1      ; 0100001 ; Unsigned Binary                        ;
-; A_speedL2      ; 0100010 ; Unsigned Binary                        ;
-+----------------+---------+----------------------------------------+
++----------------+-----------------+--------------------------------+
+; Parameter Name ; Value           ; Type                           ;
++----------------+-----------------+--------------------------------+
+; A_Config       ; 000000000000000 ; Unsigned Binary                ;
+; A_Status       ; 000000000000001 ; Unsigned Binary                ;
+; A_dirR         ; 000000000100001 ; Unsigned Binary                ;
+; A_speedR       ; 000000000100010 ; Unsigned Binary                ;
+; A_dirL         ; 000000000110001 ; Unsigned Binary                ;
+; A_speedL       ; 000000000110010 ; Unsigned Binary                ;
+; A_dirOdoR      ; 000000000100101 ; Unsigned Binary                ;
+; A_speedOdoR    ; 000000000100110 ; Unsigned Binary                ;
+; A_dirOdoL      ; 000000000110101 ; Unsigned Binary                ;
+; A_speedOdoL    ; 000000000110110 ; Unsigned Binary                ;
+; A_speedB       ; 000000001010000 ; Unsigned Binary                ;
+; A_dirB         ; 000000001010001 ; Unsigned Binary                ;
+; A_speedFH      ; 000000001010010 ; Unsigned Binary                ;
+; A_dirFH        ; 000000001010011 ; Unsigned Binary                ;
+; A_speedFV      ; 000000001010100 ; Unsigned Binary                ;
+; A_dirFV        ; 000000001010101 ; Unsigned Binary                ;
+; A_sonar12      ; 000000001000001 ; Unsigned Binary                ;
+; A_sonar34      ; 000000001000010 ; Unsigned Binary                ;
+; A_sonar56      ; 000000001000011 ; Unsigned Binary                ;
++----------------+-----------------+--------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -730,6 +1010,144 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 20             ; Untyped                ;
+; LPM_WIDTHD             ; 12             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ckm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "MySPI:MySPI_instance"                                                                                                                                  ;
 +--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -750,9 +1168,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; T1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; T2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; T3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -763,9 +1178,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; T2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; T3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R1   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R2   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; R3   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -784,30 +1196,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 124                         ;
-; cycloneiii_ff         ; 315                         ;
-;     CLR               ; 186                         ;
+; cycloneiii_ff         ; 944                         ;
+;     CLR               ; 515                         ;
 ;     CLR SCLR          ; 7                           ;
-;     ENA               ; 20                          ;
-;     ENA CLR           ; 55                          ;
-;     ENA CLR SCLR      ; 20                          ;
-;     ENA SLD           ; 4                           ;
+;     ENA               ; 27                          ;
+;     ENA CLR           ; 238                         ;
+;     ENA CLR SCLR      ; 120                         ;
+;     ENA SLD           ; 13                          ;
 ;     SCLR              ; 1                           ;
-;     SLD               ; 2                           ;
+;     SLD               ; 3                           ;
 ;     plain             ; 20                          ;
 ; cycloneiii_io_obuf    ; 48                          ;
-; cycloneiii_lcell_comb ; 443                         ;
-;     arith             ; 278                         ;
-;         2 data inputs ; 179                         ;
-;         3 data inputs ; 99                          ;
-;     normal            ; 165                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 25                          ;
-;         2 data inputs ; 44                          ;
-;         3 data inputs ; 24                          ;
-;         4 data inputs ; 71                          ;
+; cycloneiii_lcell_comb ; 3131                        ;
+;     arith             ; 1574                        ;
+;         2 data inputs ; 654                         ;
+;         3 data inputs ; 920                         ;
+;     normal            ; 1557                        ;
+;         0 data inputs ; 55                          ;
+;         1 data inputs ; 75                          ;
+;         2 data inputs ; 753                         ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 626                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 2.66                        ;
+; Max LUT depth         ; 30.80                       ;
+; Average LUT depth     ; 15.02                       ;
 +-----------------------+-----------------------------+
 
 
@@ -816,7 +1228,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -909,7 +1321,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Fri Mar 11 17:03:56 2016
+    Info: Processing started: Wed Mar 16 01:33:38 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robinsun-fpga -c robinsun-fpga
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file sonars.sv
@@ -923,18 +1335,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file encoder
 Info (12127): Elaborating entity "robinsun_fpga" for the top level hierarchy
 Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT1 used but never assigned
 Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT2 used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "OdoRA" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "OdoRB" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "OdoLA" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "OdoLB" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotBA" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotBB" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotFHA" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotFHB" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotFVA" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(123): object "MotFVB" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(125): object "START" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(125): object "PARASOL" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at robinsun_fpga.sv(193): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at robinsun_fpga.sv(194): truncated value with size 32 to match size of target (8)
 Warning (10030): Net "PIC32_INT1" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "PIC32_INT2" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
 Warning (10034): Output port "LED" at robinsun_fpga.sv(49) has no driver
@@ -955,9 +1359,9 @@ Warning (10665): Bidirectional port "GPIO_2[6]" at robinsun_fpga.sv(58) has a on
 Info (12128): Elaborating entity "encoder" for hierarchy "encoder:MotR"
 Info (12128): Elaborating entity "sonars" for hierarchy "sonars:front"
 Info (12128): Elaborating entity "MySPI" for hierarchy "MySPI:MySPI_instance"
-Warning (10230): Verilog HDL assignment warning at MySPI.sv(104): truncated value with size 32 to match size of target (3)
-Warning (10230): Verilog HDL assignment warning at MySPI.sv(111): truncated value with size 9 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at MySPI.sv(112): truncated value with size 9 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(121): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(128): truncated value with size 17 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at MySPI.sv(129): truncated value with size 17 to match size of target (16)
 Info (12021): Found 1 design units, including 1 entities, in source file db/sld_ela_trigger_ddp.tdf
     Info (12023): Found entity 1: sld_ela_trigger_ddp
 Info (12021): Found 1 design units, including 1 entities, in source file db/sld_reserved_robinsun_fpga_auto_signaltap_0_1_eba7.v
@@ -986,7 +1390,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
 Info (11170): Start IP generation for the debug fabric within sld_hub.
-Info (11172): 2016.03.11.17:04:12 Progress: Loading slde840da38/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2016.03.16.01:33:54 Progress: Loading slde840da38/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1009,6 +1413,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slde840da38/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div4"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div5"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1"
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div4"
+Info (12133): Instantiated megafunction "lpm_divide:Div4" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "20"
+    Info (12134): Parameter "LPM_WIDTHD" = "12"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ckm.tdf
+    Info (12023): Found entity 1: lpm_divide_ckm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_4nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_4nh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s9f.tdf
+    Info (12023): Found entity 1: alt_u_div_s9f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO1[12]" and its non-tri-state driver.
@@ -1022,6 +1449,16 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO_2[10]" has no driver
     Warning (13040): bidirectional pin "GPIO1[0]" has no driver
     Warning (13040): bidirectional pin "GPIO1[1]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[2]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[3]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[4]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[5]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[6]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[7]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[8]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[9]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[10]" has no driver
+    Warning (13040): bidirectional pin "GPIO1[11]" has no driver
     Warning (13040): bidirectional pin "GPIO1[13]" has no driver
     Warning (13040): bidirectional pin "GPIO1[14]" has no driver
     Warning (13040): bidirectional pin "GPIO1[15]" has no driver
@@ -1037,16 +1474,6 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO_2[11]" has no driver
     Warning (13040): bidirectional pin "GPIO_2[12]" has no driver
     Warning (13040): bidirectional pin "LCDLTM_SDA" has no driver
-    Warning (13040): bidirectional pin "GPIO1[2]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[3]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[4]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[5]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[6]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[7]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[8]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[9]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[10]" has no driver
-    Warning (13040): bidirectional pin "GPIO1[11]" has no driver
     Warning (13040): bidirectional pin "GPIO1[24]" has no driver
     Warning (13040): bidirectional pin "GPIO1[25]" has no driver
     Warning (13040): bidirectional pin "GPIO1[26]" has no driver
@@ -1105,7 +1532,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LCDLTM_SCEN" is stuck at GND
     Warning (13410): Pin "LCDLTM_VD" is stuck at GND
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 75 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -1116,16 +1543,16 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_BUSY"
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_DOUT"
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_PENIRQ_n"
-Info (21057): Implemented 1684 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4488 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 41 output pins
     Info (21060): Implemented 48 bidirectional pins
-    Info (21061): Implemented 1534 logic cells
+    Info (21061): Implemented 4338 logic cells
     Info (21064): Implemented 42 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 134 warnings
-    Info: Peak virtual memory: 781 megabytes
-    Info: Processing ended: Fri Mar 11 17:04:19 2016
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:49
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 126 warnings
+    Info: Peak virtual memory: 798 megabytes
+    Info: Processing ended: Wed Mar 16 01:34:05 2016
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:50
 
 

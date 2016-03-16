@@ -141,7 +141,7 @@ assign MotFVA	= GPIO1[10];
 assign MotFVB	= GPIO1[11];
 
 // Assign sonar signals
-assign GPIO1[12]= S1T;
+assign S1T		= GPIO1[12];
 assign S1S		= GPIO1[13];
 assign S2T		= GPIO1[14];
 assign S2S		= GPIO1[15];
@@ -173,21 +173,27 @@ logic [15:0] speedR, speedL, speedOdoR, speedOdoL, speedB, speedFH, speedFV;
 
 encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB), .direction(dirR),  .speed(speedR));
 encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB), .direction(dirL),  .speed(speedL));
-//encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
-//encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
-//encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
-//encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
-//encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
+encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
+encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
+encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
+encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
+encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
 
 
 //=======================================================
-//  Instantiate sonars modules
+//  Instantiate sonars modules and compute distances
 //=======================================================
 logic [19:0] R1, R2, R3, R4, R5, R6;
+logic [7:0] dist1, dist2, dist3, dist4, dist5, dist6;
+logic [15:0] sonar12, sonar34, sonar56;
 
 sonars front( .clk(CLOCK_50), .reset(PIC32_RESET), .S1(S1S), .S2(S2S), .S3(S3S), .T1(S1T), .T2(S2T), .T3(S3T), .R1(R1), .R2(R2), .R3(R3));
 sonars back ( .clk(CLOCK_50),	.reset(PIC32_RESET), .S1(S4S), .S2(S5S), .S3(S6S), .T1(S4T), .T2(S5T), .T3(S6T), .R1(R4), .R2(R5), .R3(R6));
 
+assign dist1 = R1/2941;		assign dist2 = R2/2941;		assign dist3 = R3/2941;
+assign dist4 = R4/2941;		assign dist5 = R5/2941;		assign dist6 = R6/2941;
+
+assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar56 = {dist5, dist6};
 
 //=======================================================
 //  Instantiate SPI Interface
@@ -197,7 +203,13 @@ MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
 	.MySPI_clk(PIC32_SCK1A),  .MySPI_cs(PIC32_CS_FPGA), .MySPI_sdi(PIC32_SDO1A), .MySPI_sdo(PIC32_SDI1A),
 	.Config(Config),			  .Status(Status),
-	.speedR(speedR), 			  .speedL(speedL),
-	.dirR(dirR), 				  .dirL(dirL));
+	.speedR(speedR), 			  .dirR(dirR),
+	.speedL(speedL),			  .dirL(dirL), 
+	.speedOdoR(speedOdoR),    .dirOdoR(dirOdoR), 
+	.speedOdoL(speedOdoL), 	  .dirOdoL(dirOdoL),
+	.speedB(speedB),			  .dirB(dirB),
+	.speedFH(speedFH), 		  .dirFH(dirFH),
+	.speedFV(speedFV),		  .dirFV(dirFV),
+	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56));
 
 endmodule
