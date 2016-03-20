@@ -4,8 +4,8 @@ module MySPI (
 	input  logic		  theClock, theReset,
 	input  logic        MySPI_clk, MySPI_cs, MySPI_sdi,
 	output logic  		  MySPI_sdo,
-	output logic [8:0]  Config,
-	input  logic [8:0]  Status,
+	output logic [7:0]  Config,
+	input  logic [7:0]  Status,
 	input  logic [15:0] speedR,
 	input  logic [7:0]  dirR,
 	input  logic [15:0] speedL, 
@@ -132,18 +132,18 @@ begin
 				A_dirL				: SPI_data <= {8'b0, dirL};
 				A_speedL				: SPI_data <= speedL;
 				A_speedOdoR			: SPI_data <= speedOdoR;
-				A_dirOdoR			: SPI_data <= dirOdoR;
+				A_dirOdoR			: SPI_data <= {8'b0, dirOdoR};
 				A_speedOdoL			: SPI_data <= speedOdoL;
-				A_dirOdoL			: SPI_data <= dirOdoL;
+				A_dirOdoL			: SPI_data <= {8'b0, dirOdoL};
 				A_sonar12			: SPI_data <= sonar12;
 				A_sonar34			: SPI_data <= sonar34;
 				A_sonar56			: SPI_data <= sonar56;
 				A_speedB				: SPI_data <= speedB;
-				A_dirB				: SPI_data <= dirB;
+				A_dirB				: SPI_data <= {8'b0, dirB};
 				A_speedFH			: SPI_data <= speedFH;
-				A_dirFH				: SPI_data <= dirFH;
+				A_dirFH				: SPI_data <= {8'b0, dirFH};
 				A_speedFV			: SPI_data <= speedFV;
-				A_dirFV				: SPI_data <= dirFV;
+				A_dirFV				: SPI_data <= {8'b0, dirFV};
 			endcase
 		
 	if (theReset) Config <= 8'h00;

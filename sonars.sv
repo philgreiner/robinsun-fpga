@@ -53,7 +53,7 @@ begin
 		begin
 			triggerCount <= triggerCount + 9'b1;
 			triggerDelay <= triggerDelay + 20'b1;
-			if(triggerCount == 9'd500)		// corresponds to the number of clock cycles to have a trigger of 10us
+			if(triggerCount == 9'd700)		// corresponds to the number of clock cycles to have a trigger of 10us
 				triggers <= 3'b0;
 		end
 	end
@@ -71,13 +71,16 @@ begin
 	begin
 		case(active)
 			2'b00: if(T1) 		count1 <= 20'b0;					// Reset count while trigger is sent
-						else if(S1) count1 <= count1 + 20'b1;	// Count while signal is high
+						else if(count1 <= 20'd10000) count1 <= count1 + 20'b1;	// Count while signal is high
+							else if (S1) count1 <= count1 + 20'b1;
 								else count1 <= count1;				// Keep the result after signal end
 			2'b01: if(T2) 		count2 <= 20'b0;
-						else if(S2) count2 <= count2 + 20'b1;
+						else if(count2 <= 20'd10000) count2 <= count2 + 20'b1;
+							else if(S2) count2 <= count2 + 20'b1;
 								else count2 <= count2;
 			2'b10: if(T3) 		count3 <= 20'b0;
-						else if(S3) count3 <= count3 + 20'b1;
+						else if(count3 <= 20'd10000) count3 <= count3 + 20'b1;
+							else if(S3) count3 <= count3 + 20'b1;
 								else count3 <= count3; 
 		endcase
 	end

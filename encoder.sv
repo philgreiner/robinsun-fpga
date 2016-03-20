@@ -43,12 +43,13 @@ end
 * B ___|        |_______|        |_______|        |_______|        |_______
 *
 */
-always_ff @(posedge inA, posedge resetCounters)
-	if(resetCounters) direction <= 8'd127;
-	else	if(inB)  direction <= {7'b0, 1'b1};
-			else 		direction <= 8'b0;
+always_ff @(posedge inA)
+begin
+	if(inB)  direction <= {7'b0, 1'b1};
+	else 		direction <= 8'b0;
+end
 
-// Reset, count clock cycles and transmit tickcount every 50 000 cycles (= 1 ms)
+// Reset, count clock cycles and transmit tickcount every 5 000 000 cycles (= 100 ms)
 always_ff @(posedge clk, posedge reset)
 	if(reset)
 	begin
@@ -57,7 +58,7 @@ always_ff @(posedge clk, posedge reset)
 		speed <= 16'b0;
 	end
 	else 
-		if(clkcount == 32'd750000)
+		if(clkcount == 32'd5000000)
 		begin
 			speed 	<= tickcount1 + tickcount2 + tickcount3 + tickcount4;
 			resetCounters <= 1;

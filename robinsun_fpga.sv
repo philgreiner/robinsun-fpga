@@ -141,17 +141,17 @@ assign MotFVA	= GPIO1[10];
 assign MotFVB	= GPIO1[11];
 
 // Assign sonar signals
-assign S1T		= GPIO1[12];
+assign GPIO1[12] = S1T;
 assign S1S		= GPIO1[13];
-assign S2T		= GPIO1[14];
+assign GPIO1[14] = S2T;
 assign S2S		= GPIO1[15];
-assign S3T		= GPIO1[16];
+assign GPIO1[16] = S3T;
 assign S3S		= GPIO1[17];
-assign S4T		= GPIO1[18];
+assign GPIO1[18] = S4T;
 assign S4S		= GPIO1[19];
-assign S5T		= GPIO1[20];
+assign GPIO1[20] = S5T;
 assign S5S		= GPIO1[21];
-assign S6T		= GPIO1[22];
+assign GPIO1[22] = S6T;
 assign S6S		= GPIO1[23];
 
 // Assign START and PARASOL signals
