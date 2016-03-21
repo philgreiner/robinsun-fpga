@@ -1,5 +1,5 @@
 Analysis & Synthesis report for robinsun-fpga
-Mon Mar 21 00:28:16 2016
+Mon Mar 21 04:50:37 2016
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
@@ -63,15 +63,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 21 00:28:16 2016      ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 21 04:50:36 2016      ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
 ; Revision Name                      ; robinsun-fpga                              ;
 ; Top-level Entity Name              ; robinsun_fpga                              ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 4,682                                      ;
-;     Total combinational functions  ; 3,877                                      ;
-;     Dedicated logic registers      ; 1,941                                      ;
-; Total registers                    ; 1941                                       ;
+; Total logic elements               ; 4,616                                      ;
+;     Total combinational functions  ; 3,812                                      ;
+;     Dedicated logic registers      ; 1,908                                      ;
+; Total registers                    ; 1908                                       ;
 ; Total pins                         ; 103                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 352,256                                    ;
@@ -270,20 +270,20 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 4,682          ;
+; Estimated Total logic elements              ; 4,616          ;
 ;                                             ;                ;
-; Total combinational functions               ; 3877           ;
+; Total combinational functions               ; 3812           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 997            ;
-;     -- 3 input functions                    ; 1169           ;
-;     -- <=2 input functions                  ; 1711           ;
+;     -- 4 input functions                    ; 998            ;
+;     -- 3 input functions                    ; 1134           ;
+;     -- <=2 input functions                  ; 1680           ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 2203           ;
-;     -- arithmetic mode                      ; 1674           ;
+;     -- normal mode                          ; 2196           ;
+;     -- arithmetic mode                      ; 1616           ;
 ;                                             ;                ;
-; Total registers                             ; 1941           ;
-;     -- Dedicated logic registers            ; 1941           ;
+; Total registers                             ; 1908           ;
+;     -- Dedicated logic registers            ; 1908           ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 103            ;
@@ -293,8 +293,8 @@ agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 993            ;
-; Total fan-out                               ; 18637          ;
-; Average fan-out                             ; 3.04           ;
+; Total fan-out                               ; 18380          ;
+; Average fan-out                             ; 3.05           ;
 +---------------------------------------------+----------------+
 
 
@@ -303,15 +303,15 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                                                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |robinsun_fpga                                                                                      ; 3877 (0)          ; 1941 (6)     ; 352256      ; 0            ; 0       ; 0         ; 103  ; 0            ; |robinsun_fpga                                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
-;    |MySPI:MySPI_instance|                                                                           ; 193 (193)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|MySPI:MySPI_instance                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
+; |robinsun_fpga                                                                                      ; 3812 (0)          ; 1908 (6)     ; 352256      ; 0            ; 0       ; 0         ; 103  ; 0            ; |robinsun_fpga                                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
+;    |MySPI:MySPI_instance|                                                                           ; 192 (192)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|MySPI:MySPI_instance                                                                                                                                                                                                                                                                                                                                                                       ; work         ;
 ;    |encoder:MotB|                                                                                   ; 154 (154)         ; 114 (114)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotB                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 ;    |encoder:MotFH|                                                                                  ; 112 (112)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotFH                                                                                                                                                                                                                                                                                                                                                                              ; work         ;
 ;    |encoder:MotFV|                                                                                  ; 112 (112)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotFV                                                                                                                                                                                                                                                                                                                                                                              ; work         ;
 ;    |encoder:MotL|                                                                                   ; 112 (112)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotL                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 ;    |encoder:MotR|                                                                                   ; 123 (123)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:MotR                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 ;    |encoder:OdoL|                                                                                   ; 112 (112)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:OdoL                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
-;    |encoder:OdoR|                                                                                   ; 112 (112)         ; 81 (81)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:OdoR                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
+;    |encoder:OdoR|                                                                                   ; 48 (48)           ; 48 (48)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|encoder:OdoR                                                                                                                                                                                                                                                                                                                                                                               ; work         ;
 ;    |lpm_divide:Div0|                                                                                ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0                                                                                                                                                                                                                                                                                                                                                                            ; work         ;
 ;       |lpm_divide_ckm:auto_generated|                                                               ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0|lpm_divide_ckm:auto_generated                                                                                                                                                                                                                                                                                                                                              ; work         ;
 ;          |sign_div_unsign_4nh:divider|                                                              ; 317 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |robinsun_fpga|lpm_divide:Div0|lpm_divide_ckm:auto_generated|sign_div_unsign_4nh:divider                                                                                                                                                                                                                                                                                                                  ; work         ;
@@ -637,7 +637,9 @@ Encoding Type:  One-Hot
 ; encoder:MotFH|direction[1..7]           ; Stuck at GND due to stuck port data_in   ;
 ; encoder:MotB|direction[1..7]            ; Stuck at GND due to stuck port data_in   ;
 ; encoder:OdoL|direction[1..7]            ; Stuck at GND due to stuck port data_in   ;
-; encoder:OdoR|direction[1..7]            ; Stuck at GND due to stuck port data_in   ;
+; encoder:OdoR|tickcount1[0..15]          ; Stuck at GND due to stuck port clock     ;
+; encoder:OdoR|tickcount3[0..15]          ; Stuck at GND due to stuck port clock     ;
+; encoder:OdoR|direction[0..7]            ; Stuck at GND due to stuck port clock     ;
 ; encoder:MotL|direction[1..7]            ; Stuck at GND due to stuck port data_in   ;
 ; encoder:MotR|direction[1..7]            ; Stuck at GND due to stuck port data_in   ;
 ; sonars:front|triggerDelay[19]           ; Merged with sonars:back|triggerDelay[19] ;
@@ -879,7 +881,7 @@ Encoding Type:  One-Hot
 ; sonars:front|active.10                  ; Merged with sonars:back|active.10        ;
 ; sonars:front|triggers[0]                ; Merged with sonars:back|triggers[0]      ;
 ; sonars:front|triggers[2]                ; Merged with sonars:back|triggers[2]      ;
-; Total Number of Removed Registers = 290 ;                                          ;
+; Total Number of Removed Registers = 323 ;                                          ;
 +-----------------------------------------+------------------------------------------+
 
 
@@ -888,10 +890,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1941  ;
+; Total registers                              ; 1908  ;
 ; Number of registers using Synchronous Clear  ; 176   ;
 ; Number of registers using Synchronous Load   ; 87    ;
-; Number of registers using Asynchronous Clear ; 1286  ;
+; Number of registers using Asynchronous Clear ; 1254  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 925   ;
 ; Number of registers using Preset             ; 0     ;
@@ -903,7 +905,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                                                                                                        ; Fan out ;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; encoder:MotB|resetCounters                                                                                                                                                                                                                               ; 448     ;
+; encoder:MotB|resetCounters                                                                                                                                                                                                                               ; 416     ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|tdo            ; 1       ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
 ; sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
@@ -1208,8 +1210,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 146                         ;
-; cycloneiii_ff         ; 937                         ;
-;     CLR               ; 501                         ;
+; cycloneiii_ff         ; 904                         ;
+;     CLR               ; 469                         ;
 ;     CLR SCLR          ; 7                           ;
 ;     ENA               ; 27                          ;
 ;     ENA CLR           ; 238                         ;
@@ -1217,21 +1219,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 14                          ;
 ;     SCLR              ; 1                           ;
 ;     SLD               ; 2                           ;
-;     plain             ; 27                          ;
+;     plain             ; 26                          ;
 ; cycloneiii_io_obuf    ; 48                          ;
-; cycloneiii_lcell_comb ; 3156                        ;
-;     arith             ; 1574                        ;
-;         2 data inputs ; 654                         ;
-;         3 data inputs ; 920                         ;
-;     normal            ; 1582                        ;
+; cycloneiii_lcell_comb ; 3091                        ;
+;     arith             ; 1516                        ;
+;         2 data inputs ; 628                         ;
+;         3 data inputs ; 888                         ;
+;     normal            ; 1575                        ;
 ;         0 data inputs ; 55                          ;
-;         1 data inputs ; 68                          ;
-;         2 data inputs ; 754                         ;
-;         3 data inputs ; 50                          ;
-;         4 data inputs ; 655                         ;
+;         1 data inputs ; 64                          ;
+;         2 data inputs ; 753                         ;
+;         3 data inputs ; 47                          ;
+;         4 data inputs ; 656                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 30.80                       ;
-; Average LUT depth     ; 14.97                       ;
+; Average LUT depth     ; 15.29                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1240,7 +1242,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -1377,7 +1379,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
-    Info: Processing started: Mon Mar 21 00:27:49 2016
+    Info: Processing started: Mon Mar 21 04:50:11 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off robinsun-fpga -c robinsun-fpga
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Warning (10229): Verilog HDL Expression warning at sonars.sv(56): truncated literal to match 9 bits
@@ -1394,8 +1396,8 @@ Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT1 
 Warning (10858): Verilog HDL warning at robinsun_fpga.sv(90): object PIC32_INT2 used but never assigned
 Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(125): object "START" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at robinsun_fpga.sv(125): object "PARASOL" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at robinsun_fpga.sv(193): truncated value with size 32 to match size of target (8)
 Warning (10230): Verilog HDL assignment warning at robinsun_fpga.sv(194): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at robinsun_fpga.sv(195): truncated value with size 32 to match size of target (8)
 Warning (10030): Net "PIC32_INT1" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
 Warning (10030): Net "PIC32_INT2" at robinsun_fpga.sv(90) has no driver or initial value, using a default initial value '0'
 Warning (10034): Output port "LED" at robinsun_fpga.sv(49) has no driver
@@ -1443,7 +1445,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
 Info (11170): Start IP generation for the debug fabric within sld_hub.
-Info (11172): 2016.03.21.00:28:05 Progress: Loading slde840da38/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2016.03.21.04:50:27 Progress: Loading slde840da38/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1594,23 +1596,24 @@ Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 119 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 6 input pin(s) that do not drive logic
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "GPIO_2_IN[0]"
     Warning (15610): No output dependent on input pin "GPIO_2_IN[1]"
     Warning (15610): No output dependent on input pin "GPIO_2_IN[2]"
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_BUSY"
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_DOUT"
     Warning (15610): No output dependent on input pin "LCDLTM_ADC_PENIRQ_n"
-Info (21057): Implemented 4854 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "GPIO1_IN[1]"
+Info (21057): Implemented 4788 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 41 output pins
     Info (21060): Implemented 48 bidirectional pins
-    Info (21061): Implemented 4703 logic cells
+    Info (21061): Implemented 4637 logic cells
     Info (21064): Implemented 43 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 130 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 131 warnings
     Info: Peak virtual memory: 794 megabytes
-    Info: Processing ended: Mon Mar 21 00:28:16 2016
-    Info: Elapsed time: 00:00:27
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Processing ended: Mon Mar 21 04:50:37 2016
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:52
 
 

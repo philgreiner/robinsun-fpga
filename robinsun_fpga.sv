@@ -126,10 +126,11 @@ logic START, PARASOL;
 
 // Assign motors and odometer signals
 assign MotRA	= GPIO1_IN[0];
-assign MotLA	= GPIO1_IN[1];
+//assign MotLA	= GPIO1_IN[1];
+assign MotLB	= GPIO1[2];
 assign MotRB	= GPIO1[0];
-assign MotLB	= GPIO1[1];
-assign OdoRA	= GPIO1[2];
+assign MotLA	= GPIO1[1];
+//assign OdoRA	= GPIO1[2];
 assign OdoRB	= GPIO1[3];
 assign OdoLA	= GPIO1[4];
 assign OdoLB	= GPIO1[5];
