@@ -4,314 +4,224 @@
   </display_tree>
   <instance enabled="true" entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
     <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
-    <signal_set global_temp="1" is_expanded="true" name="signal_set: 2016/03/20 13:21:19  #0">
+    <signal_set global_temp="1" is_expanded="true" name="signal_set: 2016/03/23 13:58:02  #0">
       <clock name="CLOCK_50" polarity="posedge" tap_mode="classic"/>
       <config ram_type="AUTO" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="8192" trigger_in_enable="no" trigger_out_enable="no"/>
       <top_entity/>
       <signal_vec>
         <trigger_input_vec>
-          <wire name="sonars:back|R2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|S2" tap_mode="classic"/>
-          <wire name="sonars:back|T2" tap_mode="classic"/>
-          <wire name="sonars:back|count2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|triggerDelay[3]" tap_mode="classic"/>
+          <wire name="GPIO1[18]" tap_mode="classic"/>
+          <wire name="GPIO1[19]" tap_mode="classic"/>
+          <wire name="GPIO1[20]" tap_mode="classic"/>
+          <wire name="GPIO1[21]" tap_mode="classic"/>
+          <wire name="GPIO1[22]" tap_mode="classic"/>
+          <wire name="GPIO1[23]" tap_mode="classic"/>
+          <wire name="S4S" tap_mode="classic"/>
+          <wire name="S5S" tap_mode="classic"/>
+          <wire name="S6S" tap_mode="classic"/>
+          <wire name="sonars:back|R1[0]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[10]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[11]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[12]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[13]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[14]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[15]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[16]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[17]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[18]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[19]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[1]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[2]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[3]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[4]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[5]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[6]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[7]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[8]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[9]" tap_mode="classic"/>
         </trigger_input_vec>
         <data_input_vec>
-          <wire name="sonars:back|R2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|S2" tap_mode="classic"/>
-          <wire name="sonars:back|T2" tap_mode="classic"/>
-          <wire name="sonars:back|count2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|triggerDelay[3]" tap_mode="classic"/>
+          <wire name="GPIO1[18]" tap_mode="classic"/>
+          <wire name="GPIO1[19]" tap_mode="classic"/>
+          <wire name="GPIO1[20]" tap_mode="classic"/>
+          <wire name="GPIO1[21]" tap_mode="classic"/>
+          <wire name="GPIO1[22]" tap_mode="classic"/>
+          <wire name="GPIO1[23]" tap_mode="classic"/>
+          <wire name="S4S" tap_mode="classic"/>
+          <wire name="S5S" tap_mode="classic"/>
+          <wire name="S6S" tap_mode="classic"/>
+          <wire name="sonars:back|R1[0]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[10]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[11]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[12]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[13]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[14]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[15]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[16]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[17]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[18]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[19]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[1]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[2]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[3]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[4]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[5]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[6]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[7]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[8]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[9]" tap_mode="classic"/>
         </data_input_vec>
         <storage_qualifier_input_vec>
-          <wire name="sonars:back|R2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|R2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|S2" tap_mode="classic"/>
-          <wire name="sonars:back|T2" tap_mode="classic"/>
-          <wire name="sonars:back|count2[0]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[10]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[11]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[12]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[13]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[14]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[15]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[16]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[17]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[18]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[19]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[1]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[2]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[3]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[4]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[5]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[6]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[7]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[8]" tap_mode="classic"/>
-          <wire name="sonars:back|count2[9]" tap_mode="classic"/>
-          <wire name="sonars:back|triggerDelay[3]" tap_mode="classic"/>
+          <wire name="GPIO1[18]" tap_mode="classic"/>
+          <wire name="GPIO1[19]" tap_mode="classic"/>
+          <wire name="GPIO1[20]" tap_mode="classic"/>
+          <wire name="GPIO1[21]" tap_mode="classic"/>
+          <wire name="GPIO1[22]" tap_mode="classic"/>
+          <wire name="GPIO1[23]" tap_mode="classic"/>
+          <wire name="S4S" tap_mode="classic"/>
+          <wire name="S5S" tap_mode="classic"/>
+          <wire name="S6S" tap_mode="classic"/>
+          <wire name="sonars:back|R1[0]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[10]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[11]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[12]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[13]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[14]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[15]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[16]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[17]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[18]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[19]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[1]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[2]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[3]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[4]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[5]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[6]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[7]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[8]" tap_mode="classic"/>
+          <wire name="sonars:back|R1[9]" tap_mode="classic"/>
         </storage_qualifier_input_vec>
       </signal_vec>
       <presentation>
         <unified_setup_data_view>
-          <node is_selected="false" level-0="alt_or" name="sonars:back|R2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
-            <node data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[19]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
-            <node data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[18]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
-            <node data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[17]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
-            <node data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[16]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
-            <node data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[15]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
-            <node data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[14]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
-            <node data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[13]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
-            <node data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[12]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
-            <node data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[11]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
-            <node data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[10]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
-            <node data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
-            <node data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
-            <node data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
-            <node data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
-            <node data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
-            <node data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
-            <node data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
-            <node data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
-            <node data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
-            <node data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <node data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[18]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <node data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[19]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <node data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[20]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+          <node data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[21]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <node data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="GPIO1[22]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <node data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[23]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <node data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S4S" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <node data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S5S" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+          <node data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S6S" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+          <node is_selected="false" level-0="alt_or" name="sonars:back|R1[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
+            <node data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[19]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <node data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[18]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <node data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[17]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <node data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[16]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <node data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[15]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <node data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[14]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <node data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[13]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+            <node data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[12]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <node data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[11]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <node data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[10]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <node data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[9]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <node data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[8]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <node data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[7]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <node data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[6]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+            <node data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[5]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <node data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[4]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <node data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[3]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <node data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[2]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <node data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[1]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <node data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[0]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
           </node>
-          <node is_selected="false" level-0="alt_or" name="sonars:back|count2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" radix="unsigned_dec" type="register">
-            <node data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[19]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
-            <node data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[18]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
-            <node data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[17]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
-            <node data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[16]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
-            <node data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[15]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
-            <node data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[14]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
-            <node data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[13]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
-            <node data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[12]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
-            <node data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[11]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
-            <node data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[10]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
-            <node data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[9]" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
-            <node data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[8]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
-            <node data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[7]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
-            <node data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[6]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
-            <node data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[5]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
-            <node data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[4]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
-            <node data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[3]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
-            <node data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[2]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
-            <node data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[1]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
-            <node data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[0]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
-          </node>
-          <node data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|triggerDelay[3]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
-          <node data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="sonars:back|S2" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
-          <node data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|T2" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
         </unified_setup_data_view>
         <data_view>
-          <bus is_selected="false" level-0="alt_or" name="sonars:back|R2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
-            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[19]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
-            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[18]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
-            <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[17]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
-            <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[16]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
-            <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[15]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
-            <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[14]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
-            <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[13]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
-            <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[12]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
-            <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[11]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
-            <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[10]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
-            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
-            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
-            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
-            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
-            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
-            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
-            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
-            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
-            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
-            <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[18]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[19]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[20]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+          <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[21]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="GPIO1[22]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[23]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S4S" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S5S" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+          <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S6S" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="sonars:back|R1[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
+            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[19]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[18]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[17]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[16]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[15]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[14]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[13]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[12]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[11]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[10]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[9]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[8]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[7]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[6]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[5]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[4]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[3]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[2]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[1]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[0]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
           </bus>
-          <bus is_selected="false" level-0="alt_or" name="sonars:back|count2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" radix="unsigned_dec" type="register">
-            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[19]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
-            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[18]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
-            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[17]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
-            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[16]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
-            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[15]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
-            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[14]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
-            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[13]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
-            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[12]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
-            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[11]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
-            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[10]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
-            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[9]" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
-            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[8]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
-            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[7]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
-            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[6]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
-            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[5]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
-            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[4]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
-            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[3]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
-            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[2]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
-            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[1]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
-            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[0]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
-          </bus>
-          <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|triggerDelay[3]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
-          <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="sonars:back|S2" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
-          <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|T2" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
         </data_view>
         <setup_view>
-          <bus is_selected="false" level-0="alt_or" name="sonars:back|R2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
-            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[19]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
-            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[18]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
-            <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[17]" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
-            <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[16]" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
-            <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[15]" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
-            <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[14]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
-            <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[13]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
-            <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[12]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
-            <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[11]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
-            <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[10]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
-            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[9]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
-            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[8]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
-            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[7]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
-            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[6]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
-            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[5]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
-            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[4]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
-            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[3]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
-            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[2]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
-            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[1]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
-            <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|R2[0]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[18]" storage_index="0" tap_mode="classic" trigger_index="0" type="unknown"/>
+          <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[19]" storage_index="1" tap_mode="classic" trigger_index="1" type="unknown"/>
+          <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[20]" storage_index="2" tap_mode="classic" trigger_index="2" type="unknown"/>
+          <net data_index="3" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[21]" storage_index="3" tap_mode="classic" trigger_index="3" type="unknown"/>
+          <net data_index="4" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="GPIO1[22]" storage_index="4" tap_mode="classic" trigger_index="4" type="unknown"/>
+          <net data_index="5" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="GPIO1[23]" storage_index="5" tap_mode="classic" trigger_index="5" type="unknown"/>
+          <net data_index="6" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S4S" storage_index="6" tap_mode="classic" trigger_index="6" type="unknown"/>
+          <net data_index="7" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S5S" storage_index="7" tap_mode="classic" trigger_index="7" type="unknown"/>
+          <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="S6S" storage_index="8" tap_mode="classic" trigger_index="8" type="unknown"/>
+          <bus is_selected="false" level-0="alt_or" name="sonars:back|R1[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" type="combinatorial">
+            <net data_index="19" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[19]" storage_index="19" tap_mode="classic" trigger_index="19" type="unknown"/>
+            <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[18]" storage_index="18" tap_mode="classic" trigger_index="18" type="unknown"/>
+            <net data_index="17" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[17]" storage_index="17" tap_mode="classic" trigger_index="17" type="unknown"/>
+            <net data_index="16" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[16]" storage_index="16" tap_mode="classic" trigger_index="16" type="unknown"/>
+            <net data_index="15" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[15]" storage_index="15" tap_mode="classic" trigger_index="15" type="unknown"/>
+            <net data_index="14" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[14]" storage_index="14" tap_mode="classic" trigger_index="14" type="unknown"/>
+            <net data_index="13" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[13]" storage_index="13" tap_mode="classic" trigger_index="13" type="unknown"/>
+            <net data_index="12" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[12]" storage_index="12" tap_mode="classic" trigger_index="12" type="unknown"/>
+            <net data_index="11" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[11]" storage_index="11" tap_mode="classic" trigger_index="11" type="unknown"/>
+            <net data_index="10" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[10]" storage_index="10" tap_mode="classic" trigger_index="10" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[9]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[8]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
+            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[7]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
+            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[6]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
+            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[5]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
+            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[4]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
+            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[3]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
+            <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[2]" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
+            <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[1]" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
+            <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|R1[0]" storage_index="9" tap_mode="classic" trigger_index="9" type="unknown"/>
           </bus>
-          <bus is_selected="false" level-0="alt_or" name="sonars:back|count2[19..0]" order="msb_to_lsb" pwr_level-0="alt_or" radix="unsigned_dec" type="register">
-            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[19]" storage_index="32" tap_mode="classic" trigger_index="32" type="unknown"/>
-            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[18]" storage_index="31" tap_mode="classic" trigger_index="31" type="unknown"/>
-            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[17]" storage_index="30" tap_mode="classic" trigger_index="30" type="unknown"/>
-            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[16]" storage_index="29" tap_mode="classic" trigger_index="29" type="unknown"/>
-            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[15]" storage_index="28" tap_mode="classic" trigger_index="28" type="unknown"/>
-            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[14]" storage_index="27" tap_mode="classic" trigger_index="27" type="unknown"/>
-            <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[13]" storage_index="26" tap_mode="classic" trigger_index="26" type="unknown"/>
-            <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[12]" storage_index="25" tap_mode="classic" trigger_index="25" type="unknown"/>
-            <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[11]" storage_index="24" tap_mode="classic" trigger_index="24" type="unknown"/>
-            <net data_index="23" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[10]" storage_index="23" tap_mode="classic" trigger_index="23" type="unknown"/>
-            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[9]" storage_index="41" tap_mode="classic" trigger_index="41" type="unknown"/>
-            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[8]" storage_index="40" tap_mode="classic" trigger_index="40" type="unknown"/>
-            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[7]" storage_index="39" tap_mode="classic" trigger_index="39" type="unknown"/>
-            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[6]" storage_index="38" tap_mode="classic" trigger_index="38" type="unknown"/>
-            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[5]" storage_index="37" tap_mode="classic" trigger_index="37" type="unknown"/>
-            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[4]" storage_index="36" tap_mode="classic" trigger_index="36" type="unknown"/>
-            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[3]" storage_index="35" tap_mode="classic" trigger_index="35" type="unknown"/>
-            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[2]" storage_index="34" tap_mode="classic" trigger_index="34" type="unknown"/>
-            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[1]" storage_index="33" tap_mode="classic" trigger_index="33" type="unknown"/>
-            <net data_index="22" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" name="sonars:back|count2[0]" storage_index="22" tap_mode="classic" trigger_index="22" type="unknown"/>
-          </bus>
-          <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|triggerDelay[3]" storage_index="42" tap_mode="classic" trigger_index="42" type="unknown"/>
-          <net data_index="20" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="either edge" name="sonars:back|S2" storage_index="20" tap_mode="classic" trigger_index="20" type="unknown"/>
-          <net data_index="21" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_selected="false" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="sonars:back|T2" storage_index="21" tap_mode="classic" trigger_index="21" type="unknown"/>
         </setup_view>
         <trigger_in_editor/>
         <trigger_out_editor/>
       </presentation>
-      <trigger CRC="5E303B95" attribute_mem_mode="false" gap_record="true" global_temp="1" is_expanded="true" name="trigger: 2016/03/20 13:29:05  #0" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="8192" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+      <trigger CRC="1DF2017E" attribute_mem_mode="false" gap_record="true" global_temp="1" is_expanded="true" name="trigger: 2016/03/23 14:07:13  #0" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="8192" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
         <events use_custom_flow_control="no">
           <level editor="basic_or" enabled="yes" name="condition1" type="advanced">
             <power_up enabled="yes">
-              <power_up_expression><![CDATA[alt_reduction(alt_true, {((mbpm('X', 'sonars:back|S2') && variable(1))), ((mbpm('X', 'sonars:back|T2') && variable(1))), ((mbpm('X', 'sonars:back|triggerDelay[3]') && variable(1))), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|R2[0]') && variable(1)), (mbpm('X', 'sonars:back|R2[10]') && variable(1)), (mbpm('X', 'sonars:back|R2[11]') && variable(1)), (mbpm('X', 'sonars:back|R2[12]') && variable(1)), (mbpm('X', 'sonars:back|R2[13]') && variable(1)), (mbpm('X', 'sonars:back|R2[14]') && variable(1)), (mbpm('X', 'sonars:back|R2[15]') && variable(1)), (mbpm('X', 'sonars:back|R2[16]') && variable(1)), (mbpm('X', 'sonars:back|R2[17]') && variable(1)), (mbpm('X', 'sonars:back|R2[18]') && variable(1)), (mbpm('X', 'sonars:back|R2[19]') && variable(1)), (mbpm('X', 'sonars:back|R2[1]') && variable(1)), (mbpm('X', 'sonars:back|R2[2]') && variable(1)), (mbpm('X', 'sonars:back|R2[3]') && variable(1)), (mbpm('X', 'sonars:back|R2[4]') && variable(1)), (mbpm('X', 'sonars:back|R2[5]') && variable(1)), (mbpm('X', 'sonars:back|R2[6]') && variable(1)), (mbpm('X', 'sonars:back|R2[7]') && variable(1)), (mbpm('X', 'sonars:back|R2[8]') && variable(1)), (mbpm('X', 'sonars:back|R2[9]') && variable(1))})), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|count2[0]') && variable(1)), (mbpm('X', 'sonars:back|count2[10]') && variable(1)), (mbpm('X', 'sonars:back|count2[11]') && variable(1)), (mbpm('X', 'sonars:back|count2[12]') && variable(1)), (mbpm('X', 'sonars:back|count2[13]') && variable(1)), (mbpm('X', 'sonars:back|count2[14]') && variable(1)), (mbpm('X', 'sonars:back|count2[15]') && variable(1)), (mbpm('X', 'sonars:back|count2[16]') && variable(1)), (mbpm('X', 'sonars:back|count2[17]') && variable(1)), (mbpm('X', 'sonars:back|count2[18]') && variable(1)), (mbpm('X', 'sonars:back|count2[19]') && variable(1)), (mbpm('X', 'sonars:back|count2[1]') && variable(1)), (mbpm('X', 'sonars:back|count2[2]') && variable(1)), (mbpm('X', 'sonars:back|count2[3]') && variable(1)), (mbpm('X', 'sonars:back|count2[4]') && variable(1)), (mbpm('X', 'sonars:back|count2[5]') && variable(1)), (mbpm('X', 'sonars:back|count2[6]') && variable(1)), (mbpm('X', 'sonars:back|count2[7]') && variable(1)), (mbpm('X', 'sonars:back|count2[8]') && variable(1)), (mbpm('X', 'sonars:back|count2[9]') && variable(1))}))})]]>
+              <power_up_expression><![CDATA[alt_reduction(alt_true, {((mbpm('X', 'GPIO1[18]') && variable(1))), ((mbpm('X', 'GPIO1[19]') && variable(1))), ((mbpm('X', 'GPIO1[20]') && variable(1))), ((mbpm('X', 'GPIO1[21]') && variable(1))), ((mbpm('X', 'GPIO1[22]') && variable(1))), ((mbpm('X', 'GPIO1[23]') && variable(1))), ((mbpm('X', 'S4S') && variable(1))), ((mbpm('X', 'S5S') && variable(1))), ((mbpm('X', 'S6S') && variable(1))), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|R1[0]') && variable(1)), (mbpm('X', 'sonars:back|R1[10]') && variable(1)), (mbpm('X', 'sonars:back|R1[11]') && variable(1)), (mbpm('X', 'sonars:back|R1[12]') && variable(1)), (mbpm('X', 'sonars:back|R1[13]') && variable(1)), (mbpm('X', 'sonars:back|R1[14]') && variable(1)), (mbpm('X', 'sonars:back|R1[15]') && variable(1)), (mbpm('X', 'sonars:back|R1[16]') && variable(1)), (mbpm('X', 'sonars:back|R1[17]') && variable(1)), (mbpm('X', 'sonars:back|R1[18]') && variable(1)), (mbpm('X', 'sonars:back|R1[19]') && variable(1)), (mbpm('X', 'sonars:back|R1[1]') && variable(1)), (mbpm('X', 'sonars:back|R1[2]') && variable(1)), (mbpm('X', 'sonars:back|R1[3]') && variable(1)), (mbpm('X', 'sonars:back|R1[4]') && variable(1)), (mbpm('X', 'sonars:back|R1[5]') && variable(1)), (mbpm('X', 'sonars:back|R1[6]') && variable(1)), (mbpm('X', 'sonars:back|R1[7]') && variable(1)), (mbpm('X', 'sonars:back|R1[8]') && variable(1)), (mbpm('X', 'sonars:back|R1[9]') && variable(1))}))})]]>
               </power_up_expression>
             </power_up>
-            <expression><![CDATA[alt_reduction(alt_or, {((mbpm('E', 'sonars:back|S2') && variable(1))), ((mbpm('X', 'sonars:back|T2') && variable(0))), ((mbpm('X', 'sonars:back|triggerDelay[3]') && variable(0))), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|R2[0]') && variable(0)), (mbpm('X', 'sonars:back|R2[10]') && variable(0)), (mbpm('X', 'sonars:back|R2[11]') && variable(0)), (mbpm('X', 'sonars:back|R2[12]') && variable(0)), (mbpm('X', 'sonars:back|R2[13]') && variable(0)), (mbpm('X', 'sonars:back|R2[14]') && variable(0)), (mbpm('X', 'sonars:back|R2[15]') && variable(0)), (mbpm('X', 'sonars:back|R2[16]') && variable(0)), (mbpm('X', 'sonars:back|R2[17]') && variable(0)), (mbpm('X', 'sonars:back|R2[18]') && variable(0)), (mbpm('X', 'sonars:back|R2[19]') && variable(0)), (mbpm('X', 'sonars:back|R2[1]') && variable(0)), (mbpm('X', 'sonars:back|R2[2]') && variable(0)), (mbpm('X', 'sonars:back|R2[3]') && variable(0)), (mbpm('X', 'sonars:back|R2[4]') && variable(0)), (mbpm('X', 'sonars:back|R2[5]') && variable(0)), (mbpm('X', 'sonars:back|R2[6]') && variable(0)), (mbpm('X', 'sonars:back|R2[7]') && variable(0)), (mbpm('X', 'sonars:back|R2[8]') && variable(0)), (mbpm('X', 'sonars:back|R2[9]') && variable(0))})), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|count2[0]') && variable(0)), (mbpm('X', 'sonars:back|count2[10]') && variable(0)), (mbpm('X', 'sonars:back|count2[11]') && variable(0)), (mbpm('X', 'sonars:back|count2[12]') && variable(0)), (mbpm('X', 'sonars:back|count2[13]') && variable(0)), (mbpm('X', 'sonars:back|count2[14]') && variable(0)), (mbpm('X', 'sonars:back|count2[15]') && variable(0)), (mbpm('X', 'sonars:back|count2[16]') && variable(0)), (mbpm('X', 'sonars:back|count2[17]') && variable(0)), (mbpm('X', 'sonars:back|count2[18]') && variable(0)), (mbpm('X', 'sonars:back|count2[19]') && variable(0)), (mbpm('X', 'sonars:back|count2[1]') && variable(0)), (mbpm('X', 'sonars:back|count2[2]') && variable(0)), (mbpm('X', 'sonars:back|count2[3]') && variable(0)), (mbpm('X', 'sonars:back|count2[4]') && variable(0)), (mbpm('X', 'sonars:back|count2[5]') && variable(0)), (mbpm('X', 'sonars:back|count2[6]') && variable(0)), (mbpm('X', 'sonars:back|count2[7]') && variable(0)), (mbpm('X', 'sonars:back|count2[8]') && variable(0)), (mbpm('X', 'sonars:back|count2[9]') && variable(0))}))})]]>
+            <expression><![CDATA[alt_reduction(alt_or, {((mbpm('X', 'GPIO1[18]') && variable(0))), ((mbpm('X', 'GPIO1[19]') && variable(0))), ((mbpm('X', 'GPIO1[20]') && variable(0))), ((mbpm('X', 'GPIO1[21]') && variable(0))), ((mbpm('E', 'GPIO1[22]') && variable(1))), ((mbpm('X', 'GPIO1[23]') && variable(0))), ((mbpm('X', 'S4S') && variable(0))), ((mbpm('X', 'S5S') && variable(0))), ((mbpm('X', 'S6S') && variable(0))), (alt_reduction(alt_false, {(mbpm('X', 'sonars:back|R1[0]') && variable(0)), (mbpm('X', 'sonars:back|R1[10]') && variable(0)), (mbpm('X', 'sonars:back|R1[11]') && variable(0)), (mbpm('X', 'sonars:back|R1[12]') && variable(0)), (mbpm('X', 'sonars:back|R1[13]') && variable(0)), (mbpm('X', 'sonars:back|R1[14]') && variable(0)), (mbpm('X', 'sonars:back|R1[15]') && variable(0)), (mbpm('X', 'sonars:back|R1[16]') && variable(0)), (mbpm('X', 'sonars:back|R1[17]') && variable(0)), (mbpm('X', 'sonars:back|R1[18]') && variable(0)), (mbpm('X', 'sonars:back|R1[19]') && variable(0)), (mbpm('X', 'sonars:back|R1[1]') && variable(0)), (mbpm('X', 'sonars:back|R1[2]') && variable(0)), (mbpm('X', 'sonars:back|R1[3]') && variable(0)), (mbpm('X', 'sonars:back|R1[4]') && variable(0)), (mbpm('X', 'sonars:back|R1[5]') && variable(0)), (mbpm('X', 'sonars:back|R1[6]') && variable(0)), (mbpm('X', 'sonars:back|R1[7]') && variable(0)), (mbpm('X', 'sonars:back|R1[8]') && variable(0)), (mbpm('X', 'sonars:back|R1[9]') && variable(0))}))})]]>
             </expression>
             <op_node/>
           </level>
         </events>
         <storage_qualifier_events>
-          <transitional>1111111111111111111111111111111111111111111
-            <pwr_up_transitional>1111111111111111111111111111111111111111111</pwr_up_transitional>
+          <transitional>11111111111111111111111111111
+            <pwr_up_transitional>11111111111111111111111111111</pwr_up_transitional>
           </transitional>
           <storage_qualifier_level type="basic">
             <power_up>
@@ -332,15 +242,15 @@
       </trigger>
     </signal_set>
     <position_info>
-      <single attribute="active tab" value="0"/>
-      <single attribute="data horizontal scroll position" value="0"/>
+      <single attribute="active tab" value="1"/>
+      <single attribute="data horizontal scroll position" value="404"/>
       <single attribute="data vertical scroll position" value="0"/>
       <single attribute="setup horizontal scroll position" value="0"/>
       <single attribute="setup vertical scroll position" value="0"/>
       <single attribute="zoom level denominator" value="1"/>
-      <single attribute="zoom level numerator" value="1"/>
+      <single attribute="zoom level numerator" value="2"/>
       <single attribute="zoom offset denominator" value="1"/>
-      <single attribute="zoom offset numerator" value="122880"/>
+      <single attribute="zoom offset numerator" value="61440"/>
     </position_info>
   </instance>
   <mnemonics/>
@@ -353,7 +263,8 @@
     <single attribute="instance widget visible" value="1"/>
     <single attribute="jtag widget visible" value="1"/>
     <single attribute="lock mode" value="0"/>
-    <multi attribute="frame size" size="2" value="1920,1001"/>
+    <single attribute="sof manager visible" value="0"/>
+    <multi attribute="frame size" size="2" value="1920,1005"/>
     <multi attribute="jtag widget size" size="2" value="370,139"/>
   </global_info>
 </session>

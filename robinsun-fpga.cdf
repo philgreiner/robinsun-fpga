@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("D:/Documents/Github/robinsun-fpga/") File("robinsun-fpga.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("C:/Users/Martin/Desktop/UCL/Master1/Q8/Q8.Mechatronics/FPGA+PIC32/robinsun-fpga/") File("robinsun-fpga.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

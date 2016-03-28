@@ -125,12 +125,20 @@ logic S1T, S1S, S2T, S2S, S3T, S3S, S4T, S4S, S5T, S5S, S6T, S6S;
 logic START, PARASOL;
 
 // Assign motors and odometer signals
+
+//ROBINSUN
 assign MotRA	= GPIO1_IN[0];
-//assign MotLA	= GPIO1_IN[1];
-assign MotLB	= GPIO1[2];
+assign MotLA	= GPIO1_IN[1];
 assign MotRB	= GPIO1[0];
-assign MotLA	= GPIO1[1];
-//assign OdoRA	= GPIO1[2];
+assign MotLB	= GPIO1[1];
+
+//MINIBOT
+//assign MotRA	= GPIO1_IN[0];
+//assign MotRB	= GPIO1[0];
+//assign MotLA	= GPIO1[1];
+//assign MotLB	= GPIO1[2];
+
+assign OdoRA	= GPIO1[2];
 assign OdoRB	= GPIO1[3];
 assign OdoLA	= GPIO1[4];
 assign OdoLB	= GPIO1[5];

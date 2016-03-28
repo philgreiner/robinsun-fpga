@@ -75,7 +75,7 @@ GPIO1[31] <> GPIO1[31]
 GPIO1[32] <> GPIO1[32]
 GPIO1[33] <> <UNC>
 GPIO1_IN[0] => MotRA.IN1
-GPIO1_IN[1] => ~NO_FANOUT~
+GPIO1_IN[1] => MotLA.IN1
 
 
 |robinsun_fpga|encoder:MotR
