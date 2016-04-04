@@ -73,7 +73,6 @@ Makefile-genesis.properties
 *.sopc_builder
 # *example*
 *~
-*.sdc
 *.pin
 *_tb.csv
 *_tb.spd
@@ -82,6 +81,8 @@ Makefile-genesis.properties
 *_dump.txt
 *_INFO.txt
 *_netlist
+*.jic
+*.map
  
 # ignore Quartus II generated folders
 db/
