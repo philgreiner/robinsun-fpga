@@ -16,21 +16,25 @@ logic resetCounters;
 always_ff @(posedge inA, posedge resetCounters)
 begin
 	if(resetCounters) tickcount1 <= 16'b0;
+	else if(inB) tickcount1 <= tickcount1 - 16'b1;
 	else tickcount1 <= tickcount1 + 16'b1;
 end
 always_ff @(posedge inB, posedge resetCounters)
 begin
 	if(resetCounters) tickcount2 <= 16'b0;
-	else tickcount2 <= tickcount2 + 16'b1;
+	else if(inA) tickcount2 <= tickcount2 + 16'b1;
+	else tickcount2 <= tickcount2 - 16'b1;
 end
 always_ff @(negedge inA, posedge resetCounters)
 begin
 	if(resetCounters) tickcount3 <= 16'b0;
-	else tickcount3 <= tickcount3 + 16'b1;
+	else if(inB) tickcount3 <= tickcount3 + 16'b1;
+	else tickcount3 <= tickcount3 - 16'b1;
 end
 always_ff @(negedge inB, posedge resetCounters)
 begin
 	if(resetCounters) tickcount4 <= 16'b0;
+	else if(inA) tickcount4 <= tickcount4 - 16'b1;
 	else tickcount4 <= tickcount4 + 16'b1;
 end
 
