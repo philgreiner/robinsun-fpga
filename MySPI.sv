@@ -20,7 +20,8 @@ module MySPI (
 	input  logic [7:0]  dirFH,
 	input  logic [15:0] speedFV,
 	input  logic [7:0]  dirFV,
-	input  logic [15:0] sonar12, sonar34, sonar56);
+	input  logic [15:0] sonar12, sonar34, sonar56,
+	input  logic [15:0] lt24);
 
 //--- Registers Address ---------------------------------
 parameter A_Config     			= 15'h00;
@@ -45,6 +46,8 @@ parameter A_dirFV					= 15'h55;
 parameter A_sonar12				= 15'h41;
 parameter A_sonar34				= 15'h42;
 parameter A_sonar56				= 15'h43;
+
+parameter A_lt24					= 15'h10;
 
 //--- FSM States ----------------------------------------
 
@@ -144,6 +147,7 @@ begin
 				A_dirFH				: SPI_data <= {8'b0, dirFH};
 				A_speedFV			: SPI_data <= speedFV;
 				A_dirFV				: SPI_data <= {8'b0, dirFV};
+				A_lt24				: SPI_data <= lt24;
 			endcase
 		
 	if (theReset) Config <= 8'h00;
