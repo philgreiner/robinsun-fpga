@@ -5,7 +5,6 @@
 */
 module encoder(
 input  logic clk, reset, inA, inB,
-output logic [7:0] direction,
 output logic [15:0] speed);
 
 logic [15:0] tickcount1, tickcount2, tickcount3, tickcount4;
@@ -36,21 +35,6 @@ begin
 	if(resetCounters) tickcount4 <= 16'b0;
 	else if(inA) tickcount4 <= tickcount4 - 16'b1;
 	else tickcount4 <= tickcount4 + 16'b1;
-end
-
-/* Check direction of rotation
-*
-* In forward direction of rotation, the signals are:
-*           ________         ________         ________         ________        
-* A _______|        |_______|        |_______|        |_______|        |___
-*       ________         ________         ________         ________        
-* B ___|        |_______|        |_______|        |_______|        |_______
-*
-*/
-always_ff @(posedge inA)
-begin
-	if(inB)  direction <= {7'd0, 1'b1};
-	else 		direction <= 8'd0;
 end
 
 // Reset, count clock cycles and transmit tickcount every 5 000 000 cycles (= 100 ms)

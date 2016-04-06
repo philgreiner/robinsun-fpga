@@ -241,16 +241,15 @@ assign GPIO1[32]    = PIC32_SDA3A;
 //=======================================================
 //  Instantiate encoder modules
 //=======================================================
-logic [7:0] dirR, dirL, dirOdoR, dirOdoL, dirB, dirFH, dirFV;
 logic [15:0] speedR, speedL, speedOdoR, speedOdoL, speedB, speedFH, speedFV;
 
-encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB), .direction(dirR),  .speed(speedR));
-encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB), .direction(dirL),  .speed(speedL));
-encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .direction(dirOdoR), .speed(speedOdoR));
-encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .direction(dirOdoL), .speed(speedOdoL));
-encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .direction(dirB), 	 .speed(speedB));
-encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .direction(dirFH), 	 .speed(speedFH));
-encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .direction(dirFV), 	 .speed(speedFV));
+encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB),  .speed(speedR));
+encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB),  .speed(speedL));
+encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .speed(speedOdoR));
+encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .speed(speedOdoL));
+encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .speed(speedB));
+encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .speed(speedFH));
+encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .speed(speedFV));
 
 
 //=======================================================
@@ -271,24 +270,29 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 //  Instantiate SPI Interface
 //=======================================================
+logic [15:0] fromPIC;
+
+assign LED[7:0] = fromPIC[7:0];
 
 MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
 	.MySPI_clk(PIC32_SCK1A),  .MySPI_cs(PIC32_CS_FPGA), .MySPI_sdi(PIC32_SDO1A), .MySPI_sdo(PIC32_SDI1A),
 	.Config(Config),			  .Status(Status),
-	.speedR(speedR), 			  .dirR(dirR),
-	.speedL(speedL),			  .dirL(dirL), 
-	.speedOdoR(speedOdoR),    .dirOdoR(dirOdoR), 
-	.speedOdoL(speedOdoL), 	  .dirOdoL(dirOdoL),
-	.speedB(speedB),			  .dirB(dirB),
-	.speedFH(speedFH), 		  .dirFH(dirFH),
-	.speedFV(speedFV),		  .dirFV(dirFV),
+	.speedR(speedR), 			  
+	.speedL(speedL),			  
+	.speedOdoR(speedOdoR),   
+	.speedOdoL(speedOdoL), 	  
+	.speedB(speedB),			  
+	.speedFH(speedFH), 		  
+	.speedFV(speedFV),		  
 	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56),
-	.lt24(LT24_to_SPI));
+	.lt24(LT24_to_SPI), 
+	.PICtoFPGA(fromPIC));
 
 //=======================================================
 //  Instantiate ADC Interface
 //=======================================================
+logic false_LED2;
 
 SPIPLL		U0	(
 						.inclk0(CLOCK_50),
@@ -302,7 +306,7 @@ ADC_CTRL		U1	(
 						.iCLK_n(wSPI_CLK_n),
 						.iGO(KEY[1]),
 						.iCH(SW[2:0]),
-						.oLED(LED),
+						.oLED(false_LED2),
 						
 						.oDIN(ADC_SADDR),
 						.oCS_n(ADC_CS_N),

@@ -7,47 +7,36 @@ module MySPI (
 	output logic [7:0]  Config,
 	input  logic [7:0]  Status,
 	input  logic [15:0] speedR,
-	input  logic [7:0]  dirR,
 	input  logic [15:0] speedL, 
-	input  logic [7:0]  dirL,
 	input  logic [15:0] speedOdoR, 
-	input  logic [7:0]  dirOdoR,
 	input  logic [15:0] speedOdoL, 
-	input  logic [7:0]  dirOdoL,
 	input  logic [15:0] speedB,
-	input	 logic [7:0]  dirB,
 	input  logic [15:0] speedFH,
-	input  logic [7:0]  dirFH,
 	input  logic [15:0] speedFV,
-	input  logic [7:0]  dirFV,
 	input  logic [15:0] sonar12, sonar34, sonar56,
-	input  logic [15:0] lt24);
+	input  logic [15:0] lt24, 
+	output logic [15:0] PICtoFPGA);
 
 //--- Registers Address ---------------------------------
 parameter A_Config     			= 15'h00;
 parameter A_Status     			= 15'h01;
 
-parameter A_dirR					= 15'h21;
 parameter A_speedR				= 15'h22;
-parameter A_dirL					= 15'h31;
 parameter A_speedL				= 15'h32;
-parameter A_dirOdoR				= 15'h25;
 parameter A_speedOdoR			= 15'h26;
-parameter A_dirOdoL				= 15'h35;
 parameter A_speedOdoL			= 15'h36;
 
 parameter A_speedB				= 15'h50;
-parameter A_dirB					= 15'h51;
 parameter A_speedFH				= 15'h52;
-parameter A_dirFH					= 15'h53;
 parameter A_speedFV				= 15'h54;
-parameter A_dirFV					= 15'h55;
 
 parameter A_sonar12				= 15'h41;
 parameter A_sonar34				= 15'h42;
 parameter A_sonar56				= 15'h43;
 
-parameter A_lt24					= 15'h10;
+parameter A_lt24					= 15'h12;
+
+parameter A_PICtoFPGA			= 15'h10;
 
 //--- FSM States ----------------------------------------
 
@@ -130,28 +119,25 @@ begin
 			case (SPI_address[14:0])
 				A_Config    		: SPI_data <= {8'b0, Config};
 				A_Status    		: SPI_data <= {8'b0, Status};
-				A_dirR				: SPI_data <= {8'b0, dirR};
 				A_speedR				: SPI_data <= speedR;
-				A_dirL				: SPI_data <= {8'b0, dirL};
 				A_speedL				: SPI_data <= speedL;
 				A_speedOdoR			: SPI_data <= speedOdoR;
-				A_dirOdoR			: SPI_data <= {8'b0, dirOdoR};
 				A_speedOdoL			: SPI_data <= speedOdoL;
-				A_dirOdoL			: SPI_data <= {8'b0, dirOdoL};
 				A_sonar12			: SPI_data <= sonar12;
 				A_sonar34			: SPI_data <= sonar34;
 				A_sonar56			: SPI_data <= sonar56;
 				A_speedB				: SPI_data <= speedB;
-				A_dirB				: SPI_data <= {8'b0, dirB};
 				A_speedFH			: SPI_data <= speedFH;
-				A_dirFH				: SPI_data <= {8'b0, dirFH};
 				A_speedFV			: SPI_data <= speedFV;
-				A_dirFV				: SPI_data <= {8'b0, dirFV};
+				A_PICtoFPGA			: SPI_data <= PICtoFPGA;
 				A_lt24				: SPI_data <= lt24;
 			endcase
 		
 	if (theReset) Config <= 8'h00;
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_Config)) Config <= SPI_data[7:0];
+	if (theReset) PICtoFPGA <= 16'h00;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_PICtoFPGA)) PICtoFPGA <= SPI_data;
+		
 end
 
 endmodule
