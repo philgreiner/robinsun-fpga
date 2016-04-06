@@ -229,7 +229,7 @@ assign S6S		= GPIO1[23];
 
 // Assign START and PARASOL signals
 assign START	= GPIO1[24];
-assign PARASOL	= GPIO1[25];
+assign GPIO1[25] = PARASOL;
 
 // PIC32 Interface
 assign PIC32_C1RX    = GPIO1[29];
@@ -271,6 +271,9 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //  Instantiate SPI Interface
 //=======================================================
 logic [15:0] fromPIC, adcoutput;
+
+assign LED[0] = START;
+assign LED[7] = fromPIC[0];
 
 MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
