@@ -88,7 +88,6 @@ db/
 greybox_tmp/
 incremental_db/
 simulation/
-synthesis/
 timing/
 testbench/
 *_sim/
