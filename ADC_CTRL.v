@@ -1,43 +1,28 @@
 module ADC_CTRL	(	
-					iRST,
-					iCLK,
-					iCLK_n,
-					iGO,
-					iCH,
-					oLED,
-					
-					oDIN,
-					oCS_n,
-					oSCLK,
-					iDOUT
-				);
-					
-input				iRST;
-input				iCLK;
-input				iCLK_n;
-input				iGO;
-input	[2:0]		iCH;
-output	[7:0]		oLED;
-
-output				oDIN;
-output				oCS_n;
-output				oSCLK;
-input				iDOUT;
+	input iRST,
+	input iCLK,
+	input iCLK_n,
+	input iGO,
+	input [2:0] iCH,
+	output [15:0] out,
+	output	oDIN,
+	output 	oCS_n,
+	output 	oSCLK,
+	input 	iDOUT);
 
 reg					data;
 reg					go_en;
-wire	[2:0]		ch_sel;
 reg					sclk;
 reg		[3:0]		cont;
 reg		[3:0]		m_cont;
-reg		[11:0]		adc_data;
-reg		[7:0]		led;
+reg		[11:0]	adc_data;
+reg		[15:0]	outputData;
+reg 					CHANNEL;
 
 assign	oCS_n		=	~go_en;
 assign	oSCLK		=	(go_en)? iCLK:1;
 assign	oDIN		=	data;
-assign	ch_sel		=	iCH;
-assign	oLED		=	led;
+assign	out		=	outputData;
 
 always@(posedge iGO or negedge iRST)
 begin
@@ -76,11 +61,11 @@ begin
 		if(iCLK_n)
 		begin
 			if (cont == 2)
-				data	<=	iCH[2];
+				data	<=	0;
 			else if (cont == 3)
-				data	<=	iCH[1];
+				data	<=	0;
 			else if (cont == 4)
-				data	<=	iCH[0];
+				data	<=	CHANNEL;
 			else
 				data	<=	0;
 		end
@@ -91,8 +76,9 @@ always@(posedge iCLK or negedge go_en)
 begin
 	if(!go_en)
 	begin
+		CHANNEL <= 0;
 		adc_data	<=	0;
-		led			<=	8'h00;
+		outputData		<=	16'h00;
 	end
 	else
 	begin
@@ -123,7 +109,10 @@ begin
 			else if (m_cont == 15)
 				adc_data[0]		<=	iDOUT;
 			else if (m_cont == 1)
-				led	<=	adc_data[11:4];
+			begin
+				outputData	<=	CHANNEL ? {adc_data[11:4], outputData[7:0]} : {outputData[15:8], adc_data[11:4]};
+				CHANNEL <= ~CHANNEL;
+			end
 		end
 	end
 end

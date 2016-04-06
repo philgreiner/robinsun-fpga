@@ -270,9 +270,7 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 //  Instantiate SPI Interface
 //=======================================================
-logic [15:0] fromPIC;
-
-assign LED[7:0] = fromPIC[7:0];
+logic [15:0] fromPIC, adcoutput;
 
 MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
@@ -286,13 +284,13 @@ MySPI MySPI_instance(
 	.speedFH(speedFH), 		  
 	.speedFV(speedFV),		  
 	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56),
-	.lt24(LT24_to_SPI), 
+	.lt24(LT24_to_SPI),
+	.adc(adcoutput),
 	.PICtoFPGA(fromPIC));
 
 //=======================================================
 //  Instantiate ADC Interface
 //=======================================================
-logic false_LED2;
 
 SPIPLL		U0	(
 						.inclk0(CLOCK_50),
@@ -306,7 +304,7 @@ ADC_CTRL		U1	(
 						.iCLK_n(wSPI_CLK_n),
 						.iGO(KEY[1]),
 						.iCH(SW[2:0]),
-						.oLED(false_LED2),
+						.out(adcoutput),
 						
 						.oDIN(ADC_SADDR),
 						.oCS_n(ADC_CS_N),

@@ -14,7 +14,8 @@ module MySPI (
 	input  logic [15:0] speedFH,
 	input  logic [15:0] speedFV,
 	input  logic [15:0] sonar12, sonar34, sonar56,
-	input  logic [15:0] lt24, 
+	input  logic [15:0] lt24,
+	input  logic [15:0] adc,
 	output logic [15:0] PICtoFPGA);
 
 //--- Registers Address ---------------------------------
@@ -35,6 +36,7 @@ parameter A_sonar34				= 15'h42;
 parameter A_sonar56				= 15'h43;
 
 parameter A_lt24					= 15'h12;
+parameter A_adc					= 15'h19;
 
 parameter A_PICtoFPGA			= 15'h10;
 
@@ -129,8 +131,9 @@ begin
 				A_speedB				: SPI_data <= speedB;
 				A_speedFH			: SPI_data <= speedFH;
 				A_speedFV			: SPI_data <= speedFV;
-				A_PICtoFPGA			: SPI_data <= PICtoFPGA;
 				A_lt24				: SPI_data <= lt24;
+				A_adc					: SPI_data <= adc;
+				A_PICtoFPGA			: SPI_data <= PICtoFPGA;
 			endcase
 		
 	if (theReset) Config <= 8'h00;
