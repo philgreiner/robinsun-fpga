@@ -321,7 +321,7 @@ ADC_CTRL		U1	(
 
 logic [23:0] parasoltimer;
 
-always_ff @(posedge clk, posedge PIC32_RESET)
+always_ff @(posedge CLOCK_50, posedge PIC32_RESET)
 begin
 	if(PIC32_RESET)
 		parasoltimer <= 24'b0;
@@ -330,12 +330,12 @@ begin
 		parasoltimer <= parasoltimer + 1'b1;
 end
 
-always_ff @(posedge clk)
+always_ff @(posedge CLOCK_50)
 if(parasoltimer > 24'd1 && fromPIC[0])
 	PARASOL <= 1'b1;
 else
 	PARASOL <= 1'b0;
-	
+
 
 //=======================================================
 //  Instantiate DE0_LT24 and LT24
