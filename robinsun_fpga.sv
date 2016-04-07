@@ -247,7 +247,7 @@ encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB),  .
 encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB),  .speed(speedL));
 encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .speed(speedOdoR));
 encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .speed(speedOdoL));
-encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .speed(speedB));
+encoder_blocks MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .speed(speedB));
 encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .speed(speedFH));
 encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .speed(speedFV));
 

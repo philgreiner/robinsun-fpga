@@ -118,6 +118,7 @@ begin
 	
 	if (SPI_data_shift) SPI_data <= { SPI_data[14:0], MySPI_sdi };
 		else if (SPI_data_load)
+		begin
 			case (SPI_address[14:0])
 				A_Config    		: SPI_data <= {8'b0, Config};
 				A_Status    		: SPI_data <= {8'b0, Status};
@@ -135,11 +136,16 @@ begin
 				A_adc					: SPI_data <= adc;
 				A_PICtoFPGA			: SPI_data <= PICtoFPGA;
 			endcase
+			if(SPI_address[14:0] == A_speedB)
+				PICtoFPGA[15] <= 1'b1;
+			else
+				PICtoFPGA[15] <= 1'b0;
+		end
 		
 	if (theReset) Config <= 8'h00;
 		else if ((SPI_data_update) & (SPI_address[14:0] == A_Config)) Config <= SPI_data[7:0];
 	if (theReset) PICtoFPGA <= 16'h00;
-		else if ((SPI_data_update) & (SPI_address[14:0] == A_PICtoFPGA)) PICtoFPGA <= SPI_data;
+		else if ((SPI_data_update) & (SPI_address[14:0] == A_PICtoFPGA)) PICtoFPGA[14:0] <= SPI_data[14:0];
 		
 end
 
