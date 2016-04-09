@@ -247,7 +247,7 @@ encoder MotR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotRA),  .inB(MotRB),  .
 encoder MotL( .clk(CLOCK_50),	.reset(PIC32_RESET), .inA(MotLA),  .inB(MotLB),  .speed(speedL));
 encoder OdoR( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoRA),  .inB(OdoRB),  .speed(speedOdoR));
 encoder OdoL( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(OdoLA),  .inB(OdoLB),  .speed(speedOdoL));
-encoder_blocks MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .speed(speedB));
+encoder MotB( .clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotBA),  .inB(MotBB),  .speed(speedB));
 encoder MotFH(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFHA), .inB(MotFHB), .speed(speedFH));
 encoder MotFV(.clk(CLOCK_50), .reset(PIC32_RESET), .inA(MotFVA), .inB(MotFVB), .speed(speedFV));
 
@@ -303,10 +303,10 @@ SPIPLL		U0	(
 					);
 
 ADC_CTRL		U1	(
-						.iRST(KEY[0]),
+						.iRST(PIC32_RESET),
 						.iCLK(wSPI_CLK),
 						.iCLK_n(wSPI_CLK_n),
-						.iGO(KEY[1]),
+						.iGO(PIC32_RESET),
 						.iCH(SW[2:0]),
 						.out(adcoutput),
 						

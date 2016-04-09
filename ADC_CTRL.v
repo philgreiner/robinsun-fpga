@@ -19,47 +19,47 @@ reg		[11:0]	adc_data;
 reg		[15:0]	outputData;
 reg 					CHANNEL;
 
-assign	oCS_n		=	~go_en;
-assign	oSCLK		=	(go_en)? iCLK:1;
+assign	oCS_n		=	iRST;//~go_en;
+assign	oSCLK		=	(iRST)? 1:iCLK;
 assign	oDIN		=	data;
 assign	out		=	outputData;
 
-always@(posedge iGO or negedge iRST)
-begin
-	if(!iRST)
-		go_en	<=	0;
-	else
-	begin
-		if(iGO)
-			go_en	<=	1;
-	end
-end
+//always@(posedge iGO or negedge iRST)
+//begin
+//	if(!iRST)
+//		go_en	<=	0;
+//	else
+//	begin
+//		if(iGO)
+//			go_en	<=	1;
+//	end
+//end
 
-always@(posedge iCLK or negedge go_en)
-begin
-	if(!go_en)
+always@(posedge iCLK or posedge iRST)
+//begin
+	if(iRST)
 		cont	<=	0;
 	else
-	begin
-		if(iCLK)
+//	begin
+//		if(iCLK)
 			cont	<=	cont + 1;
-	end
-end
+//	end
+//end
 
 always@(posedge iCLK_n)
-begin
-	if(iCLK_n)
+//begin
+//	if(iCLK_n)
 		m_cont	<=	cont;
-end
+//end
 
-always@(posedge iCLK_n or negedge go_en)
-begin
-	if(!go_en)
+always@(posedge iCLK_n or posedge iRST)
+//begin
+	if(iRST)
 		data	<=	0;
 	else
 	begin
-		if(iCLK_n)
-		begin
+//		if(iCLK_n)
+//		begin
 			if (cont == 2)
 				data	<=	0;
 			else if (cont == 3)
@@ -68,13 +68,13 @@ begin
 				data	<=	CHANNEL;
 			else
 				data	<=	0;
-		end
-	end
+//		end
+//	end
 end
 
-always@(posedge iCLK or negedge go_en)
+always@(posedge iCLK or posedge iRST)
 begin
-	if(!go_en)
+	if(iRST)
 	begin
 		CHANNEL <= 0;
 		adc_data	<=	0;
