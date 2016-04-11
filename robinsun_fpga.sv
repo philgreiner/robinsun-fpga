@@ -272,7 +272,7 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 logic [15:0] fromPIC;
 
-assign LED[7:0] = fromPIC[7:0];
+assign LED[7:0] = LT24_to_SPI[7:0];
 
 MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
