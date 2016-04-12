@@ -272,7 +272,7 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 logic [15:0] fromPIC, adcoutput;
 
-//assign LED[7:0] = LT24_to_SPI[7:0];
+//assign LED[7:0] = LT24_to_SPI[8:1];
 
 assign LED[0] = START;
 assign LED[7] = fromPIC[0];

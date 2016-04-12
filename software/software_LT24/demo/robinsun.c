@@ -536,7 +536,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 	int tests_or_compet=1, tests_or_compet_loop=1;
 	int compet2, compet2_loop, compet3, compet3_loop;
 	int test=1;
-	int color=0, strategy=0, opponent=0;
+	int color=0, strategy=0, opponent=0, start=0;
 
 	int check_button_menu=0;
 	int check_button_tests=0, check_button_compet=0, check_button_compet2=0, check_button_compet3=0;
@@ -1008,6 +1008,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     			}//end if (check_button_menu == BTN_TEST)
     			else if (check_button_menu == BTN_COMPET){
     				//vid_print_string_alpha(rcTouchCompet.left+8, rcTouchCompet.top+(RectHeight(&rcTouchCompet)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Competition OK");
+    				*signal = 0;
     				tests_or_compet=1;
 
     				while(tests_or_compet){
@@ -1021,6 +1022,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     					color=0;
     					strategy=0;
     					opponent=0;
+    					start=0;
 
     					tests_or_compet_loop=1;
     					while(tests_or_compet_loop){
@@ -1036,7 +1038,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								Touch_EmptyFifo(pTouch);
     							}
     							else if(check_button_compet == 4 || check_button_compet == 5 || check_button_compet == 6 || check_button_compet == 7){
-    								strategy = check_button_compet;
+    								strategy = check_button_compet - 3;
 
     								usleep(100*1000);
     								Touch_EmptyFifo(pTouch);
@@ -1090,8 +1092,21 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     									Touch_EmptyFifo(pTouch);
     								}
     								else{
-    									compet2=1;
+    									// Team defined
+    									*signal = *signal + color;
 
+    									// Strategy defined
+    									if(strategy==1)
+    										*signal = *signal + 4;
+    									else if(strategy==2)
+    										*signal = *signal + 8;
+    									else if(strategy==3)
+    										*signal = *signal + 16;
+    									else if(strategy==4)
+    										*signal = *signal + 32;
+
+    									// Let's continue...
+    									compet2=1;
     									while(compet2){
     										vid_clean_screen(pDisplay, BLACK_24);
     										usleep(1000*1000);
@@ -1127,7 +1142,6 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 														compet2_loop=0;
 													}
 													else if(check_button_compet2 == 5){
-
 														if(opponent==0){
 															vid_clean_screen(pDisplay, BLACK_24);
 															usleep(1000*1000);
@@ -1150,20 +1164,19 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 															Touch_EmptyFifo(pTouch);
 														}
 														else{
-															*signal = 33 + color*10 + strategy + opponent*4;
+															*signal = *signal + opponent*64;
 
-															printf("signal vaut:%d \n",*signal);
+															printf("signal vaut : %d \n",*signal);
 															Touch_EmptyFifo(pTouch);
 
 															compet3=1;
-
 															while(compet3){
 																vid_clean_screen(pDisplay, BLACK_24);
 																usleep(1000*1000);
 																Touch_EmptyFifo(pTouch);
 
 																GUI_ROBINSUN_CompetitionSummary_Init(pDisplay, &DeskInfo);
-																GUI_ROBINSUN_CompetitionSummary_Draw(pDisplay, &DeskInfo, color, strategy-3, opponent);
+																GUI_ROBINSUN_CompetitionSummary_Draw(pDisplay, &DeskInfo, color, strategy, opponent);
 
 																compet3_loop=1;
 																while(compet3_loop){
@@ -1173,13 +1186,16 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 																		check_button_compet3 = GUI_ROBINSUN_CheckButton(&DeskInfo, &Pt,DeskInfo.buttons_competitionsummary,8,9);
 
 																		if(check_button_compet3 == 0){
-																			*signal=0;
+																			*signal = *signal - opponent*64;
 
 																			compet2_loop=0;
 																			compet3=0;
 																			compet3_loop=0;
 																		}
 																		else if(check_button_compet3 == 7){
+																			start=1;
+																			*signal = *signal + 256;
+
 																			vid_clean_screen(pDisplay, BLACK_24);
 																			usleep(1000*1000);
 																			Touch_EmptyFifo(pTouch);
