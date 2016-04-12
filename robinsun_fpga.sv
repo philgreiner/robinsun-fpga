@@ -228,8 +228,8 @@ assign GPIO1[22] = S6T;
 assign S6S		= GPIO1[23];
 
 // Assign START and PARASOL signals
-assign START	= GPIO1[24];
-assign PARASOL	= GPIO1[25];
+assign START	= ~GPIO1[24];
+assign GPIO1[25] = PARASOL;
 
 // PIC32 Interface
 assign PIC32_C1RX    = GPIO1[29];
@@ -270,9 +270,13 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 //  Instantiate SPI Interface
 //=======================================================
-logic [15:0] fromPIC;
+logic [15:0] fromPIC, adcoutput;
 
-assign LED[7:0] = LT24_to_SPI[7:0];
+//assign LED[7:0] = LT24_to_SPI[7:0];
+
+assign LED[0] = START;
+assign LED[7] = fromPIC[0];
+assign LED[6] = PARASOL;
 
 MySPI MySPI_instance(
 	.theClock(CLOCK_50), 	  .theReset(PIC32_RESET),
@@ -286,13 +290,13 @@ MySPI MySPI_instance(
 	.speedFH(speedFH), 		  
 	.speedFV(speedFV),		  
 	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56),
-	.lt24(LT24_to_SPI), 
+	.lt24({START, LT24_to_SPI[14:0]}),
+	.adc(adcoutput),
 	.PICtoFPGA(fromPIC));
 
 //=======================================================
 //  Instantiate ADC Interface
 //=======================================================
-logic false_LED2;
 
 SPIPLL		U0	(
 						.inclk0(CLOCK_50),
@@ -301,18 +305,39 @@ SPIPLL		U0	(
 					);
 
 ADC_CTRL		U1	(
-						.iRST(KEY[0]),
+						.iRST(PIC32_RESET),
 						.iCLK(wSPI_CLK),
 						.iCLK_n(wSPI_CLK_n),
-						.iGO(KEY[1]),
+						.iGO(PIC32_RESET),
 						.iCH(SW[2:0]),
-						.oLED(false_LED2),
+						.out(adcoutput),
 						
 						.oDIN(ADC_SADDR),
 						.oCS_n(ADC_CS_N),
 						.oSCLK(ADC_SCLK),
 						.iDOUT(ADC_SDAT)
 					);
+//=======================================================
+//  Timer for Parasol
+//=======================================================
+
+logic [23:0] parasoltimer;
+
+always_ff @(posedge CLOCK_50, posedge PIC32_RESET)
+begin
+	if(PIC32_RESET)
+		parasoltimer <= 24'b0;
+	else
+	if(fromPIC[0])
+		parasoltimer <= parasoltimer + 1'b1;
+end
+
+always_ff @(posedge CLOCK_50)
+if(parasoltimer > 24'd1 && fromPIC[0])
+	PARASOL <= 1'b1;
+else
+	PARASOL <= 1'b0;
+
 
 //=======================================================
 //  Instantiate DE0_LT24 and LT24
