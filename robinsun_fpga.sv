@@ -272,8 +272,6 @@ assign sonar12 = {dist1, dist2}; 	assign sonar34 = {dist3, dist4}; 	assign sonar
 //=======================================================
 logic [15:0] fromPIC, adcoutput;
 
-//assign LED[7:0] = LT24_to_SPI[8:1];
-
 assign LED[0] = START;
 assign LED[7] = fromPIC[0];
 assign LED[6] = PARASOL;
@@ -328,12 +326,12 @@ begin
 	if(PIC32_RESET)
 		parasoltimer <= 24'b0;
 	else
-	if(fromPIC[0])
+	if(fromPIC[0] && parasoltimer < 24'd2500000)
 		parasoltimer <= parasoltimer + 1'b1;
 end
 
 always_ff @(posedge CLOCK_50)
-if(parasoltimer > 24'd1 && fromPIC[0])
+if(parasoltimer > 24'd1 && fromPIC[0] && parasoltimer < 24'd2500000)
 	PARASOL <= 1'b1;
 else
 	PARASOL <= 1'b0;
