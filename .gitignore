@@ -38,7 +38,6 @@ Makefile-genesis.properties
 
 # ignore project files
 *.bsf
-*.sopcinfo
 *.stp
 *.cdf
 *.qdf
@@ -49,7 +48,6 @@ Makefile-genesis.properties
 *.sta.*
 *.map.*
 *.fit.*
-*_bsp/
 
 
 # ignore Quartus II generated files

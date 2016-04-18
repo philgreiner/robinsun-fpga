@@ -44,8 +44,12 @@ module DE0_LT24_SOPC (
 	sdram_wire_dqm,
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
+	signal_out_external_connection_export,
 	to_led_export,
-	signal_out_external_connection_export);	
+	epcs_flash_controller_0_external_dclk,
+	epcs_flash_controller_0_external_sce,
+	epcs_flash_controller_0_external_sdo,
+	epcs_flash_controller_0_external_data0);	
 
 	input		alt_pll_areset_conduit_export;
 	output		alt_pll_c1_clk;
@@ -91,6 +95,10 @@ module DE0_LT24_SOPC (
 	output	[1:0]	sdram_wire_dqm;
 	output		sdram_wire_ras_n;
 	output		sdram_wire_we_n;
-	output	[7:0]	to_led_export;
 	output	[15:0]	signal_out_external_connection_export;
+	output	[7:0]	to_led_export;
+	output		epcs_flash_controller_0_external_dclk;
+	output		epcs_flash_controller_0_external_sce;
+	output		epcs_flash_controller_0_external_sdo;
+	input		epcs_flash_controller_0_external_data0;
 endmodule

@@ -43,7 +43,11 @@
 		.sdram_wire_dqm                              (<connected-to-sdram_wire_dqm>),                              //                                     .dqm
 		.sdram_wire_ras_n                            (<connected-to-sdram_wire_ras_n>),                            //                                     .ras_n
 		.sdram_wire_we_n                             (<connected-to-sdram_wire_we_n>),                             //                                     .we_n
+		.signal_out_external_connection_export       (<connected-to-signal_out_external_connection_export>),       //       signal_out_external_connection.export
 		.to_led_export                               (<connected-to-to_led_export>),                               //                               to_led.export
-		.signal_out_external_connection_export       (<connected-to-signal_out_external_connection_export>)        //       signal_out_external_connection.export
+		.epcs_flash_controller_0_external_dclk       (<connected-to-epcs_flash_controller_0_external_dclk>),       //     epcs_flash_controller_0_external.dclk
+		.epcs_flash_controller_0_external_sce        (<connected-to-epcs_flash_controller_0_external_sce>),        //                                     .sce
+		.epcs_flash_controller_0_external_sdo        (<connected-to-epcs_flash_controller_0_external_sdo>),        //                                     .sdo
+		.epcs_flash_controller_0_external_data0      (<connected-to-epcs_flash_controller_0_external_data0>)       //                                     .data0
 	);
 

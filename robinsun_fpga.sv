@@ -29,11 +29,11 @@ module robinsun_fpga(
 	DRAM_RAS_N,
 	DRAM_WE_N,
 
-	//////////// ADC //////////
-	ADC_CS_N,
-	ADC_SADDR,
-	ADC_SCLK,
-	ADC_SDAT,
+	//////////// EPCS //////////
+	EPCS_ASDO,
+	EPCS_DATA0,
+	EPCS_DCLK,
+	EPCS_NCSO,
 
 	//////////// 2x13 GPIO Header //////////
 	GPIO_2,
@@ -47,6 +47,7 @@ module robinsun_fpga(
 	GPIO1,
 	GPIO1_IN 
 );
+
 
 //=======================================================
 //  PORT declarations
@@ -76,11 +77,11 @@ output		     [1:0]		DRAM_DQM;
 output		          		DRAM_RAS_N;
 output		          		DRAM_WE_N;
 
-//////////// ADC //////////
-output		          		ADC_CS_N;
-output		          		ADC_SADDR;
-output		          		ADC_SCLK;
-input 		          		ADC_SDAT;
+//////////// EPCS //////////
+output		          		EPCS_ASDO;
+input 		          		EPCS_DATA0;
+output		          		EPCS_DCLK;
+output		          		EPCS_NCSO;
 
 //////////// 2x13 GPIO Header //////////
 inout 		    [12:0]		GPIO_2;
@@ -405,7 +406,13 @@ DE0_LT24_SOPC DE0_LT24_SOPC_inst(
 		.background_mem_s2_write(background_mem_s2_write),                     
 		.background_mem_s2_readdata(background_mem_s2_readdata),                  
 		.background_mem_s2_writedata(background_mem_s2_writedata),                 
-		.background_mem_s2_byteenable(background_mem_s2_byteenable) 
+		.background_mem_s2_byteenable(background_mem_s2_byteenable),
+		
+		.epcs_flash_controller_0_external_dclk       (EPCS_DCLK),       //     epcs_flash_controller_0_external.dclk
+		.epcs_flash_controller_0_external_sce        (EPCS_NCSO),        //                                     .sce
+		.epcs_flash_controller_0_external_sdo        (EPCS_ASDO),        //                                     .sdo
+		.epcs_flash_controller_0_external_data0      (EPCS_DATA0)       //                                     .data0
+
 	);
 	
 	
