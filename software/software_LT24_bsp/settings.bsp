@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>12-avr.-2016 23:25:00</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1460496300415</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\Sophie\Documents\1ere_Master_Mecatro\LELME2002\1_Code\Robinsun\robinsun-fpga\software\software_LT24_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>19-avr.-2016 0:22:16</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1461018136407</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>D:\Documents\Github\robinsun-fpga\software\software_LT24_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\DE0_LT24_SOPC.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -886,6 +886,12 @@
                 <Enabled>false</Enabled>
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
+        <MemoryMap>
+                <slaveDescriptor>epcs_flash_controller_0</slaveDescriptor>
+                <addressRange>0x00000000 - 0x000007FF</addressRange>
+                <addressSpan>2048</addressSpan>
+                <attributes>flash, memory, non-volatile</attributes>
+        </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>SDRAM</slaveDescriptor>
                 <addressRange>0x02000000 - 0x03FFFFFF</addressRange>

@@ -3,7 +3,7 @@
 # Machine generated for CPU 'CPU' in SOPC Builder design 'DE0_LT24_SOPC'
 # SOPC Builder design path: ../../DE0_LT24_SOPC.sopcinfo
 #
-# Generated: Tue Apr 05 12:09:24 CEST 2016
+# Generated: Mon Apr 18 23:20:47 CEST 2016
 
 # DO NOT MODIFY THIS FILE
 #
@@ -45,6 +45,9 @@
 # Define memory regions for each memory connected to the CPU.
 # The cache attribute is specified which improves GDB performance
 # by allowing GDB to cache memory contents on the host.
+
+# epcs_flash_controller_0
+memory 0x0 0x800 cache
 
 # SDRAM
 memory 0x2000000 0x4000000 cache

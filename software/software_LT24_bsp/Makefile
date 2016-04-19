@@ -208,6 +208,15 @@ GENERATED_C_LIB_SRCS += alt_sys_init.c
 # used to build each file.
 #-------------------------------------------------------------------------------
 
+# altera_avalon_epcs_flash_controller_driver sources root 
+altera_avalon_epcs_flash_controller_driver_SRCS_ROOT := drivers
+
+# altera_avalon_epcs_flash_controller_driver sources 
+altera_avalon_epcs_flash_controller_driver_C_LIB_SRCS := \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/altera_avalon_epcs_flash_controller.c \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/epcs_commands.c \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/altera_avalon_spi.c
+
 # altera_avalon_jtag_uart_driver sources root 
 altera_avalon_jtag_uart_driver_SRCS_ROOT := drivers
 
@@ -337,6 +346,7 @@ hal_C_LIB_SRCS := \
 
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
+	$(altera_avalon_epcs_flash_controller_driver_C_LIB_SRCS) \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
 	$(altera_avalon_spi_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
