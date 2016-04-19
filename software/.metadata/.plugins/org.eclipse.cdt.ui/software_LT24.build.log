@@ -1,0 +1,9 @@
+00:23:12 **** Incremental Build of configuration Nios II for project software_LT24 ****
+make all 
+Info: Building ../software_LT24_bsp/
+C:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../software_LT24_bsp/
+[BSP build complete]
+[software_LT24 build complete]
+
+00:23:13 Build Finished (took 632ms)
+
