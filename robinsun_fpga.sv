@@ -34,6 +34,12 @@ module robinsun_fpga(
 	EPCS_DATA0,
 	EPCS_DCLK,
 	EPCS_NCSO,
+	
+	//////////// ADC //////////
+	ADC_CS_N,
+	ADC_SADDR,
+	ADC_SCLK,
+	ADC_SDAT,
 
 	//////////// 2x13 GPIO Header //////////
 	GPIO_2,
@@ -82,6 +88,12 @@ output		          		EPCS_ASDO;
 input 		          		EPCS_DATA0;
 output		          		EPCS_DCLK;
 output		          		EPCS_NCSO;
+
+//////////// ADC //////////
+output		          		ADC_CS_N;
+output		          		ADC_SADDR;
+output		          		ADC_SCLK;
+input 		          		ADC_SDAT;
 
 //////////// 2x13 GPIO Header //////////
 inout 		    [12:0]		GPIO_2;
@@ -289,7 +301,7 @@ MySPI MySPI_instance(
 	.speedFH(speedFH), 		  
 	.speedFV(speedFV),		  
 	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56),
-	.lt24({START, LT24_to_SPI[14:0]}),
+	.lt24({START, MOTFHA, MOTFHB, MOTFVA, MOTFVB, MOTBA, MOTBB, LT24_to_SPI[8:0]}),
 	.adc(adcoutput),
 	.PICtoFPGA(fromPIC));
 
@@ -344,7 +356,7 @@ else
 	
 DE0_LT24_SOPC DE0_LT24_SOPC_inst(
 		.clk_clk(CLOCK_50),          							//        clk.clk
-		.reset_reset_n(RST_N),    								//      reset.reset_n
+		.reset_reset_n(~PIC32_RESET),    								//      reset.reset_n
 		
 		// SDRAM
 		.sdram_wire_addr(DRAM_ADDR),  						// sdram_wire.addr
@@ -418,7 +430,7 @@ DE0_LT24_SOPC DE0_LT24_SOPC_inst(
 	
 	LT24_buffer lt24_buf(
 		.clk(CLOCK_50),          							
-		.rst_n(RST_N),
+		.rst_n(~PIC32_RESET),
 		.LT24_ADC_BUSY_bus(LT24_ADC_BUSY_bus),
 		.LT24_ADC_CS_N_bus(LT24_ADC_CS_N_bus),
 		.LT24_ADC_DCLK_bus(LT24_ADC_DCLK_bus),

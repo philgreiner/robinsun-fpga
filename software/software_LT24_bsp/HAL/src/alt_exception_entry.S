@@ -194,8 +194,17 @@ alt_exception:
          * handlers will utilize.
          */
         stw   ea,  72(sp)  /* Don't re-issue */
+        
+#ifdef NIOS2_CDX_PRESENT
+        mov.n   r4, ea
+        subi.n   r4, r4, 4 
+        ldhu.n  r2, 0(r4)
+        ldhu.n  r3, 2(r4)
+        slli.n  r3, r3, 16
+        or.n    r2, r2, r3 /* Instruction that caused exception */
+#else
         ldw   r2, -4(ea)   /* Instruction that caused exception */
-
+#endif
         /*
          * Other exception handling code, if enabled, will be linked here.
          * This includes unimplemted (multiply/divide) instruction support

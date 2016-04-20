@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'DE0_LT24_SOPC'
  * SOPC Builder design path: ../../DE0_LT24_SOPC.sopcinfo
  *
- * Generated: Thu Mar 10 12:48:43 CET 2016
+ * Generated: Tue Apr 19 23:53:40 CEST 2016
  */
 
 /*
@@ -58,7 +58,8 @@
  * Device headers
  */
 
-#include "altera_nios2_qsys_irq.h"
+#include "altera_nios2_gen2_irq.h"
+#include "altera_avalon_epcs_flash_controller.h"
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_spi.h"
 #include "altera_avalon_timer.h"
@@ -67,7 +68,8 @@
  * Allocate the device storage
  */
 
-ALTERA_NIOS2_QSYS_IRQ_INSTANCE ( CPU, CPU);
+ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( CPU, CPU);
+ALTERA_AVALON_EPCS_FLASH_CONTROLLER_INSTANCE ( EPCS_FLASH_CONTROLLER_0, epcs_flash_controller_0);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, JTAG_UART);
 ALTERA_AVALON_SPI_INSTANCE ( LT24_TOUCH_SPI, LT24_TOUCH_SPI);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER, TIMER);
@@ -82,7 +84,7 @@ ALTERA_AVALON_TIMER_INSTANCE ( TIMER, TIMER);
 
 void alt_irq_init ( const void* base )
 {
-    ALTERA_NIOS2_QSYS_IRQ_INIT ( CPU, CPU);
+    ALTERA_NIOS2_GEN2_IRQ_INIT ( CPU, CPU);
     alt_irq_cpu_enable_interrupts();
 }
 
@@ -94,6 +96,7 @@ void alt_irq_init ( const void* base )
 void alt_sys_init( void )
 {
     ALTERA_AVALON_TIMER_INIT ( TIMER, TIMER);
+    ALTERA_AVALON_EPCS_FLASH_CONTROLLER_INIT ( EPCS_FLASH_CONTROLLER_0, epcs_flash_controller_0);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, JTAG_UART);
     ALTERA_AVALON_SPI_INIT ( LT24_TOUCH_SPI, LT24_TOUCH_SPI);
 }

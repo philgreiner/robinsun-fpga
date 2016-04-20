@@ -22,7 +22,7 @@
 // Parameters
 //   NUM_RCVRS        : 5
 //   SENDER_IRW_WIDTH : 32
-//   IRQ_MAP          : 0:0,1:2,2:1,3:3,4:4
+//   IRQ_MAP          : 0:0,1:1,2:2,3:3,4:4
 //
 // -------------------------------------------------------
 
@@ -56,8 +56,8 @@ module DE0_LT24_SOPC_irq_mapper
 	sender_irq = 0;
 
         sender_irq[0] = receiver0_irq;
-        sender_irq[2] = receiver1_irq;
-        sender_irq[1] = receiver2_irq;
+        sender_irq[1] = receiver1_irq;
+        sender_irq[2] = receiver2_irq;
         sender_irq[3] = receiver3_irq;
         sender_irq[4] = receiver4_irq;
     end

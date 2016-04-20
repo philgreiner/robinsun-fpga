@@ -13,6 +13,10 @@ module DE0_LT24_SOPC (
 	background_mem_s2_writedata,
 	background_mem_s2_byteenable,
 	clk_clk,
+	epcs_flash_controller_0_external_dclk,
+	epcs_flash_controller_0_external_sce,
+	epcs_flash_controller_0_external_sdo,
+	epcs_flash_controller_0_external_data0,
 	from_key_export,
 	lt24_buffer_flag_external_connection_export,
 	lt24_conduit_cs,
@@ -45,11 +49,7 @@ module DE0_LT24_SOPC (
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
 	signal_out_external_connection_export,
-	to_led_export,
-	epcs_flash_controller_0_external_dclk,
-	epcs_flash_controller_0_external_sce,
-	epcs_flash_controller_0_external_sdo,
-	epcs_flash_controller_0_external_data0);	
+	to_led_export);	
 
 	input		alt_pll_areset_conduit_export;
 	output		alt_pll_c1_clk;
@@ -64,6 +64,10 @@ module DE0_LT24_SOPC (
 	input	[15:0]	background_mem_s2_writedata;
 	input	[1:0]	background_mem_s2_byteenable;
 	input		clk_clk;
+	output		epcs_flash_controller_0_external_dclk;
+	output		epcs_flash_controller_0_external_sce;
+	output		epcs_flash_controller_0_external_sdo;
+	input		epcs_flash_controller_0_external_data0;
 	input		from_key_export;
 	output		lt24_buffer_flag_external_connection_export;
 	output		lt24_conduit_cs;
@@ -97,8 +101,4 @@ module DE0_LT24_SOPC (
 	output		sdram_wire_we_n;
 	output	[15:0]	signal_out_external_connection_export;
 	output	[7:0]	to_led_export;
-	output		epcs_flash_controller_0_external_dclk;
-	output		epcs_flash_controller_0_external_sce;
-	output		epcs_flash_controller_0_external_sdo;
-	input		epcs_flash_controller_0_external_data0;
 endmodule

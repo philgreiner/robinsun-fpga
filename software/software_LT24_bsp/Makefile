@@ -208,6 +208,15 @@ GENERATED_C_LIB_SRCS += alt_sys_init.c
 # used to build each file.
 #-------------------------------------------------------------------------------
 
+# altera_avalon_epcs_flash_controller_driver sources root 
+altera_avalon_epcs_flash_controller_driver_SRCS_ROOT := drivers
+
+# altera_avalon_epcs_flash_controller_driver sources 
+altera_avalon_epcs_flash_controller_driver_C_LIB_SRCS := \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/altera_avalon_epcs_flash_controller.c \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/epcs_commands.c \
+	$(altera_avalon_epcs_flash_controller_driver_SRCS_ROOT)/src/altera_avalon_spi.c
+
 # altera_avalon_jtag_uart_driver sources root 
 altera_avalon_jtag_uart_driver_SRCS_ROOT := drivers
 
@@ -239,42 +248,42 @@ altera_avalon_timer_driver_C_LIB_SRCS := \
 	$(altera_avalon_timer_driver_SRCS_ROOT)/src/altera_avalon_timer_ts.c \
 	$(altera_avalon_timer_driver_SRCS_ROOT)/src/altera_avalon_timer_vars.c
 
-# altera_nios2_qsys_hal_driver sources root 
-altera_nios2_qsys_hal_driver_SRCS_ROOT := HAL
+# altera_nios2_gen2_hal_driver sources root 
+altera_nios2_gen2_hal_driver_SRCS_ROOT := HAL
 
-# altera_nios2_qsys_hal_driver sources 
-altera_nios2_qsys_hal_driver_C_LIB_SRCS := \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/altera_nios2_qsys_irq.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_usleep.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_busy_sleep.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_irq_vars.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_icache_flush.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_icache_flush_all.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_dcache_flush.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_dcache_flush_all.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_dcache_flush_no_writeback.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_ecc_fatal_exception.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_instruction_exception_entry.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_irq_register.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_iic.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_remap_cached.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_remap_uncached.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_uncached_free.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_uncached_malloc.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_do_ctors.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_do_dtors.c \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_gmon.c
+# altera_nios2_gen2_hal_driver sources 
+altera_nios2_gen2_hal_driver_C_LIB_SRCS := \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/altera_nios2_gen2_irq.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_usleep.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_busy_sleep.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_irq_vars.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_icache_flush.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_icache_flush_all.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_dcache_flush.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_dcache_flush_all.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_dcache_flush_no_writeback.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_ecc_fatal_exception.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_instruction_exception_entry.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_irq_register.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_iic.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_remap_cached.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_remap_uncached.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_uncached_free.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_uncached_malloc.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_do_ctors.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_do_dtors.c \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_gmon.c
 
-altera_nios2_qsys_hal_driver_ASM_LIB_SRCS := \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_ecc_fatal_entry.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_exception_entry.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_exception_trap.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_exception_muldiv.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_irq_entry.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_software_exception.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_mcount.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/alt_log_macro.S \
-	$(altera_nios2_qsys_hal_driver_SRCS_ROOT)/src/crt0.S
+altera_nios2_gen2_hal_driver_ASM_LIB_SRCS := \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_ecc_fatal_entry.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_exception_entry.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_exception_trap.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_exception_muldiv.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_irq_entry.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_software_exception.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_mcount.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/alt_log_macro.S \
+	$(altera_nios2_gen2_hal_driver_SRCS_ROOT)/src/crt0.S
 
 # hal sources root 
 hal_SRCS_ROOT := HAL
@@ -337,15 +346,16 @@ hal_C_LIB_SRCS := \
 
 # Assemble all component C source files 
 COMPONENT_C_LIB_SRCS += \
+	$(altera_avalon_epcs_flash_controller_driver_C_LIB_SRCS) \
 	$(altera_avalon_jtag_uart_driver_C_LIB_SRCS) \
 	$(altera_avalon_spi_driver_C_LIB_SRCS) \
 	$(altera_avalon_timer_driver_C_LIB_SRCS) \
-	$(altera_nios2_qsys_hal_driver_C_LIB_SRCS) \
+	$(altera_nios2_gen2_hal_driver_C_LIB_SRCS) \
 	$(hal_C_LIB_SRCS)
 
 # Assemble all component assembly source files 
 COMPONENT_ASM_LIB_SRCS += \
-	$(altera_nios2_qsys_hal_driver_ASM_LIB_SRCS)
+	$(altera_nios2_gen2_hal_driver_ASM_LIB_SRCS)
 
 # Assemble all component C++ source files 
 COMPONENT_CPP_LIB_SRCS += \

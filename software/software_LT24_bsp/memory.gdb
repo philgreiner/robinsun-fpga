@@ -3,7 +3,7 @@
 # Machine generated for CPU 'CPU' in SOPC Builder design 'DE0_LT24_SOPC'
 # SOPC Builder design path: ../../DE0_LT24_SOPC.sopcinfo
 #
-# Generated: Tue Apr 05 12:09:24 CEST 2016
+# Generated: Tue Apr 19 22:59:45 CEST 2016
 
 # DO NOT MODIFY THIS FILE
 #
@@ -54,3 +54,6 @@ memory 0x4000000 0x4002580 cache
 
 # pic_mem
 memory 0x4004000 0x4006000 cache
+
+# epcs_flash_controller_0
+memory 0x4007800 0x4008000 cache

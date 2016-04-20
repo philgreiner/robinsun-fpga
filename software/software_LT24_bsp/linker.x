@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'DE0_LT24_SOPC'
  * SOPC Builder design path: ../../DE0_LT24_SOPC.sopcinfo
  *
- * Generated: Tue Apr 05 12:09:24 CEST 2016
+ * Generated: Tue Apr 19 22:59:45 CEST 2016
  */
 
 /*
@@ -50,16 +50,19 @@
 
 MEMORY
 {
-    reset : ORIGIN = 0x2000000, LENGTH = 32
+    SDRAM_BEFORE_EXCEPTION : ORIGIN = 0x2000000, LENGTH = 32
     SDRAM : ORIGIN = 0x2000020, LENGTH = 33554400
     background_mem : ORIGIN = 0x4000000, LENGTH = 9600
     pic_mem : ORIGIN = 0x4004000, LENGTH = 8192
+    reset : ORIGIN = 0x4007800, LENGTH = 32
+    epcs_flash_controller_0 : ORIGIN = 0x4007820, LENGTH = 2016
 }
 
 /* Define symbols for each memory base-address */
 __alt_mem_SDRAM = 0x2000000;
 __alt_mem_background_mem = 0x4000000;
 __alt_mem_pic_mem = 0x4004000;
+__alt_mem_epcs_flash_controller_0 = 0x4007800;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",
@@ -357,6 +360,23 @@ SECTIONS
     } > pic_mem
 
     PROVIDE (_alt_partition_pic_mem_load_addr = LOADADDR(.pic_mem));
+
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .epcs_flash_controller_0 : AT ( LOADADDR (.pic_mem) + SIZEOF (.pic_mem) )
+    {
+        PROVIDE (_alt_partition_epcs_flash_controller_0_start = ABSOLUTE(.));
+        *(.epcs_flash_controller_0 .epcs_flash_controller_0. epcs_flash_controller_0.*)
+        . = ALIGN(4);
+        PROVIDE (_alt_partition_epcs_flash_controller_0_end = ABSOLUTE(.));
+    } > epcs_flash_controller_0
+
+    PROVIDE (_alt_partition_epcs_flash_controller_0_load_addr = LOADADDR(.epcs_flash_controller_0));
 
     /*
      * Stabs debugging sections.

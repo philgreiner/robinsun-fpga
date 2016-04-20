@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>12-avr.-2016 23:25:00</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1460496300415</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\Sophie\Documents\1ere_Master_Mecatro\LELME2002\1_Code\Robinsun\robinsun-fpga\software\software_LT24_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>20-avr.-2016 17:24:17</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1461165857337</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>Z:\robinsun-fpga-minibot\software\software_LT24_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\DE0_LT24_SOPC.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -722,7 +722,7 @@
                 <SettingName>hal.enable_small_c_library</SettingName>
                 <Identifier>none</Identifier>
                 <Type>Boolean</Type>
-                <Value>0</Value>
+                <Value>1</Value>
                 <DefaultValue>0</DefaultValue>
                 <DestinationFile>public_mk_define</DestinationFile>
                 <Description>Causes the small newlib (C library) to be used. This reduces code and data footprint at the expense of reduced functionality. Several newlib features are removed such as floating-point support in printf(), stdin input routines, and buffered I/O. The small C library is not compatible with Micrium MicroC/OS-II. If true, adds -msmallc to ALT_LDFLAGS in public.mk.</Description>
@@ -905,74 +905,80 @@
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>epcs_flash_controller_0</slaveDescriptor>
+                <addressRange>0x04007800 - 0x04007FFF</addressRange>
+                <addressSpan>2048</addressSpan>
+                <attributes>flash, memory, non-volatile</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>LED_CTRL</slaveDescriptor>
-                <addressRange>0x04007000 - 0x040073FF</addressRange>
+                <addressRange>0x04008000 - 0x040083FF</addressRange>
                 <addressSpan>1024</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_TOUCH_SPI</slaveDescriptor>
-                <addressRange>0x04007400 - 0x0400741F</addressRange>
+                <addressRange>0x04008400 - 0x0400841F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>TIMER</slaveDescriptor>
-                <addressRange>0x04007420 - 0x0400743F</addressRange>
+                <addressRange>0x04008420 - 0x0400843F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>signal_out</slaveDescriptor>
-                <addressRange>0x04007440 - 0x0400744F</addressRange>
+                <addressRange>0x04008440 - 0x0400844F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_buffer_flag</slaveDescriptor>
-                <addressRange>0x04007450 - 0x0400745F</addressRange>
+                <addressRange>0x04008450 - 0x0400845F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_TOUCH_BUSY</slaveDescriptor>
-                <addressRange>0x04007460 - 0x0400746F</addressRange>
+                <addressRange>0x04008460 - 0x0400846F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_TOUCH_PENIRQ_N</slaveDescriptor>
-                <addressRange>0x04007470 - 0x0400747F</addressRange>
+                <addressRange>0x04008470 - 0x0400847F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_LCD_RSTN</slaveDescriptor>
-                <addressRange>0x04007480 - 0x0400748F</addressRange>
+                <addressRange>0x04008480 - 0x0400848F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>KEY</slaveDescriptor>
-                <addressRange>0x04007490 - 0x0400749F</addressRange>
+                <addressRange>0x04008490 - 0x0400849F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>ALT_PLL</slaveDescriptor>
-                <addressRange>0x040074A0 - 0x040074AF</addressRange>
+                <addressRange>0x040084A0 - 0x040084AF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>LT24_CTRL</slaveDescriptor>
-                <addressRange>0x040074B0 - 0x040074B7</addressRange>
+                <addressRange>0x040084B0 - 0x040084B7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>JTAG_UART</slaveDescriptor>
-                <addressRange>0x040074B8 - 0x040074BF</addressRange>
+                <addressRange>0x040084B8 - 0x040084BF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

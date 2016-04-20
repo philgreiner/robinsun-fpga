@@ -12,6 +12,10 @@
 		.background_mem_s2_writedata                 (<connected-to-background_mem_s2_writedata>),                 //                                     .writedata
 		.background_mem_s2_byteenable                (<connected-to-background_mem_s2_byteenable>),                //                                     .byteenable
 		.clk_clk                                     (<connected-to-clk_clk>),                                     //                                  clk.clk
+		.epcs_flash_controller_0_external_dclk       (<connected-to-epcs_flash_controller_0_external_dclk>),       //     epcs_flash_controller_0_external.dclk
+		.epcs_flash_controller_0_external_sce        (<connected-to-epcs_flash_controller_0_external_sce>),        //                                     .sce
+		.epcs_flash_controller_0_external_sdo        (<connected-to-epcs_flash_controller_0_external_sdo>),        //                                     .sdo
+		.epcs_flash_controller_0_external_data0      (<connected-to-epcs_flash_controller_0_external_data0>),      //                                     .data0
 		.from_key_export                             (<connected-to-from_key_export>),                             //                             from_key.export
 		.lt24_buffer_flag_external_connection_export (<connected-to-lt24_buffer_flag_external_connection_export>), // lt24_buffer_flag_external_connection.export
 		.lt24_conduit_cs                             (<connected-to-lt24_conduit_cs>),                             //                         lt24_conduit.cs
@@ -44,10 +48,6 @@
 		.sdram_wire_ras_n                            (<connected-to-sdram_wire_ras_n>),                            //                                     .ras_n
 		.sdram_wire_we_n                             (<connected-to-sdram_wire_we_n>),                             //                                     .we_n
 		.signal_out_external_connection_export       (<connected-to-signal_out_external_connection_export>),       //       signal_out_external_connection.export
-		.to_led_export                               (<connected-to-to_led_export>),                               //                               to_led.export
-		.epcs_flash_controller_0_external_dclk       (<connected-to-epcs_flash_controller_0_external_dclk>),       //     epcs_flash_controller_0_external.dclk
-		.epcs_flash_controller_0_external_sce        (<connected-to-epcs_flash_controller_0_external_sce>),        //                                     .sce
-		.epcs_flash_controller_0_external_sdo        (<connected-to-epcs_flash_controller_0_external_sdo>),        //                                     .sdo
-		.epcs_flash_controller_0_external_data0      (<connected-to-epcs_flash_controller_0_external_data0>)       //                                     .data0
+		.to_led_export                               (<connected-to-to_led_export>)                                //                               to_led.export
 	);
 

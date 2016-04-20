@@ -1,0 +1,5 @@
+sof2flash --input=robinsun_fpga.sof --output=flash/hwimage.flash --epcs --verbose
+elf2flash --input=software/software_LT24/software_LT24.elf --output=flash/swimage.flash --epcs --after=flash/hwimage.flash --verbose
+cd flash/
+nios2-elf-objcopy -I srec -O ihex hwimage.flash  hwimage.hex
+nios2-elf-objcopy -I srec -O ihex swimage.flash  swimage.hex
