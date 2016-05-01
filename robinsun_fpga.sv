@@ -219,8 +219,8 @@ assign OdoRA	= GPIO1[2];
 assign OdoRB	= GPIO1[3];
 assign OdoLA	= GPIO1[4];
 assign OdoLB	= GPIO1[5];
-assign MotBA	= GPIO1[6];
-assign MotBB	= GPIO1[7];
+//assign MotBA	= GPIO1[6];
+//assign MotBB	= GPIO1[7];
 assign MotFHA	= GPIO1[8];
 assign MotFHB	= GPIO1[9];
 assign MotFVA	= GPIO1[10];
@@ -247,8 +247,8 @@ assign GPIO1[25] = PARASOL;
 // PIC32 Interface
 assign PIC32_C1RX    = GPIO1[29];
 assign GPIO1[30]    = PIC32_C1TX;
-assign GPIO1[31]    = PIC32_SCL3A;
-assign GPIO1[32]    = PIC32_SDA3A;
+assign GPIO1[6]    = PIC32_SCL3A; // Outermost pin
+assign GPIO1[7]    = PIC32_SDA3A; // Inner pin
 
 
 //=======================================================
