@@ -1,7 +1,6 @@
 /* 
 * Uses the entries (A and B) from a motor encoder compute:
-*		speed [15:0] --> Rotation speed (ticks per 1 ms)
-*		direction [7:0]   --> Direction of rotation (1 = forward; 0 = reverse)
+*		speed [15:0] --> Rotation speed (ticks per 25 ms)
 */
 module encoder(
 input  logic clk, reset, inA, inB,
@@ -37,7 +36,7 @@ begin
 	else tickcount4 <= tickcount4 + 16'b1;
 end
 
-// Reset, count clock cycles and transmit tickcount every 5 000 000 cycles (= 100 ms)
+// Reset, count clock cycles and transmit tickcount every 1 250 000 cycles (= 25 ms)
 always_ff @(posedge clk, posedge reset)
 	if(reset)
 	begin

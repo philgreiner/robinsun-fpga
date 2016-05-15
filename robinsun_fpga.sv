@@ -339,12 +339,12 @@ begin
 	if(PIC32_RESET)
 		parasoltimer <= 24'b0;
 	else
-	if((fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd45000000)
+	if((fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd2500000)
 		parasoltimer <= parasoltimer + 1'b1;
 end
 
 always_ff @(posedge CLOCK_50)
-if(parasoltimer > 24'd1 && (fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd45000000)
+if(parasoltimer > 24'd1 && (fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd2500000)
 	PARASOL <= 1'b1;
 else
 	PARASOL <= 1'b0;
