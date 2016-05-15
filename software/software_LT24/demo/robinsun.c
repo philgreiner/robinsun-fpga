@@ -2,7 +2,7 @@
  * robinsun.c
  *
  *  Created on: 22 mars 2016
- *      Author: Sophie
+ *      Author: Group 1
  */
 
 #include "../terasic_lib/terasic_includes.h"
@@ -115,6 +115,7 @@ typedef struct{
     BUTTON_INFO buttons_competitionchoice1[10];
     BUTTON_INFO buttons_competitionchoice2[6];
     BUTTON_INFO buttons_competitionsummary[8];
+    BUTTON_INFO buttons_calibration[1];
 }DESK_INFO;
 
 // Checks if we touched a button
@@ -147,6 +148,7 @@ void GUI_ROBINSUN_ShowWelcome(alt_video_display *pDisplay){
 	vid_print_string_alpha(x - 83, y+62, BLUE_24, BLACK_24, tahomabold_20, pDisplay, "Team's Member !"); // 25mm
 }
 
+// Initialises a menu (defines rectangles)
 void GUI_ROBINSUN_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo, BUTTON_INFO *button, int num){
 	int i;
 	RECT rc;
@@ -173,6 +175,7 @@ void GUI_ROBINSUN_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo, BUTTON
 	}
 }
 
+// Draws a menu
 void GUI_ROBINSUN_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo, BUTTON_INFO *button, int num, char *text1, char *text2, char *text3, char *text4, char *text5, char *text6){
     int i;
     RECT rc;
@@ -221,6 +224,7 @@ void GUI_ROBINSUN_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo, BUTTON
     }
 }
 
+// Initialises the first menu of the competition (defines rectangles)
 void GUI_ROBINSUN_CompetitionChoice1_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
 	int i;
 	RECT rc;
@@ -262,6 +266,7 @@ void GUI_ROBINSUN_CompetitionChoice1_Init(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Draws the first menu of the competition
 void GUI_ROBINSUN_CompetitionChoice1_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
 	int i;
 	RECT rc;
@@ -326,6 +331,7 @@ void GUI_ROBINSUN_CompetitionChoice1_Draw(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Initialises the second menu of the competition (defines rectangles)
 void GUI_ROBINSUN_CompetitionChoice2_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
 	int i;
 	RECT rc;
@@ -368,6 +374,7 @@ void GUI_ROBINSUN_CompetitionChoice2_Init(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Draws the second menu of the competition
 void GUI_ROBINSUN_CompetitionChoice2_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
 	int i;
 	RECT rc;
@@ -411,6 +418,7 @@ void GUI_ROBINSUN_CompetitionChoice2_Draw(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Initialises the summary menu of the competition (defines rectangles)
 void GUI_ROBINSUN_CompetitionSummary_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
 	int i;
 	RECT rc;
@@ -458,6 +466,7 @@ void GUI_ROBINSUN_CompetitionSummary_Init(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Draws the summary menu of the competition
 void GUI_ROBINSUN_CompetitionSummary_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo, int color, int strategy, int opponent){
 	int i;
 	RECT rc;
@@ -524,12 +533,52 @@ void GUI_ROBINSUN_CompetitionSummary_Draw(alt_video_display *pDisplay, DESK_INFO
 	}
 }
 
+// Initialises the calibration menu of the competition (defines rectangles)
+void GUI_ROBINSUN_Calibration_Init(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
+	int i;
+	RECT rc;
+	const int BoxH = 30;
+	const int DistBorder = 2;
+	const int DistW = 35;
+	int GapH, BoxW;
+
+	// Space to put between the buttons in order to be equally spaced
+	GapH = (pDisplay->height - BoxH - 4)/2;
+	BoxW = (pDisplay->width - 2*DistW - 5)/2;
+
+	// Desk border
+	RectSet(&pDeskInfo->rcDisp, DistBorder, pDisplay->width-DistBorder, DistBorder, pDisplay->height-DistBorder);
+
+	rc.top = DistBorder + GapH;
+	rc.bottom = rc.top + BoxH;
+	rc.left = DistW;
+	rc.right = rc.left + BoxW;
+
+	// Initialization of the rectangles for the buttons
+	RectCopy(&pDeskInfo->buttons_calibration[0].rc, &rc);
+}
+
+// Draws the calibration menu of the competition
+void GUI_ROBINSUN_Calibration_Draw(alt_video_display *pDisplay, DESK_INFO *pDeskInfo){
+	int i;
+	RECT rc;
+
+	// draw border
+	RectCopy(&rc, &pDeskInfo->rcDisp);
+	vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+
+	// draw buttons
+	RectCopy(&rc, &pDeskInfo->buttons_calibration[0].rc);
+	vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, BLACK_24, DO_FILL, pDisplay);
+	vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-26)/2-10, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "CALIBRATION...");
+}
 
 // ------------------------------------------------------------------------------ //
 // ------------------------------- MAIN FUNCTION -------------------------------- //
 // ------------------------------------------------------------------------------ //
 
 void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
+	// Initialisation of all variables used in this function
 	DESK_INFO DeskInfo;
 	int X, Y;
 	int desk=1;
@@ -542,6 +591,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 	int check_button_tests=0, check_button_compet=0, check_button_compet2=0, check_button_compet3=0;
 	int check_button_move=0, check_button_blocks=0, check_button_fish=0, check_button_cabins=0, check_button_parasol=0;
 
+	// Register whose value is transmitted via SPI and corresponds to the choices we make
 	int * signal = (int*) SIGNAL_OUT_BASE;
 	*signal = 0;
 
@@ -566,6 +616,8 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 
     while(1){
     	vid_clean_screen(pDisplay, BLACK_24);
+
+    	// Display of the main menu
     	GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons, BTN_NUM);
     	GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons, BTN_NUM, "Tests", "Competition", "", "", "", "");
 
@@ -590,6 +642,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     					usleep(1000*1000);
     					Touch_EmptyFifo(pTouch);
 
+    					// Display of the tests menu
     					GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_tests, BTN_NUM_TESTS);
     					GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_tests, BTN_NUM_TESTS, "Move", "Blocks", "Fish", "Cabins", "Parasol", "Back");
 
@@ -614,6 +667,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								vid_clean_screen(pDisplay, BLACK_24);
     								usleep(1000*1000);
 
+    								// Display of the move test menu
     								GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_move, BTN_NUM_MOVE);
     								GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_move, BTN_NUM_MOVE, "Go forward", "Go backward", "Turn to the left", "Turn to the right", "STOP", "Back");
 
@@ -723,6 +777,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								vid_clean_screen(pDisplay, BLACK_24);
     								usleep(1000*1000);
 
+    								// Display of the blocks test menu
     								GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_blocks, BTN_NUM_BLOCKS);
     								GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_blocks, BTN_NUM_BLOCKS, "Open", "Close", "STOP", "Back", "", "");
 
@@ -800,6 +855,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								vid_clean_screen(pDisplay, BLACK_24);
     								usleep(1000*1000);
 
+    								// Display of the fish test menu
     								GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_fish, BTN_NUM_FISH);
     								GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_fish, BTN_NUM_FISH, "Lift", "Drop", "STOP", "Back", "", "");
 
@@ -878,6 +934,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								vid_clean_screen(pDisplay, BLACK_24);
     								usleep(1000*1000);
 
+    								// Display of the cabins test menu
     								GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_cabins, BTN_NUM_CABINS);
     								GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_cabins, BTN_NUM_CABINS, "Go to the cabins", "STOP", "Back", "", "", "");
 
@@ -940,6 +997,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     								vid_clean_screen(pDisplay, BLACK_24);
     								usleep(1000*1000);
 
+    								// Display of the parasol test menu
     								GUI_ROBINSUN_Init(pDisplay, &DeskInfo, DeskInfo.buttons_parasol, BTN_NUM_PARASOL);
     								GUI_ROBINSUN_Draw(pDisplay, &DeskInfo, DeskInfo.buttons_parasol, BTN_NUM_PARASOL, "Trigger", "STOP", "Back", "", "", "");
 
@@ -1007,20 +1065,30 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     				}//end while(tests)
     			}//end if (check_button_menu == BTN_TEST)
     			else if (check_button_menu == BTN_COMPET){
-    				//vid_print_string_alpha(rcTouchCompet.left+8, rcTouchCompet.top+(RectHeight(&rcTouchCompet)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Competition OK");
     				*signal = 0;
     				tests_or_compet=1;
 
     				while(tests_or_compet){
     					vid_clean_screen(pDisplay, BLACK_24);
-    					usleep(1000*1000);
+    					usleep(100*1000);
     					Touch_EmptyFifo(pTouch);
 
+    					// Display of the first competition menu
     					GUI_ROBINSUN_CompetitionChoice1_Init(pDisplay, &DeskInfo);
     					GUI_ROBINSUN_CompetitionChoice1_Draw(pDisplay, &DeskInfo);
 
+    					RectCopy(&rcTouchGreen, &DeskInfo.buttons_competitionchoice1[1].rc);
+    					RectCopy(&rcTouchPurple, &DeskInfo.buttons_competitionchoice1[2].rc);
+    					RectCopy(&rcTouchCancelCabins, &DeskInfo.buttons_competitionchoice1[4].rc);
+    					RectCopy(&rcTouchCancelFish, &DeskInfo.buttons_competitionchoice1[5].rc);
+    					RectCopy(&rcTouchCancelBlocksD, &DeskInfo.buttons_competitionchoice1[6].rc);
+    					RectCopy(&rcTouchCancelBlocksC, &DeskInfo.buttons_competitionchoice1[7].rc);
+
     					color=0;
-    					strategy=0;
+    					strategyCabins=0;
+    					strategyFish=0;
+    					strategyBlocksD=0;
+    					strategyBlocksC=0;
     					opponent=0;
     					start=0;
 
@@ -1031,27 +1099,119 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     							PtSet(&Pt, X, Y);
     							check_button_compet = GUI_ROBINSUN_CheckButton(&DeskInfo, &Pt,DeskInfo.buttons_competitionchoice1,10,11);
 
-    							if(check_button_compet == 1 || check_button_compet == 2){
-    								color = check_button_compet;
+    							if(check_button_compet == 1 || check_button_compet == 2){ // Choice of the team colour
+    								if(color==0){
+    									color = check_button_compet;
+    									printf("signal vaut: %d\n",*signal);
 
+    									if(check_button_compet==1){
+    										vid_draw_box (rcTouchGreen.left, rcTouchGreen.top, rcTouchGreen.right, rcTouchGreen.bottom, GREEN_24, DO_FILL, pDisplay);
+    										vid_draw_box (rcTouchGreen.left, rcTouchGreen.top, rcTouchGreen.right, rcTouchGreen.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									}
+    									else{
+    										vid_draw_box (rcTouchPurple.left, rcTouchPurple.top, rcTouchPurple.right, rcTouchPurple.bottom, PURPLE_24, DO_FILL, pDisplay);
+    										vid_draw_box (rcTouchPurple.left, rcTouchPurple.top, rcTouchPurple.right, rcTouchPurple.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									}
+
+    									usleep(100*1000);
+    									Touch_EmptyFifo(pTouch);
+    								}
+    								else if(color==1){
+    									if(check_button_compet==1){
+
+    									}
+    									else{
+    										color = check_button_compet;
+    										vid_draw_box (rcTouchGreen.left, rcTouchGreen.top, rcTouchGreen.right, rcTouchGreen.bottom, GREEN_24, DO_FILL, pDisplay);
+    										vid_draw_box (rcTouchPurple.left, rcTouchPurple.top, rcTouchPurple.right, rcTouchPurple.bottom, PURPLE_24, DO_FILL, pDisplay);
+    										vid_draw_box (rcTouchPurple.left, rcTouchPurple.top, rcTouchPurple.right, rcTouchPurple.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									}
+    									usleep(100*1000);
+    									Touch_EmptyFifo(pTouch);
+    								}
+    								else{
+    									if(check_button_compet==1){
+    										color = check_button_compet;
+    										vid_draw_box (rcTouchGreen.left, rcTouchGreen.top, rcTouchGreen.right, rcTouchGreen.bottom, GREEN_24, DO_FILL, pDisplay);
+    										vid_draw_box (rcTouchGreen.left, rcTouchGreen.top, rcTouchGreen.right, rcTouchGreen.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    										vid_draw_box (rcTouchPurple.left, rcTouchPurple.top, rcTouchPurple.right, rcTouchPurple.bottom, PURPLE_24, DO_FILL, pDisplay);
+    									}
+    									else{
+
+    									}
+    									usleep(100*1000);
+    									Touch_EmptyFifo(pTouch);
+    								}
+    							}
+    							else if(check_button_compet == 4){ // Cancel the cabins ?
+    								if(strategyCabins==1){
+    									strategyCabins=0;
+    									vid_draw_box (rcTouchCancelCabins.left, rcTouchCancelCabins.top, rcTouchCancelCabins.right, rcTouchCancelCabins.bottom, BLACK_24, DO_FILL, pDisplay);
+    									vid_draw_box (rcTouchCancelCabins.left, rcTouchCancelCabins.top, rcTouchCancelCabins.right, rcTouchCancelCabins.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelCabins.left+8, rcTouchCancelCabins.top+(RectHeight(&rcTouchCancelCabins)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Cabins");
+    								}
+    								else{
+    									strategyCabins=1;
+    									vid_draw_box (rcTouchCancelCabins.left, rcTouchCancelCabins.top, rcTouchCancelCabins.right, rcTouchCancelCabins.bottom, WHITE_24, DO_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelCabins.left+8, rcTouchCancelCabins.top+(RectHeight(&rcTouchCancelCabins)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Cabins");
+    								}
     								usleep(100*1000);
     								Touch_EmptyFifo(pTouch);
     							}
-    							else if(check_button_compet == 4 || check_button_compet == 5 || check_button_compet == 6 || check_button_compet == 7){
-    								strategy = check_button_compet - 3;
-
+    							else if(check_button_compet == 5){ // Cancel the fish ?
+    								if(strategyFish==1){
+    									strategyFish=0;
+    									vid_draw_box (rcTouchCancelFish.left, rcTouchCancelFish.top, rcTouchCancelFish.right, rcTouchCancelFish.bottom, BLACK_24, DO_FILL, pDisplay);
+    									vid_draw_box (rcTouchCancelFish.left, rcTouchCancelFish.top, rcTouchCancelFish.right, rcTouchCancelFish.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelFish.left+8, rcTouchCancelFish.top+(RectHeight(&rcTouchCancelFish)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Fish");
+    								}
+    								else{
+    									strategyFish=1;
+    									vid_draw_box (rcTouchCancelFish.left, rcTouchCancelFish.top, rcTouchCancelFish.right, rcTouchCancelFish.bottom, WHITE_24, DO_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelFish.left+8, rcTouchCancelFish.top+(RectHeight(&rcTouchCancelFish)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Fish");
+    								}
     								usleep(100*1000);
     								Touch_EmptyFifo(pTouch);
     							}
-    							else if(check_button_compet == 8){
+    							else if(check_button_compet == 6){ // Cancel the blocks of the dune ?
+    								if(strategyBlocksD==1){
+    									strategyBlocksD=0;
+    									vid_draw_box (rcTouchCancelBlocksD.left, rcTouchCancelBlocksD.top, rcTouchCancelBlocksD.right, rcTouchCancelBlocksD.bottom, BLACK_24, DO_FILL, pDisplay);
+    									vid_draw_box (rcTouchCancelBlocksD.left, rcTouchCancelBlocksD.top, rcTouchCancelBlocksD.right, rcTouchCancelBlocksD.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelBlocksD.left+8, rcTouchCancelBlocksD.top+(RectHeight(&rcTouchCancelBlocksD)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Blocks D");
+    								}
+    								else{
+    									strategyBlocksD=1;
+    									vid_draw_box (rcTouchCancelBlocksD.left, rcTouchCancelBlocksD.top, rcTouchCancelBlocksD.right, rcTouchCancelBlocksD.bottom, WHITE_24, DO_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelBlocksD.left+8, rcTouchCancelBlocksD.top+(RectHeight(&rcTouchCancelBlocksD)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Blocks D");
+    								}
+    								usleep(100*1000);
+    								Touch_EmptyFifo(pTouch);
+    							}
+    							else if(check_button_compet == 7){ // Cancel the blocks near the cabins ?
+    								if(strategyBlocksC==1){
+    									strategyBlocksC=0;
+    									vid_draw_box (rcTouchCancelBlocksC.left, rcTouchCancelBlocksC.top, rcTouchCancelBlocksC.right, rcTouchCancelBlocksC.bottom, BLACK_24, DO_FILL, pDisplay);
+    									vid_draw_box (rcTouchCancelBlocksC.left, rcTouchCancelBlocksC.top, rcTouchCancelBlocksC.right, rcTouchCancelBlocksC.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelBlocksC.left+8, rcTouchCancelBlocksC.top+(RectHeight(&rcTouchCancelBlocksC)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Blocks C");
+    								}
+    								else{
+    									strategyBlocksC=1;
+    									vid_draw_box (rcTouchCancelBlocksC.left, rcTouchCancelBlocksC.top, rcTouchCancelBlocksC.right, rcTouchCancelBlocksC.bottom, WHITE_24, DO_FILL, pDisplay);
+    									vid_print_string_alpha(rcTouchCancelBlocksC.left+8, rcTouchCancelBlocksC.top+(RectHeight(&rcTouchCancelBlocksC)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Blocks C");
+    								}
+    								usleep(100*1000);
+    								Touch_EmptyFifo(pTouch);
+    							}
+    							else if(check_button_compet == 8){ // Back ?
     								desk=0;
     								tests_or_compet=0;
     								tests_or_compet_loop=0;
     							}
-    							else if(check_button_compet == 9){
-    								if(color==0){
+    							else if(check_button_compet == 9){ // Continue ?
+    								if(color==0){	// If a team colour has not been chosen
     									vid_clean_screen(pDisplay, BLACK_24);
-    									usleep(1000*1000);
+    									usleep(100*1000);
     									Touch_EmptyFifo(pTouch);
 
     									RectSet(&DeskInfo.rcDisp, 2, pDisplay->width-2, 2, pDisplay->height-2);
@@ -1065,28 +1225,7 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     									vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
     									vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Please, select");
     									vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)+5, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "a team before.");
-    									usleep(2*1000*1000);
-
-    									tests_or_compet_loop=0;
-    									Touch_EmptyFifo(pTouch);
-    								}
-    								else if(strategy==0){
-    									vid_clean_screen(pDisplay, BLACK_24);
     									usleep(1000*1000);
-    									Touch_EmptyFifo(pTouch);
-
-    									RectSet(&DeskInfo.rcDisp, 2, pDisplay->width-2, 2, pDisplay->height-2);
-
-    									rc.top = 2 + (pDisplay->height-87)/2;
-    									rc.bottom = rc.top + 85;
-    									rc.left = 20;
-    									rc.right = pDisplay->width-20;
-
-    									vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, BLACK_24, DO_FILL, pDisplay);
-    									vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
-    									vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Please, select");
-    									vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)+5, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "a strategy before.");
-    									usleep(2*1000*1000);
 
     									tests_or_compet_loop=0;
     									Touch_EmptyFifo(pTouch);
@@ -1095,25 +1234,29 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
     									// Team defined
     									*signal = *signal + color;
 
-    									// Strategy defined
-    									if(strategy==1)
+    									// Strategy cancellations defined
+    									if(strategyCabins==1)
     										*signal = *signal + 4;
-    									else if(strategy==2)
+    									if(strategyFish==1)
     										*signal = *signal + 8;
-    									else if(strategy==3)
+    									if(strategyBlocksD==1)
     										*signal = *signal + 16;
-    									else if(strategy==4)
+    									if(strategyBlocksC==1)
     										*signal = *signal + 32;
 
     									// Let's continue...
     									compet2=1;
     									while(compet2){
     										vid_clean_screen(pDisplay, BLACK_24);
-    										usleep(1000*1000);
+    										usleep(100*1000);
 											Touch_EmptyFifo(pTouch);
 
+											// Display of the second competition menu
 											GUI_ROBINSUN_CompetitionChoice2_Init(pDisplay, &DeskInfo);
 											GUI_ROBINSUN_CompetitionChoice2_Draw(pDisplay, &DeskInfo);
+
+											RectCopy(&rcTouchHomologation, &DeskInfo.buttons_competitionchoice2[1].rc);
+											RectCopy(&rcTouchCompetition, &DeskInfo.buttons_competitionchoice2[2].rc);
 
 											compet2_loop=1;
 											while(compet2_loop){
@@ -1122,29 +1265,68 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 													PtSet(&Pt, X, Y);
 													check_button_compet2 = GUI_ROBINSUN_CheckButton(&DeskInfo, &Pt,DeskInfo.buttons_competitionchoice2,6,7);
 
-													if(check_button_compet2 == 1){
-														opponent = 1;
+													if(check_button_compet2 == 1 || check_button_compet2 == 2){ // Choice of the strategy
+														if(opponent==0){
+															opponent = check_button_compet2;
 
-														usleep(100*1000);
-														Touch_EmptyFifo(pTouch);
-													}
-													else if(check_button_compet2 == 2){
-														opponent = 2;
+															if(check_button_compet2==1){
+																vid_draw_box (rcTouchHomologation.left, rcTouchHomologation.top, rcTouchHomologation.right, rcTouchHomologation.bottom, WHITE_24, DO_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchHomologation.left+8, rcTouchHomologation.top+(RectHeight(&rcTouchHomologation)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Homolog.");
+															}
+															else{
+																vid_draw_box (rcTouchCompetition.left, rcTouchCompetition.top, rcTouchCompetition.right, rcTouchCompetition.bottom, WHITE_24, DO_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchCompetition.left+8, rcTouchCompetition.top+(RectHeight(&rcTouchCompetition)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Compet.");
+															}
 
-														usleep(100*1000);
-														Touch_EmptyFifo(pTouch);
+															usleep(100*1000);
+															Touch_EmptyFifo(pTouch);
+														}
+														else if(opponent==1){
+															if(check_button_compet2==1){
+
+															}
+															else{
+																opponent = check_button_compet2;
+
+																vid_draw_box (rcTouchHomologation.left, rcTouchHomologation.top, rcTouchHomologation.right, rcTouchHomologation.bottom, BLACK_24, DO_FILL, pDisplay);
+																vid_draw_box (rcTouchHomologation.left, rcTouchHomologation.top, rcTouchHomologation.right, rcTouchHomologation.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchHomologation.left+8, rcTouchHomologation.top+(RectHeight(&rcTouchHomologation)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Homolog.");
+
+																vid_draw_box (rcTouchCompetition.left, rcTouchCompetition.top, rcTouchCompetition.right, rcTouchCompetition.bottom, WHITE_24, DO_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchCompetition.left+8, rcTouchCompetition.top+(RectHeight(&rcTouchCompetition)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Compet.");
+															}
+															usleep(100*1000);
+															Touch_EmptyFifo(pTouch);
+														}
+														else{
+															if(check_button_compet2==1){
+																opponent = check_button_compet2;
+
+																vid_draw_box (rcTouchHomologation.left, rcTouchHomologation.top, rcTouchHomologation.right, rcTouchHomologation.bottom, WHITE_24, DO_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchHomologation.left+8, rcTouchHomologation.top+(RectHeight(&rcTouchHomologation)-22)/2, BLACK_24, WHITE_24, tahomabold_20, pDisplay, "Homolog.");
+
+																vid_draw_box (rcTouchCompetition.left, rcTouchCompetition.top, rcTouchCompetition.right, rcTouchCompetition.bottom, BLACK_24, DO_FILL, pDisplay);
+																vid_draw_box (rcTouchCompetition.left, rcTouchCompetition.top, rcTouchCompetition.right, rcTouchCompetition.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
+																vid_print_string_alpha(rcTouchCompetition.left+8, rcTouchCompetition.top+(RectHeight(&rcTouchCompetition)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Compet.");
+															}
+															else{
+
+															}
+															usleep(100*1000);
+															Touch_EmptyFifo(pTouch);
+														}
 													}
-													else if(check_button_compet2 == 4){
+													else if(check_button_compet2 == 4){ // Back ?
 														*signal=0;
 
 														tests_or_compet_loop=0;
 														compet2=0;
 														compet2_loop=0;
 													}
-													else if(check_button_compet2 == 5){
-														if(opponent==0){
+													else if(check_button_compet2 == 5){ // Continue ?
+														if(opponent==0){ // If a strategy has not been chosen
 															vid_clean_screen(pDisplay, BLACK_24);
-															usleep(1000*1000);
+															usleep(100*1000);
 															Touch_EmptyFifo(pTouch);
 
 															RectSet(&DeskInfo.rcDisp, 2, pDisplay->width-2, 2, pDisplay->height-2);
@@ -1156,14 +1338,15 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 
 															vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, BLACK_24, DO_FILL, pDisplay);
 															vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
-															vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Please, select the");
-															vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)+5, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "nb of opponents.");
-															usleep(2*1000*1000);
+															vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Please, select one");
+															vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-44)+5, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "strategy.");
+															usleep(1000*1000);
 
 															compet2_loop=0;
 															Touch_EmptyFifo(pTouch);
 														}
 														else{
+															// Strategy defined
 															*signal = *signal + opponent*64;
 
 															printf("signal vaut : %d \n",*signal);
@@ -1172,62 +1355,67 @@ void GUI_ROBINSUN(alt_video_display *pDisplay, TOUCH_HANDLE *pTouch){
 															compet3=1;
 															while(compet3){
 																vid_clean_screen(pDisplay, BLACK_24);
-																usleep(1000*1000);
+																usleep(100*1000);
 																Touch_EmptyFifo(pTouch);
 
+																// Display of the summary competition menu
 																GUI_ROBINSUN_CompetitionSummary_Init(pDisplay, &DeskInfo);
-																GUI_ROBINSUN_CompetitionSummary_Draw(pDisplay, &DeskInfo, color, strategy, opponent);
+																GUI_ROBINSUN_CompetitionSummary_Draw(pDisplay, &DeskInfo, color, strategyCabins, strategyFish, strategyBlocksD, strategyBlocksC, opponent);
 
 																compet3_loop=1;
 																while(compet3_loop){
 																	//touch
 																	if (Touch_GetXY(pTouch, &X, &Y)){
 																		PtSet(&Pt, X, Y);
-																		check_button_compet3 = GUI_ROBINSUN_CheckButton(&DeskInfo, &Pt,DeskInfo.buttons_competitionsummary,8,9);
+																		check_button_compet3 = GUI_ROBINSUN_CheckButton(&DeskInfo, &Pt,DeskInfo.buttons_competitionsummary,11,12);
 
-																		if(check_button_compet3 == 0){
+																		if(check_button_compet3 == 0){ // Back ?
 																			*signal = *signal - opponent*64;
 
 																			compet2_loop=0;
 																			compet3=0;
 																			compet3_loop=0;
 																		}
-																		else if(check_button_compet3 == 7){
-																			start=1;
+																		else if(check_button_compet3 == 10){ // Continue ?
+																			// Data ready to be sent to Robinsun
 																			*signal = *signal + 256;
 
 																			vid_clean_screen(pDisplay, BLACK_24);
-																			usleep(1000*1000);
+																			usleep(100*1000);
 																			Touch_EmptyFifo(pTouch);
 
-																			RectSet(&DeskInfo.rcDisp, 2, pDisplay->width-2, 2, pDisplay->height-2);
+																			start=0;
+																			compet4=1;
+																			while(compet4){
+																				vid_clean_screen(pDisplay, BLACK_24);
+																				usleep(100*1000);
+																				Touch_EmptyFifo(pTouch);
 
-																			rc.top = 2 + (pDisplay->height-40)/2;
-																			rc.bottom = rc.top + 40;
-																			rc.left = 80;
-																			rc.right = pDisplay->width-80;
+																				// Display of the calibration menu
+																				GUI_ROBINSUN_Calibration_Init(pDisplay, &DeskInfo);
+																				GUI_ROBINSUN_Calibration_Draw(pDisplay, &DeskInfo);
 
-																			vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, BLACK_24, DO_FILL, pDisplay);
-																			vid_draw_box (rc.left, rc.top, rc.right, rc.bottom, WHITE_24, DO_NOT_FILL, pDisplay);
-																			vid_print_string_alpha(rc.left+8, rc.top+(RectHeight(&rc)-22)/2, WHITE_24, BLACK_24, tahomabold_20, pDisplay, "Done");
-
-																			while(1){
+																				printf("signal_in:%d\n",*signal_in);
+																				compet4_loop=1;
+																				while(1){
+																					// The match can begin, the LT24 has done its job !
+																				}
 																			}
 																		}
 																	}
-																}
-															}
+																}//end while(compet3_loop)
+															}//end while(compet3)
 														}
-													}
+													}//end else if(check_button_compet2 == 5)
 												}
-											}
-    									}
+											}//end while(compet2_loop)
+    									}//end while(compet2)
     								}
-    							}
+    							}//end else if(check_button_compet == 9)
     						}
-    					}
-    				}
-   				}
+    					}//end while(tests_or_compet_loop)
+    				}//end while(tests_or_compet)
+   				}//end else if (check_button_menu == BTN_COMPET)
    			}
   		}//end while(desk)
 	}//end while(1)
