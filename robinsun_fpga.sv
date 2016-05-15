@@ -301,7 +301,7 @@ MySPI MySPI_instance(
 	.speedFH(speedFH), 		  
 	.speedFV(speedFV),		  
 	.sonar12(sonar12),		  .sonar34(sonar34), 	    .sonar56(sonar56),
-	.lt24({START, MOTFHA, MOTFHB, MOTFVA, MOTFVB, MOTBA, MOTBB, LT24_to_SPI[8:0]}),
+	.lt24({START, MotFHA, MotFHB, MotFVA, MotFVB, MotBA, MotBB, LT24_to_SPI[8:0]}),
 	.adc(adcoutput),
 	.PICtoFPGA(fromPIC));
 
@@ -339,12 +339,12 @@ begin
 	if(PIC32_RESET)
 		parasoltimer <= 24'b0;
 	else
-	if((fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd75000000)
+	if((fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd45000000)
 		parasoltimer <= parasoltimer + 1'b1;
 end
 
 always_ff @(posedge CLOCK_50)
-if(parasoltimer > 24'd1 && (fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd75000000)
+if(parasoltimer > 24'd1 && (fromPIC[0] || LT24_to_SPI == 16'd41) && parasoltimer < 24'd45000000)
 	PARASOL <= 1'b1;
 else
 	PARASOL <= 1'b0;

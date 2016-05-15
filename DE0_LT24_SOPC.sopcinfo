@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="DE0_LT24_SOPC" kind="DE0_LT24_SOPC" version="1.0" fabric="QSYS">
  <!-- Format version 15.0 145 (Future versions may contain additional information.) -->
- <!-- 2016.05.02.17:52:50 -->
+ <!-- 2016.05.13.12:16:21 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1462204370</value>
+  <value>1463134581</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
